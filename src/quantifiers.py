@@ -3,6 +3,7 @@ import numpy as np
 import scipy.special as sp
 from scipy.spatial import distance
 
+
 def dgbqa(embeddings,g_id,num_subjects,y_dev,y_dev_id):
 
     """
@@ -159,7 +160,7 @@ def generativeCapacity(embeddings,
                        num_gestures,
                        total_ids,
                        d_size,
-                       delta):
+                       g_id):
     
     """
     Generative Capacity
@@ -264,9 +265,12 @@ def generativeCapacity(embeddings,
         capacity_curr = ratio_hyperspherical_caps(g_angle_curr,g_id_angle_curr_overall,1,0,d_size) # Biometric Capacity of the Current Gesture
         Capacity_Value.append(capacity_curr) # Storing Values
 
-    return Capacity_Value
+    return Capacity_Value[g_id]
 
-def swipeQuality(embeddings, y, num_gestures):
+def swipeQuality(embeddings, 
+                 y, 
+                 num_gestures,
+                 g_id):
 
     """
     Function to return quality measures per gesture   
@@ -275,6 +279,7 @@ def swipeQuality(embeddings, y, num_gestures):
     1) embeddings: Input embeddings of dimensions (N,d)
     2) y: Corresponding gesture label list
     3) num_gestures: Total gestures in the dataset
+    4) g_id: Index of the current gesture
 
     OUTPUTS:-
     1) quality_val: Quality values of the gestures of shape (num_gestures,)
@@ -288,12 +293,12 @@ def swipeQuality(embeddings, y, num_gestures):
     quality_val = []
     d = embeddings.shape[-1]
 
-    for g_id in range(num_gestures):
+    for g_idx in range(num_gestures):
 
         curr_gest_embedds = [] # List to store embeddings of the current gesture
 
         for idx, emb_curr in enumerate(embeddings): # Collecting gesture of current 'g_id'
-            if(y[idx] == g_id): 
+            if(y[idx] == g_idx): 
                 curr_gest_embedds.append(emb_curr)
 
         #### Statistic estimation
@@ -305,7 +310,7 @@ def swipeQuality(embeddings, y, num_gestures):
         quality_val_curr = np.sum(np.abs(mu_global-mu_local)/(np.sqrt(sigma_global+sigma_local+1)))
         quality_val.append(quality_val_curr)
             
-    return quality_val
+    return quality_val[g_id]
 
 def distinctiveness(embeddings, y, y_id, num_gestures, num_id):
 

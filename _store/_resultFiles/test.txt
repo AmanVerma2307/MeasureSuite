@@ -1,0 +1,3 @@
+Quantifier                 Metric                 selectedModel                         nAr*                 r                 R                 Psi                 Cd
+swipeQuality           GRE           ./Embeddings/MS_MViT_pt5-1pt5_SOLI.npz           0.1354           2.0909           7.5401           3.6303           0.1154
+swipeQuality           GRE           ./Embeddings/MS_MViT_pt5-1pt5_SOLI.npz           0.1354           2.0909           7.5401           3.6303           0.1154

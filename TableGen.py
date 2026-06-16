@@ -6,6 +6,10 @@ from ModelSelector import get_val, select_model
 ###### Selecting model embeddings
 
 parser = argparse.ArgumentParser()
+parser.add_argument("--dataset",
+                    type=str,
+                    default='soli',
+                    help="Dataset to be used.")
 parser.add_argument("--metric",
                     type=str,
                     help="The metric to be used")
@@ -13,140 +17,145 @@ parser.add_argument('--quantifier',
                     type=str,
                     default='dgbqa',
                     help="The quantifier to be used for score generation")
+parser.add_argument('--initResultFile',
+                    type=int,
+                    default=0,
+                    help="If 1, then a new result file will be instantiated.")
+parser.add_argument('--nameResultFile',
+                    type=str,
+                    help="Name of the resultFile")
 
 args = parser.parse_args()
 
 ##### Defining essentials
-embedding_list_soli = ['./Embeddings/DGBQA_CGID_Res3D-ViViT_pt5-pt5_SOLI.npz',
-                       './Embeddings/DGBQA_CGID_Res3D-ViViT_pt5-1_SOLI.npz',
-                       './Embeddings/DGBQA_CGID_Res3D-ViViT_pt5-1pt5_SOLI.npz',
-                       './Embeddings/DGBQA_CGID_Res3D-ViViT_1-pt5_SOLI.npz',
-                       './Embeddings/DGBQA_CGID_Res3D-ViViT_1-1_SOLI.npz',
-                       './Embeddings/DGBQA_CGID_Res3D-ViViT_1-1pt5_SOLI.npz',
-                       './Embeddings/DGBQA_CGID_Res3D-ViViT_1pt5-pt5_SOLI.npz',
-                       './Embeddings/DGBQA_CGID_Res3D-ViViT_1pt5-1_SOLI.npz',
-                       './Embeddings/DGBQA_CGID_Res3D-ViViT_1pt5-1pt5_SOLI.npz',
-                        './Embeddings/DGBQA_CGID_Res3D-MF_pt5-pt5_SOLI.npz',
-                        './Embeddings/DGBQA_CGID_Res3D-MF_pt5-1_SOLI.npz',
-                        './Embeddings/DGBQA_CGID_Res3D-MF_pt5-1pt5_SOLI.npz',
-                        './Embeddings/DGBQA_CGID_Res3D-MF_1-pt5_SOLI.npz',
-                        './Embeddings/DGBQA_CGID_Res3D-MF_1-1_SOLI.npz',
-                        './Embeddings/DGBQA_CGID_Res3D-MF_1-1pt5_SOLI.npz',
-                        './Embeddings/DGBQA_CGID_Res3D-MF_1pt5-pt5_SOLI.npz',
-                        './Embeddings/DGBQA_CGID_Res3D-MF_1pt5-1_SOLI.npz',
-                        './Embeddings/DGBQA_CGID_Res3D-MF_1pt5-1pt5_SOLI.npz',
-                        './Embeddings/MS_TPN_pt5-pt5_SOLI.npz',
-                        './Embeddings/MS_TPN_pt5-1_SOLI.npz',
-                        './Embeddings/MS_TPN_pt5-1pt5_SOLI.npz',
-                        './Embeddings/MS_TPN_1-pt5_SOLI.npz',
-                        './Embeddings/MS_TPN_1-1_SOLI.npz',
-                        './Embeddings/MS_TPN_1-1pt5_SOLI.npz',
-                        './Embeddings/MS_TPN_1pt5-pt5_SOLI.npz',
-                        './Embeddings/MS_TPN_1pt5-1_SOLI.npz',
-                        './Embeddings/MS_TPN_1pt5-1pt5_SOLI.npz',
-                        './Embeddings/MS_TAM_pt5-pt5_SOLI.npz',
-                        './Embeddings/MS_TAM_1-pt5_SOLI.npz',
-                        './Embeddings/MS_TAM_1-1_SOLI.npz',
-                        './Embeddings/MS_MViT_pt5-pt5_SOLI.npz',
-                        './Embeddings/MS_MViT_pt5-1_SOLI.npz',
-                        './Embeddings/MS_MViT_pt5-1pt5_SOLI.npz',
-                        './Embeddings/MS_MViT_1-pt5_SOLI.npz',
-                        './Embeddings/MS_MViT_1-1_SOLI.npz',
-                        './Embeddings/MS_MViT_1-1pt5_SOLI.npz',
-                        './Embeddings/MS_MViT_1pt5-pt5_SOLI.npz',
-                        './Embeddings/MS_MViT_1pt5-1_SOLI.npz',
-                        './Embeddings/MS_MViT_1pt5-1pt5_SOLI.npz']
-dataset_list_soli = ['Soli']*39
 
-embedding_list_hl = ['./Embeddings/MS_ViViT_pt5-pt5_HandLogin.npz',
-                       './Embeddings/MS_ViViT_pt5-1_HandLogin.npz',
-                       './Embeddings/MS_ViViT_pt5-1pt5_HandLogin.npz',
-                       './Embeddings/MS_ViViT_pt5-2pt5_HandLogin.npz',
-                       './Embeddings/MS_ViViT_1-pt5_HandLogin.npz',
-                       './Embeddings/MS_ViViT_1-1_HandLogin.npz',
-                       './Embeddings/MS_ViViT_1-1pt5_HandLogin.npz',
-                       './Embeddings/MS_ViViT_1-2pt5_HandLogin.npz',
-                       './Embeddings/MS_ViViT_1pt5-pt5_HandLogin.npz',
-                       './Embeddings/MS_ViViT_1pt5-1_HandLogin.npz',
-                       './Embeddings/MS_ViViT_1pt5-1pt5_HandLogin.npz',
-                       './Embeddings/MS_ViViT_1pt5-2pt5_HandLogin.npz',
-                        './Embeddings/Test/DGBQA_CGID_Res3D-MF_1-pt5_HandLogin.npz',
-                        './Embeddings/Test/DGBQA_CGID_Res3D-MF_1-1_HandLogin.npz',
-                        './Embeddings/Test/DGBQA_CGID_Res3D-MF_1-1pt5_HandLogin.npz',
-                        './Embeddings/Test/DGBQA_CGID_Res3D-MF_1-2pt5_HandLogin.npz',
-                        './Embeddings/Test/DGBQA_CGID_Res3D-MF_1pt5-pt5_HandLogin.npz',
-                        './Embeddings/Test/DGBQA_CGID_Res3D-MF_1pt5-1_HandLogin.npz',
-                        './Embeddings/Test/DGBQA_CGID_Res3D-MF_1pt5-1pt5_HandLogin.npz',
-                        './Embeddings/Test/DGBQA_CGID_Res3D-MF_1pt5-2pt5_HandLogin.npz',
-                        './Embeddings/MS_TPN_pt5-pt5_HandLogin.npz',
-                        './Embeddings/MS_TPN_pt5-1_HandLogin.npz',
-                        './Embeddings/MS_TPN_pt5-1pt5_HandLogin.npz',
-                        './Embeddings/MS_TPN_pt5-2pt5_HandLogin.npz',
-                        './Embeddings/MS_TPN_1-pt5_HandLogin.npz',
-                        './Embeddings/MS_TPN_1-1pt5_HandLogin.npz',
-                        './Embeddings/MS_TPN_1-2pt5_HandLogin.npz',
-                        './Embeddings/MS_TPN_1pt5-pt5_HandLogin.npz',
-                        './Embeddings/MS_TPN_1pt5-1_HandLogin.npz',
-                        './Embeddings/MS_TPN_1pt5-1pt5_HandLogin.npz',
-                        './Embeddings/MS_TPN_1pt5-2pt5_HandLogin.npz',
-                        './Embeddings/MS_TAM_pt5-pt5_HandLogin.npz',
-                        './Embeddings/MS_TAM_pt5-1_HandLogin.npz',
-                        './Embeddings/MS_TAM_pt5-1pt5_HandLogin.npz',
-                        './Embeddings/MS_TAM_pt5-2pt5_HandLogin.npz',
-                        './Embeddings/MS_TAM_1-pt5_HandLogin.npz',
-                        './Embeddings/MS_TAM_1-1_HandLogin.npz',
-                        './Embeddings/MS_TAM_1-1pt5_HandLogin.npz',
-                        './Embeddings/MS_TAM_1-2pt5_HandLogin.npz',
-                        './Embeddings/MS_TAM_1pt5-pt5_HandLogin.npz',
-                        './Embeddings/MS_TAM_1pt5-1_HandLogin.npz',
-                        './Embeddings/MS_TAM_1pt5-1pt5_HandLogin.npz',
-                        './Embeddings/MS_TAM_1pt5-2pt5_HandLogin.npz',
-                        './Embeddings/MS_MViT_pt5-pt5_HandLogin.npz',
-                        './Embeddings/MS_MViT_pt5-1_HandLogin.npz',
-                        './Embeddings/MS_MViT_pt5-1pt5_HandLogin.npz',
-                        './Embeddings/MS_MViT_pt5-2pt5_HandLogin.npz',
-                        './Embeddings/MS_MViT_1-pt5_HandLogin.npz',
-                        './Embeddings/MS_MViT_1-1_HandLogin.npz',
-                        './Embeddings/MS_MViT_1-1pt5_HandLogin.npz',
-                        './Embeddings/MS_MViT_1-2pt5_HandLogin.npz',
-                        './Embeddings/MS_MViT_1pt5-pt5_HandLogin.npz',
-                        './Embeddings/MS_MViT_1pt5-1_HandLogin.npz',
-                        './Embeddings/MS_MViT_1pt5-1pt5_HandLogin.npz',
-                        './Embeddings/MS_MViT_1pt5-2pt5_HandLogin.npz']
-dataset_list_hl = ['HandLogin']*55
-
-embedding_list_tiny = ['./Embeddings/DGBQA_CGID_Res3D-ViViT_pt5-1_Tiny.npz',
-                       './Embeddings/DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny.npz',
-                       './Embeddings/DGBQA_CGID_Res3D-ViViT_pt5-2pt5_Tiny.npz',
-                       './Embeddings/DGBQA_CGID_Res3D-ViViT_1-1_Tiny.npz',
-                       './Embeddings/DGBQA_CGID_Res3D-ViViT_1-1pt5_Tiny.npz',
-                       './Embeddings/DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny.npz',
-                       './Embeddings/MS_MF_1-1_Tiny.npz',
-                       './Embeddings/MS_MF_1-1pt5_Tiny.npz',
-                       './Embeddings/MS_MF_1-2pt5_Tiny.npz',
-                       './Embeddings/MS_TAM_1-1_Tiny.npz',
-                       './Embeddings/MS_TAM_1-1pt5_Tiny.npz',
-                       './Embeddings/MS_TAM_1-2pt5_Tiny.npz']
-dataset_list_tiny = ['Tiny']*12
-
-
-dataset_curr = 'Soli'
-
-if(dataset_curr == 'Soli'):
+if(args.dataset == 'soli'):
+    embedding_list = ['./Embeddings/DGBQA_CGID_Res3D-ViViT_pt5-pt5_SOLI.npz',
+                        './Embeddings/DGBQA_CGID_Res3D-ViViT_pt5-1_SOLI.npz',
+                        './Embeddings/DGBQA_CGID_Res3D-ViViT_pt5-1pt5_SOLI.npz',
+                        './Embeddings/DGBQA_CGID_Res3D-ViViT_1-pt5_SOLI.npz',
+                        './Embeddings/DGBQA_CGID_Res3D-ViViT_1-1_SOLI.npz',
+                        './Embeddings/DGBQA_CGID_Res3D-ViViT_1-1pt5_SOLI.npz',
+                        './Embeddings/DGBQA_CGID_Res3D-ViViT_1pt5-pt5_SOLI.npz',
+                        './Embeddings/DGBQA_CGID_Res3D-ViViT_1pt5-1_SOLI.npz',
+                        './Embeddings/DGBQA_CGID_Res3D-ViViT_1pt5-1pt5_SOLI.npz',
+                            './Embeddings/DGBQA_CGID_Res3D-MF_pt5-pt5_SOLI.npz',
+                            './Embeddings/DGBQA_CGID_Res3D-MF_pt5-1_SOLI.npz',
+                            './Embeddings/DGBQA_CGID_Res3D-MF_pt5-1pt5_SOLI.npz',
+                            './Embeddings/DGBQA_CGID_Res3D-MF_1-pt5_SOLI.npz',
+                            './Embeddings/DGBQA_CGID_Res3D-MF_1-1_SOLI.npz',
+                            './Embeddings/DGBQA_CGID_Res3D-MF_1-1pt5_SOLI.npz',
+                            './Embeddings/DGBQA_CGID_Res3D-MF_1pt5-pt5_SOLI.npz',
+                            './Embeddings/DGBQA_CGID_Res3D-MF_1pt5-1_SOLI.npz',
+                            './Embeddings/DGBQA_CGID_Res3D-MF_1pt5-1pt5_SOLI.npz',
+                            './Embeddings/MS_TPN_pt5-pt5_SOLI.npz',
+                            './Embeddings/MS_TPN_pt5-1_SOLI.npz',
+                            './Embeddings/MS_TPN_pt5-1pt5_SOLI.npz',
+                            './Embeddings/MS_TPN_1-pt5_SOLI.npz',
+                            './Embeddings/MS_TPN_1-1_SOLI.npz',
+                            './Embeddings/MS_TPN_1-1pt5_SOLI.npz',
+                            './Embeddings/MS_TPN_1pt5-pt5_SOLI.npz',
+                            './Embeddings/MS_TPN_1pt5-1_SOLI.npz',
+                            './Embeddings/MS_TPN_1pt5-1pt5_SOLI.npz',
+                            './Embeddings/MS_TAM_pt5-pt5_SOLI.npz',
+                            './Embeddings/MS_TAM_1-pt5_SOLI.npz',
+                            './Embeddings/MS_TAM_1-1_SOLI.npz',
+                            './Embeddings/MS_MViT_pt5-pt5_SOLI.npz',
+                            './Embeddings/MS_MViT_pt5-1_SOLI.npz',
+                            './Embeddings/MS_MViT_pt5-1pt5_SOLI.npz',
+                            './Embeddings/MS_MViT_1-pt5_SOLI.npz',
+                            './Embeddings/MS_MViT_1-1_SOLI.npz',
+                            './Embeddings/MS_MViT_1-1pt5_SOLI.npz',
+                            './Embeddings/MS_MViT_1pt5-pt5_SOLI.npz',
+                            './Embeddings/MS_MViT_1pt5-1_SOLI.npz',
+                            './Embeddings/MS_MViT_1pt5-1pt5_SOLI.npz']
+    dataset_list = ['Soli']*39
     y_dev = np.load('./Embeddings/y_dev_DeltaDistance_SOLI.npz')['arr_0']
     y_dev_id = np.load('./Embeddings/y_dev_id_DeltaDistance_SOLI.npz')['arr_0']
     G_total = 11
     I_total = 10
     eer_values = [15.60,14.33,8.98,14.33,4.83,4.74,7.13,7.60,8.15,5.94,18.63]
 
-if(dataset_curr == 'HandLogin'):
+
+if(args.dataset == 'handLogin'):
+
+    embedding_list = ['./Embeddings/MS_ViViT_pt5-pt5_HandLogin.npz',
+                        './Embeddings/MS_ViViT_pt5-1_HandLogin.npz',
+                        './Embeddings/MS_ViViT_pt5-1pt5_HandLogin.npz',
+                        './Embeddings/MS_ViViT_pt5-2pt5_HandLogin.npz',
+                        './Embeddings/MS_ViViT_1-pt5_HandLogin.npz',
+                        './Embeddings/MS_ViViT_1-1_HandLogin.npz',
+                        './Embeddings/MS_ViViT_1-1pt5_HandLogin.npz',
+                        './Embeddings/MS_ViViT_1-2pt5_HandLogin.npz',
+                        './Embeddings/MS_ViViT_1pt5-pt5_HandLogin.npz',
+                        './Embeddings/MS_ViViT_1pt5-1_HandLogin.npz',
+                        './Embeddings/MS_ViViT_1pt5-1pt5_HandLogin.npz',
+                        './Embeddings/MS_ViViT_1pt5-2pt5_HandLogin.npz',
+                            './Embeddings/Test/DGBQA_CGID_Res3D-MF_1-pt5_HandLogin.npz',
+                            './Embeddings/Test/DGBQA_CGID_Res3D-MF_1-1_HandLogin.npz',
+                            './Embeddings/Test/DGBQA_CGID_Res3D-MF_1-1pt5_HandLogin.npz',
+                            './Embeddings/Test/DGBQA_CGID_Res3D-MF_1-2pt5_HandLogin.npz',
+                            './Embeddings/Test/DGBQA_CGID_Res3D-MF_1pt5-pt5_HandLogin.npz',
+                            './Embeddings/Test/DGBQA_CGID_Res3D-MF_1pt5-1_HandLogin.npz',
+                            './Embeddings/Test/DGBQA_CGID_Res3D-MF_1pt5-1pt5_HandLogin.npz',
+                            './Embeddings/Test/DGBQA_CGID_Res3D-MF_1pt5-2pt5_HandLogin.npz',
+                            './Embeddings/MS_TPN_pt5-pt5_HandLogin.npz',
+                            './Embeddings/MS_TPN_pt5-1_HandLogin.npz',
+                            './Embeddings/MS_TPN_pt5-1pt5_HandLogin.npz',
+                            './Embeddings/MS_TPN_pt5-2pt5_HandLogin.npz',
+                            './Embeddings/MS_TPN_1-pt5_HandLogin.npz',
+                            './Embeddings/MS_TPN_1-1pt5_HandLogin.npz',
+                            './Embeddings/MS_TPN_1-2pt5_HandLogin.npz',
+                            './Embeddings/MS_TPN_1pt5-pt5_HandLogin.npz',
+                            './Embeddings/MS_TPN_1pt5-1_HandLogin.npz',
+                            './Embeddings/MS_TPN_1pt5-1pt5_HandLogin.npz',
+                            './Embeddings/MS_TPN_1pt5-2pt5_HandLogin.npz',
+                            './Embeddings/MS_TAM_pt5-pt5_HandLogin.npz',
+                            './Embeddings/MS_TAM_pt5-1_HandLogin.npz',
+                            './Embeddings/MS_TAM_pt5-1pt5_HandLogin.npz',
+                            './Embeddings/MS_TAM_pt5-2pt5_HandLogin.npz',
+                            './Embeddings/MS_TAM_1-pt5_HandLogin.npz',
+                            './Embeddings/MS_TAM_1-1_HandLogin.npz',
+                            './Embeddings/MS_TAM_1-1pt5_HandLogin.npz',
+                            './Embeddings/MS_TAM_1-2pt5_HandLogin.npz',
+                            './Embeddings/MS_TAM_1pt5-pt5_HandLogin.npz',
+                            './Embeddings/MS_TAM_1pt5-1_HandLogin.npz',
+                            './Embeddings/MS_TAM_1pt5-1pt5_HandLogin.npz',
+                            './Embeddings/MS_TAM_1pt5-2pt5_HandLogin.npz',
+                            './Embeddings/MS_MViT_pt5-pt5_HandLogin.npz',
+                            './Embeddings/MS_MViT_pt5-1_HandLogin.npz',
+                            './Embeddings/MS_MViT_pt5-1pt5_HandLogin.npz',
+                            './Embeddings/MS_MViT_pt5-2pt5_HandLogin.npz',
+                            './Embeddings/MS_MViT_1-pt5_HandLogin.npz',
+                            './Embeddings/MS_MViT_1-1_HandLogin.npz',
+                            './Embeddings/MS_MViT_1-1pt5_HandLogin.npz',
+                            './Embeddings/MS_MViT_1-2pt5_HandLogin.npz',
+                            './Embeddings/MS_MViT_1pt5-pt5_HandLogin.npz',
+                            './Embeddings/MS_MViT_1pt5-1_HandLogin.npz',
+                            './Embeddings/MS_MViT_1pt5-1pt5_HandLogin.npz',
+                            './Embeddings/MS_MViT_1pt5-2pt5_HandLogin.npz']
+    dataset_list = ['HandLogin']*55
     y_dev = np.load('./Embeddings/y_dev_DGBQA_Seen_HandLogin.npz')['arr_0']
     y_dev_id = np.load('./Embeddings/y_dev_id_DGBQA_Seen_HandLogin.npz')['arr_0']
     G_total = 4
     I_total = 16
     eer_values = [0.44,1.29,4.89,1.05]
 
-if(dataset_curr == 'Tiny'):
+if(args.dataset == 'tiny'):
+    embedding_list = ['./Embeddings/DGBQA_CGID_Res3D-ViViT_pt5-1_Tiny.npz',
+                        './Embeddings/DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny.npz',
+                        './Embeddings/DGBQA_CGID_Res3D-ViViT_pt5-2pt5_Tiny.npz',
+                        './Embeddings/DGBQA_CGID_Res3D-ViViT_1-1_Tiny.npz',
+                        './Embeddings/DGBQA_CGID_Res3D-ViViT_1-1pt5_Tiny.npz',
+                        './Embeddings/DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny.npz',
+                        './Embeddings/MS_MF_1-1_Tiny.npz',
+                        './Embeddings/MS_MF_1-1pt5_Tiny.npz',
+                        './Embeddings/MS_MF_1-2pt5_Tiny.npz',
+                        './Embeddings/MS_TAM_1-1_Tiny.npz',
+                        './Embeddings/MS_TAM_1-1pt5_Tiny.npz',
+                        './Embeddings/MS_TAM_1-2pt5_Tiny.npz']
+    dataset_list = ['Tiny']*12
+
     y_dev = np.load('./Embeddings/y_dev_DGBQA_Seen_Tiny.npz')['arr_0']
     y_dev_id = np.load('./Embeddings/y_dev_id_DGBQA_Seen_Tiny.npz')['arr_0']
     G_total = 11
@@ -160,10 +169,10 @@ if(dataset_curr == 'Tiny'):
     eer_values = list(eer_values)
 
 ##### Model selection and prediction
-model = select_model(embedding_list_soli,
-                     dataset_list_soli,
+model = select_model(embedding_list,
+                     dataset_list,
                      args.metric,
-                     quantifier=args.qauntifier)
+                     quantifier=args.quantifier)
 print(model)
 
 embedding = np.load(model)['arr_0']
@@ -176,11 +185,58 @@ val = get_val(embedding,
               I_total,
               None,
               'full',
-              quantifier=args.qauntifier)
+              quantifier=args.quantifier)
 print('nAr*: '+str(val[8]))
-val = val[:4]
 
 print('Rank deviation: '+str(val[0]))
 print('Relevance: '+str(val[1]))
 print('Trend deviation: '+str(val[2]))
 print('Entanglement: '+str(val[3]))
+
+
+titles = ['Quantifier',
+          'Metric',
+          'selectedModel',
+          'nAr*',
+          'r',
+          'R',
+          'Psi',
+          'Cd']
+entries = [str(args.quantifier),
+           str(args.metric),
+           str(model),
+           str(round(val[8],4)),
+           str(round(val[0],4)),
+           str(round(val[1],4)),
+           str(round(val[2],4)),
+           str(round(val[3],4))]
+
+if(args.initResultFile == 1):
+    resultFile = open('./_store/_resultFiles/'+args.nameResultFile+'.txt','w')
+
+    for idx, item in enumerate(titles):
+        if(idx == 2):
+            resultFile.write(str(item)+'                                  ')
+        if(idx == 7):
+            resultFile.write(str(item)+'\n')
+        if(idx in [0,1,3,4,5,6]):
+            resultFile.write(str(item)+'             ')
+
+    for idx, item in enumerate(entries):
+        if(idx == 2):
+            resultFile.write(str(item)+'           ')
+        if(idx == 7):
+            resultFile.write(str(item)+'\n')
+        if(idx in [0,1,3,4,5,6]):
+            resultFile.write(str(item)+'           ')
+
+if(args.initResultFile == 0):
+    resultFile = open('./_store/_resultFiles/'+args.nameResultFile+'.txt','a')
+    for idx, item in enumerate(entries):
+        if(idx == 2):
+            resultFile.write(str(item)+'           ')
+        if(idx == 7):
+            resultFile.write(str(item)+'\n')
+        if(idx in [0,1,3,4,5,6]):
+            resultFile.write(str(item)+'           ')
+
