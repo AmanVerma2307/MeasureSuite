@@ -9,6 +9,10 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--metric",
                     type=str,
                     help="The metric to be used")
+parser.add_argument('--quantifier',
+                    type=str,
+                    default='dgbqa',
+                    help="The quantifier to be used for score generation")
 
 args = parser.parse_args()
 
@@ -158,7 +162,8 @@ if(dataset_curr == 'Tiny'):
 ##### Model selection and prediction
 model = select_model(embedding_list_soli,
                      dataset_list_soli,
-                     args.metric)
+                     args.metric,
+                     quantifier=args.qauntifier)
 print(model)
 
 embedding = np.load(model)['arr_0']
@@ -170,7 +175,8 @@ val = get_val(embedding,
               G_total,
               I_total,
               None,
-              'full')
+              'full',
+              quantifier=args.qauntifier)
 print('nAr*: '+str(val[8]))
 val = val[:4]
 

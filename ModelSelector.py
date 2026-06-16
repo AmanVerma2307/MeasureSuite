@@ -1,14 +1,12 @@
 ####### Importing Libraries
-import os
-import argparse
 import numpy as np
 import pandas as pd
-import tensorflow as tf
 from src.DGBQA_Score import gbqa_delta_dist_compute
 from src.ICGDScore import CGID_Score_Calculator
 from src.RankDeviation import avg_rank_deviation
 from src.AcceptanceScore import acceptance_score
 from src.PatternMatchDistance import pattern_match_dist
+from src.quantifiers import *
 from ComparisonMeasures import *
 
 ####### Model selection
@@ -19,17 +17,50 @@ def get_val(embedding,
             G_total,
             I_total,
             measure_req,
-            mode):
+            mode,
+            quantifier):
     
     """
     Function to seek a particular measure
     """
 
-    ##### DGBQA score computation
+    ##### Biometric quantification
     dgbqa_score = [] # DGBQA Score
     for g_id in range(G_total):
-        dgbqa_score_curr, _, _, _ = gbqa_delta_dist_compute(embedding,g_id,I_total,y_dev,y_dev_id)
-        dgbqa_score.append(dgbqa_score_curr)
+
+        if(quantifier == 'dgbqa'):
+            scoreCurr, _, _, _ = gbqa_delta_dist_compute(embedding,g_id,I_total,y_dev,y_dev_id)
+            dgbqa_score.append(scoreCurr)
+
+        if(quantifier == 'deltaDistance'):
+            scoreCurr = deltaDistance(embedding,
+                                      g_id,
+                                      I_total,
+                                      y_dev,
+                                      y_dev_id)
+            dgbqa_score.append(scoreCurr)
+
+        if(quantifier == 'masterFace'):
+            _, d_unq, _, _ = gbqa_delta_dist_compute(embedding,g_id,I_total,y_dev,y_dev_id)
+            scoreCurr = masterFace(d_unq,embedding.shape[-1])
+            dgbqa_score.append(scoreCurr)
+
+        if(quantifier == 'genCapacity'):
+            scoreCurr = generativeCapacity(embedding,
+                                           y_dev,
+                                           y_dev_id,
+                                           G_total,
+                                           I_total,
+                                           embedding.shape[-1],
+                                           g_id)
+            dgbqa_score.append(scoreCurr)
+
+        if(quantifier == 'swipeQuality'):
+            scoreCurr = swipeQuality(embedding,
+                                     y_dev,
+                                     G_total,
+                                     g_id)
+            dgbqa_score.append(scoreCurr)
 
     dgbqa_score = np.array(dgbqa_score) # Array Formation
     dgbqa_score = (dgbqa_score - np.mean(dgbqa_score))/np.std(dgbqa_score) # Mean Normalization
@@ -193,8 +224,9 @@ def get_val(embedding,
                 rpp] # List of measures
 
 def get_params(embedding_list,
-                 dataset_list,
-                 var):
+               dataset_list,
+               var,
+               quantifier):
 
     """
     Function to get params
@@ -203,6 +235,7 @@ def get_params(embedding_list,
     1) embedding_list: The list of embeddings from which the optimal is to be derived
     2) dataset_list: Corresponding list of the dataset
     3) var: 'full' or a metric
+    4) quantifier: The choice of quantifier
 
     OUPUTS:-
     1) measure_val: Measurment values
@@ -252,7 +285,8 @@ def get_params(embedding_list,
                             G_total,
                             I_total,
                             var,
-                            'single') # Current value
+                            'single',
+                            quantifier=quantifier) # Current value
             measure_val.append(val_curr)
 
         if(var == 'full'):
@@ -263,7 +297,8 @@ def get_params(embedding_list,
                             G_total,
                             I_total,
                             None,
-                            'full') # Current value
+                            'full',
+                            quantifier=quantifier) # Current value
             measure_val.append(val_curr)
 
     return measure_val
@@ -271,6 +306,7 @@ def get_params(embedding_list,
 def select_model(embedding_list,
                  dataset_list,
                  var,
+                 quantifier
                  ):
     
     """
@@ -280,6 +316,7 @@ def select_model(embedding_list,
     1) embedding_list: The list of embeddings from which the optimal is to be derived
     2) dataset_list: Corresponding list of the dataset
     3) var: The measure upon which optimal is to be derived
+    4) quantifier: The quantifier to be used for scoring
 
     OUPUTS:-
     1) opt_model: The optimal model/models
@@ -287,7 +324,8 @@ def select_model(embedding_list,
     
     measure_val = get_params(embedding_list,
                              dataset_list,
-                             var)
+                             var,
+                             quantifier)
 
     ##### Optimal selection
     if(var in ['R','Ar','ArCd','Ar_psi','Cd_psi','Ar*','corr','DCG','ERR','U','infAp','NegRel','RPP','relEnt']):
@@ -320,38 +358,42 @@ def make_df(measure_val):
     df['rpp'] = measure_val[:,18] # RPP
     return df
 
-###### Testing
-##### Metric comutation
-#emebdding = np.load('./Embeddings/MS_MViT_pt5-1_SOLI.npz')['arr_0']
-#y_dev = np.load('./Embeddings/y_dev_DeltaDistance_SOLI.npz')['arr_0']
-#y_dev_id = np.load('./Embeddings/y_dev_id_DeltaDistance_SOLI.npz')['arr_0']
-#G_total = 11
-#I_total = 10
-#eer_values = [15.60,14.33,8.98,14.33,4.83,4.74,7.13,7.60,8.15,5.94,18.63]
-#
-#embedding_list = ['./Embeddings/MS_MViT_pt5-pt5_SOLI.npz',
-#                                         './Embeddings/MS_MViT_pt5-1_SOLI.npz',
-#                                         './Embeddings/MS_MViT_pt5-1pt5_SOLI.npz',
-#                                         './Embeddings/MS_MViT_1-pt5_SOLI.npz',
-#                                         './Embeddings/MS_MViT_1-1_SOLI.npz',
-#                                         './Embeddings/MS_MViT_1-1pt5_SOLI.npz',
-#                                         './Embeddings/MS_MViT_1pt5-pt5_SOLI.npz',
-#                                         './Embeddings/MS_MViT_1pt5-1_SOLI.npz',
-#                                         './Embeddings/MS_MViT_1pt5-1pt5_SOLI.npz']
-#dataset_list = ['Soli']*9
 
-#measure_val = get_params(embedding_list,
-#                         dataset_list,
-#                         'full')
-#measure_val = np.array(measure_val)
-#print(measure_val.shape)
+if __name__ == "__main__":
 
-#val = get_val(emebdding,y_dev,y_dev_id,eer_values,G_total,I_total,None,'full')
-#val = np.array(val)
-#print(val.shape, val)
+    #emebdding = np.load('./Embeddings/MS_MViT_pt5-1_SOLI.npz')['arr_0']
+    y_dev = np.load('./Embeddings/y_dev_DeltaDistance_SOLI.npz')['arr_0']
+    y_dev_id = np.load('./Embeddings/y_dev_id_DeltaDistance_SOLI.npz')['arr_0']
+    G_total = 11
+    I_total = 10
+    eer_values = [15.60,14.33,8.98,14.33,4.83,4.74,7.13,7.60,8.15,5.94,18.63]
 
-##### Model selection
-#opt_model = select_model(embedding_list,
-#                        dataset_list,
-#                        var='GRE')
-#print(opt_model)
+    #
+    embedding_list = ['./Embeddings/MS_MViT_pt5-pt5_SOLI.npz',
+                    './Embeddings/MS_MViT_pt5-1_SOLI.npz',
+                    './Embeddings/MS_MViT_pt5-1pt5_SOLI.npz',
+                    './Embeddings/MS_MViT_1-pt5_SOLI.npz',
+                    './Embeddings/MS_MViT_1-1_SOLI.npz',
+                    './Embeddings/MS_MViT_1-1pt5_SOLI.npz',
+                    './Embeddings/MS_MViT_1pt5-pt5_SOLI.npz',
+                    './Embeddings/MS_MViT_1pt5-1_SOLI.npz',
+                    './Embeddings/MS_MViT_1pt5-1pt5_SOLI.npz']
+    dataset_list = ['Soli']*9
+
+    # measure_val = get_params(embedding_list,
+    #                         dataset_list,
+    #                         'full',
+    #                         quantifier='dgbqa')
+    # measure_val = np.array(measure_val)
+    # print(measure_val.shape)
+
+    # val = get_val(emebdding,y_dev,y_dev_id,eer_values,G_total,I_total,None,'full',quantifier='swipeQuality')
+    # val = np.array(val)
+    # print(val.shape, val)
+
+    ##### Model selection
+    opt_model = select_model(embedding_list,
+                           dataset_list,
+                           var='GRE',
+                           quantifier='swipeQuality')
+    print(opt_model)
