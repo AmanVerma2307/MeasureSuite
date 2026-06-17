@@ -124,7 +124,7 @@ def get_val(embedding,
         if(measure_req == 'Ar*'): # Full: Ar* x psi x C_D
             nu = 1
             alpha = 2
-            beta = 0.75
+            beta = 0.25
             C_I, C_D = CGID_Score_Calculator(embedding,y_dev)
             d = pattern_match_dist(dgbqa_score,e_prime,G_total)
             return acceptance_score(dgbqa_score,e_prime,G_total,False,False)*(np.log2(2+nu*d)**(-1/alpha))*np.exp(-beta*C_D)
@@ -167,7 +167,7 @@ def get_val(embedding,
     if(mode == 'full'): # returns all nine metrics
         nu = 1
         alpha = 2
-        beta = 0.75
+        beta = 0.10
 
         r = avg_rank_deviation(np.array(eer_values),
                                     dgbqa_score,

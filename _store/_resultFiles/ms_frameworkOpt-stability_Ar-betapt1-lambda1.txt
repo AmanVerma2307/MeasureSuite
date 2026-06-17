@@ -1,0 +1,13 @@
+Quantifier             Metric             selectedModel                                  nAr*             r             R             Psi             Cd
+dgbqa           Ar           ./Embeddings/DGBQA_CGID_Res3D-ViViT_1pt5-pt5_SOLI.npz           14.9695           0.4545           8.5427           1.7006           0.3506
+deltaDistance           Ar           ./Embeddings/DGBQA_CGID_Res3D-MF_1pt5-pt5_SOLI.npz           16.5627           1.3636           8.3735           2.3983           0.3615
+masterFace           Ar           ./Embeddings/DGBQA_CGID_Res3D-MF_pt5-1_SOLI.npz           23.0334           1.3636           7.8609           2.1854           0.2249
+genCapacity           Ar           ./Embeddings/DGBQA_CGID_Res3D-MF_1pt5-1_SOLI.npz           30.8761           0.4545           7.4302           2.5684           0.3048
+swipeQuality           Ar           ./Embeddings/MS_TPN_1pt5-1_SOLI.npz           13.2962           3.5455           5.9819           4.8011           0.3312
+dgbqa           Ar           ./Embeddings/MS_MViT_pt5-1_HandLogin.npz           17.825           0.0           4.1126           2.0918           0.3275
+deltaDistance           Ar           ./Embeddings/MS_ViViT_1pt5-pt5_HandLogin.npz           20.3898           0.0           4.0681           2.0426           0.3332
+masterFace           Ar           ./Embeddings/MS_MViT_1-1_HandLogin.npz           19.7514           0.0           4.1432           1.7404           0.3726
+swipeQuality           Ar           ./Embeddings/MS_TPN_pt5-pt5_HandLogin.npz           19.4775           0.5           3.8103           2.9861           0.2875
+dgbqa           Ar           ./Embeddings/DGBQA_CGID_Res3D-ViViT_1-1_Tiny.npz           29.5118           1.2727           8.4335           2.0996           0.5151
+deltaDistance           Ar           ./Embeddings/DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny.npz           27.012           1.6364           8.0789           3.4827           0.5408
+masterFace           Ar           ./Embeddings/DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny.npz           31.3788           1.0909           8.2919           2.8731           0.4881
