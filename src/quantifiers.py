@@ -3,7 +3,6 @@ import numpy as np
 import scipy.special as sp
 from scipy.spatial import distance
 
-
 def dgbqa(embeddings,g_id,num_subjects,y_dev,y_dev_id):
 
     """
@@ -360,6 +359,65 @@ def distinctiveness(embeddings, y, y_id, num_gestures, num_id):
         dist_val.append(dist_val_curr)
 
     return dist_val
+
+
+
+def getScores(embPath,
+              quantifier,
+              y_dev,
+              y_dev_id,
+              G_total,
+              I_total):
+    
+
+    """
+    Function to get scores for an embedding and a quantifier
+    """
+
+    dgbqa_score = []
+    embedding = np.load(embPath,allow_pickle=True)['arr_0']
+
+    for g_id in range(G_total):
+
+        if(quantifier == 'dgbqa'):
+            scoreCurr, _, _, _ = dgbqa(embedding,g_id,I_total,y_dev,y_dev_id)
+            dgbqa_score.append(scoreCurr)
+
+        if(quantifier == 'deltaDistance'):
+            scoreCurr = deltaDistance(embedding,
+                                      g_id,
+                                      I_total,
+                                      y_dev,
+                                      y_dev_id)
+            dgbqa_score.append(scoreCurr)
+
+        if(quantifier == 'masterFace'):
+            _, d_unq, _, _ = dgbqa(embedding,g_id,I_total,y_dev,y_dev_id)
+            scoreCurr = masterFace(d_unq,embedding.shape[-1])
+            dgbqa_score.append(scoreCurr)
+
+        if(quantifier == 'genCapacity'):
+            scoreCurr = generativeCapacity(embedding,
+                                           y_dev,
+                                           y_dev_id,
+                                           G_total,
+                                           I_total,
+                                           embedding.shape[-1],
+                                           g_id)
+            dgbqa_score.append(scoreCurr)
+
+        if(quantifier == 'swipeQuality'):
+            scoreCurr = swipeQuality(embedding,
+                                     y_dev,
+                                     G_total,
+                                     g_id)
+            dgbqa_score.append(scoreCurr)
+
+    dgbqa_score = np.array(dgbqa_score) # Array Formation
+    dgbqa_score = (dgbqa_score - np.mean(dgbqa_score))/np.std(dgbqa_score) # Mean Normalization
+    dgbqa_score = dgbqa_score/np.linalg.norm(dgbqa_score) # L2-Normalization
+
+    return dgbqa_score
 
 
 if __name__ == "__main__":
