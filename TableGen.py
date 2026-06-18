@@ -1,10 +1,10 @@
-###### Importinng libraries
 import argparse
 import numpy as np
+import matplotlib.pyplot as plt
+from src.quantifiers import *
 from ModelSelector import get_val, select_model
 
 ###### Selecting model embeddings
-
 parser = argparse.ArgumentParser()
 parser.add_argument("--dataset",
                     type=str,
@@ -24,11 +24,14 @@ parser.add_argument('--initResultFile',
 parser.add_argument('--nameResultFile',
                     type=str,
                     help="Name of the resultFile")
+parser.add_argument('--mode',
+                    type=str,
+                    default='comparison',
+                    help="The mode of tableGen")
 
 args = parser.parse_args()
 
 ##### Defining essentials
-
 if(args.dataset == 'soli'):
     embedding_list = ['./Embeddings/DGBQA_CGID_Res3D-ViViT_pt5-pt5_SOLI.npz',
                         './Embeddings/DGBQA_CGID_Res3D-ViViT_pt5-1_SOLI.npz',
@@ -74,10 +77,11 @@ if(args.dataset == 'soli'):
     y_dev_id = np.load('./Embeddings/y_dev_id_DeltaDistance_SOLI.npz')['arr_0']
     G_total = 11
     I_total = 10
+    labels = ['Pinch index','Palm tilt','Finger Slider','Pinch pinky','Slow Swipe','Fast Swipe','Push','Pull','Finger rub','Circle','Palm hold']
     eer_values = [15.60,14.33,8.98,14.33,4.83,4.74,7.13,7.60,8.15,5.94,18.63]
 
 
-if(args.dataset == 'handLogin'):
+if(args.dataset == 'handlogin'):
 
     embedding_list = ['./Embeddings/MS_ViViT_pt5-pt5_HandLogin.npz',
                         './Embeddings/MS_ViViT_pt5-1_HandLogin.npz',
@@ -139,7 +143,9 @@ if(args.dataset == 'handLogin'):
     y_dev_id = np.load('./Embeddings/y_dev_id_DGBQA_Seen_HandLogin.npz')['arr_0']
     G_total = 4
     I_total = 16
+    labels = ['Compass','Piano','Push','Flipping fist']
     eer_values = [0.44,1.29,4.89,1.05]
+   
 
 if(args.dataset == 'tiny'):
     embedding_list = ['./Embeddings/DGBQA_CGID_Res3D-ViViT_pt5-1_Tiny.npz',
@@ -160,6 +166,7 @@ if(args.dataset == 'tiny'):
     y_dev_id = np.load('./Embeddings/y_dev_id_DGBQA_Seen_Tiny.npz')['arr_0']
     G_total = 11
     I_total = 26
+    labels = ['Pinch index','Palm tilt','Finger slider','Pinch pinky','Slow swipe','Fast swipe','Push','Pull','Finger rub','Circle','Palm hold']
 
     e1_val = 100 - 16.45
     e2_val = 100 - 23.36 
@@ -168,75 +175,196 @@ if(args.dataset == 'tiny'):
     eer_values = (e1_val*e1+e2_val*e2)/(e1_val+e2_val)
     eer_values = list(eer_values)
 
-##### Model selection and prediction
-model = select_model(embedding_list,
-                     dataset_list,
-                     args.metric,
-                     quantifier=args.quantifier)
-print(model)
 
-embedding = np.load(model)['arr_0']
+if(args.mode == "comparison"):
+    model = select_model(embedding_list,
+                        dataset_list,
+                        args.metric,
+                        quantifier=args.quantifier)
+    print(model)
 
-val = get_val(embedding,
-              y_dev,
-              y_dev_id,
-              eer_values,
-              G_total,
-              I_total,
-              None,
-              'full',
-              quantifier=args.quantifier)
-print('nAr*: '+str(val[8]))
+    embedding = np.load(model)['arr_0']
 
-print('Rank deviation: '+str(val[0]))
-print('Relevance: '+str(val[1]))
-print('Trend deviation: '+str(val[2]))
-print('Entanglement: '+str(val[3]))
+    val = get_val(embedding,
+                y_dev,
+                y_dev_id,
+                eer_values,
+                G_total,
+                I_total,
+                None,
+                'full',
+                quantifier=args.quantifier)
+    print('nAr*: '+str(val[8]))
+
+    print('Rank deviation: '+str(val[0]))
+    print('Relevance: '+str(val[1]))
+    print('Trend deviation: '+str(val[2]))
+    print('Entanglement: '+str(val[3]))
 
 
-titles = ['Quantifier',
-          'Metric',
-          'selectedModel',
-          'nAr*',
-          'r',
-          'R',
-          'Psi',
-          'Cd']
-entries = [str(args.quantifier),
-           str(args.metric),
-           str(model),
-           str(round(val[4],4)),
-           str(round(val[0],4)),
-           str(round(val[1],4)),
-           str(round(val[2],4)),
-           str(round(val[3],4))]
+    titles = ['Quantifier',
+            'Metric',
+            'selectedModel',
+            'nAr*',
+            'r',
+            'R',
+            'Psi',
+            'Cd']
+    entries = [str(args.quantifier),
+            str(args.metric),
+            str(model),
+            str(round(val[4],4)),
+            str(round(val[0],4)),
+            str(round(val[1],4)),
+            str(round(val[2],4)),
+            str(round(val[3],4))]
 
-if(args.initResultFile == 1):
-    resultFile = open('./_store/_resultFiles/'+args.nameResultFile+'.txt','w')
+    if(args.initResultFile == 1):
+        resultFile = open('./_store/_resultFiles/'+args.nameResultFile+'.txt','w')
 
-    for idx, item in enumerate(titles):
-        if(idx == 2):
-            resultFile.write(str(item)+'                                  ')
-        if(idx == 7):
-            resultFile.write(str(item)+'\n')
-        if(idx in [0,1,3,4,5,6]):
-            resultFile.write(str(item)+'             ')
+        for idx, item in enumerate(titles):
+            if(idx == 2):
+                resultFile.write(str(item)+'                                  ')
+            if(idx == 7):
+                resultFile.write(str(item)+'\n')
+            if(idx in [0,1,3,4,5,6]):
+                resultFile.write(str(item)+'             ')
 
-    for idx, item in enumerate(entries):
-        if(idx == 2):
-            resultFile.write(str(item)+'           ')
-        if(idx == 7):
-            resultFile.write(str(item)+'\n')
-        if(idx in [0,1,3,4,5,6]):
-            resultFile.write(str(item)+'           ')
+        for idx, item in enumerate(entries):
+            if(idx == 2):
+                resultFile.write(str(item)+'           ')
+            if(idx == 7):
+                resultFile.write(str(item)+'\n')
+            if(idx in [0,1,3,4,5,6]):
+                resultFile.write(str(item)+'           ')
 
-if(args.initResultFile == 0):
-    resultFile = open('./_store/_resultFiles/'+args.nameResultFile+'.txt','a')
-    for idx, item in enumerate(entries):
-        if(idx == 2):
-            resultFile.write(str(item)+'           ')
-        if(idx == 7):
-            resultFile.write(str(item)+'\n')
-        if(idx in [0,1,3,4,5,6]):
-            resultFile.write(str(item)+'           ')
+    if(args.initResultFile == 0):
+        resultFile = open('./_store/_resultFiles/'+args.nameResultFile+'.txt','a')
+        for idx, item in enumerate(entries):
+            if(idx == 2):
+                resultFile.write(str(item)+'           ')
+            if(idx == 7):
+                resultFile.write(str(item)+'\n')
+            if(idx in [0,1,3,4,5,6]):
+                resultFile.write(str(item)+'           ')
+
+if(args.mode == 'psiComparison'):
+
+    e_prime = 100 - np.array(eer_values)
+    e_prime = (e_prime - np.mean(e_prime))/np.std(e_prime)
+    e_prime = e_prime/np.linalg.norm(e_prime)
+    groundTruthSorted = list(np.sort(e_prime))
+
+    psiScores = getScores(select_model(embedding_list,
+                            dataset_list,
+                            'psi',
+                            quantifier=args.quantifier),
+                           args.quantifier,
+                            y_dev,
+                            y_dev_id,
+                            G_total,
+                            I_total)
+    
+    euclidScores = getScores(select_model(embedding_list,
+                            dataset_list,
+                            'euclid',
+                            quantifier=args.quantifier),
+                           args.quantifier,
+                            y_dev,
+                            y_dev_id,
+                            G_total,
+                            I_total)
+    
+    corrScores = getScores(select_model(embedding_list,
+                            dataset_list,
+                            'corr',
+                            quantifier=args.quantifier),
+                           args.quantifier,
+                            y_dev,
+                            y_dev_id,
+                            G_total,
+                            I_total)
+    
+    kendallScores = getScores(select_model(embedding_list,
+                            dataset_list,
+                            'Kendall',
+                            quantifier=args.quantifier),
+                           args.quantifier,
+                            y_dev,
+                            y_dev_id,
+                            G_total,
+                            I_total)
+    
+    psiScoresSorted = []
+    euclidScoresSorted = []
+    corrScoresSorted = []
+    kendallScoresSorted = []
+    labelsSorted = []
+
+    for idx, item in enumerate(groundTruthSorted):
+        for idxSort in range(G_total):
+            if(item == e_prime[idxSort]):
+                psiScoresSorted.append(psiScores[idxSort])
+                euclidScoresSorted.append(euclidScores[idxSort])
+                corrScoresSorted.append(corrScores[idxSort])
+                kendallScoresSorted.append(kendallScores[idxSort])
+                labelsSorted.append(labels[idxSort])
+                break
+
+    fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(10,6))
+    x_axes = np.arange(start=0,stop=G_total)
+
+    ax.plot(x_axes,
+           groundTruthSorted,
+           label='Ground truth',
+           marker="o",
+           markersize=8
+           )
+    ax.plot(x_axes,
+           psiScoresSorted,
+           label='$\\Psi$',
+           marker="v",
+           markersize=12
+           )
+    ax.plot(x_axes,
+           euclidScoresSorted,
+           label='Euclidean',
+           marker="*",
+           markersize=10,
+           )
+    ax.plot(x_axes,
+           corrScoresSorted,
+           label='$\\rho$',
+           marker="h",
+           markersize=8,
+           )
+    ax.plot(x_axes,
+           kendallScoresSorted,
+           label='$\\tau$',
+           marker="D",
+           markersize=8
+           )
+    
+    ax.set_xticks(x_axes)
+    ax.set_xticklabels(labels=labelsSorted,fontsize=10,rotation=10)
+    ax.tick_params(bottom=True,left=True)
+
+    ax.set_ylabel('Scores',fontsize=14)
+    # ax.set_xlabel('Gestures',fontsize=14)
+
+    box = ax.get_position()
+    ax.set_position([box.x0, box.y0 + box.height * 0.2,
+                    box.width, box.height * 0.9])
+    ax.legend(loc='upper center', bbox_to_anchor=(0.5, 1.0),
+            fancybox=True, shadow=True, ncol=5, fontsize=10)
+    plt.show()
+    
+    
+
+    
+
+    
+
+
+    
 
