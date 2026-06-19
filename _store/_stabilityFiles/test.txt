@@ -1,0 +1,2 @@
+kappa      lambda      nu      beta      model
+1.0      2.0      1.0      0.01      MS_MViT_pt5-1_SOLI

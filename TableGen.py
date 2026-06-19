@@ -28,6 +28,23 @@ parser.add_argument('--mode',
                     type=str,
                     default='comparison',
                     help="The mode of tableGen")
+parser.add_argument('--kappaVal',
+                    type=float,
+                    default=1.0,
+                    help="Kappa parameter of nAr*")
+parser.add_argument('--lambdaVal',
+                    type=float,
+                    default=2.0,
+                    help="Lambda parameter of nAr*")
+parser.add_argument('--betaVal',
+                    type=float,
+                    default=0.75,
+                    help="Beta parameter of nAr*")
+parser.add_argument('--nuVal',
+                    type=float,
+                    default=1.0,
+                    help="nu parameter of nAr*")
+
 
 args = parser.parse_args()
 
@@ -359,9 +376,48 @@ if(args.mode == 'psiComparison'):
             fancybox=True, shadow=True, ncol=5, fontsize=10)
     plt.show()
     
-    
+if(args.mode == 'stability'):
 
+    modelSelect = select_model(embedding_list,
+                                dataset_list,
+                                "Ar*",
+                                quantifier=args.quantifier,
+                                kappaVal=args.kappaVal,
+                                lambdaVal=args.lambdaVal,
+                                nuVal=args.nuVal,
+                                betaVal=args.betaVal)
     
+    labels = ['kappa','lambda','nu','beta','model']
+    entries = [args.kappaVal,
+               args.lambdaVal,
+               args.nuVal,
+               args.betaVal,
+               modelSelect[13:][:-4]]
+
+    print(entries)
+
+    if(args.initResultFile == 1):
+        resultFile = open('./_store/_stabilityFiles/'+args.nameResultFile+'.txt','w')
+
+        for idx, item in enumerate(labels):
+            if(idx in [0,1,2,3]):
+                resultFile.write(str(item)+'      ')
+            else:
+                resultFile.write(str(item)+'\n')
+
+        for idx, item in enumerate(entries):
+            if(idx in [0,1,2,3]):
+                resultFile.write(str(item)+'      ')
+            else:
+                resultFile.write(str(item)+'\n')
+
+    if(args.initResultFile == 0):
+        resultFile = open('./_store/_stabilityFiles/'+args.nameResultFile+'.txt','a')
+        for idx, item in enumerate(entries):
+            if(idx in [0,1,2,3]):
+                resultFile.write(str(item)+'      ')
+            else:
+                resultFile.write(str(item)+'\n')
 
     
 

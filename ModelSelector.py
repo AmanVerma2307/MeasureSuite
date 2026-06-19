@@ -18,7 +18,11 @@ def get_val(embedding,
             I_total,
             measure_req,
             mode,
-            quantifier):
+            quantifier,
+            kappaVal=1,
+            lambdaVal=2,
+            nuVal=1,
+            betaVal=0.75):
     
     """
     Function to seek a particular measure
@@ -165,9 +169,9 @@ def get_val(embedding,
             return acceptance_score(dgbqa_score,e_prime,G_total,False,True)**np.exp(-beta*C_D)
         
     if(mode == 'full'): # returns all nine metrics
-        nu = 1
         alpha = 2
-        beta = 0.25
+        nu = nuVal
+        beta = betaVal
 
         r = avg_rank_deviation(np.array(eer_values),
                                     dgbqa_score,
@@ -185,12 +189,16 @@ def get_val(embedding,
                                     e_prime,
                                     G_total,
                                     False,
-                                    False) # Ar
+                                    False,
+                                    lambda_scale=lambdaVal,
+                                    kappa=kappaVal) # Ar
         ArCd = Ar* np.exp(-beta*C_D) # Ar*C_D
         Ar_psi = Ar*(np.log2(2+nu*d)**(-1/alpha)) # Ar*psi
         Cd_psi = (np.log2(2+nu*d)**(-1/alpha))*np.exp(-beta*C_D) # Cd*psi
         Ar_star = Ar*(np.log2(2+nu*d)**(-1/alpha))* np.exp(-beta*C_D) # Ar*
-        Ar_star = Ar_star/(acceptance_score(dgbqa_score,e_prime,G_total,True,False))
+        Ar_star = Ar_star/(acceptance_score(dgbqa_score,e_prime,G_total,True,False,
+                                            lambda_scale=lambdaVal,
+                                            kappa=kappaVal))
 
         euclid = euclidean_distance(dgbqa_score,e_prime) # Euclidean distance
         corr = correlation(dgbqa_score,e_prime) # Correlation
@@ -226,7 +234,11 @@ def get_val(embedding,
 def get_params(embedding_list,
                dataset_list,
                var,
-               quantifier):
+               quantifier,
+                kappaVal=1,
+                lambdaVal=2,
+                nuVal=1,
+                betaVal=0.75):
 
     """
     Function to get params
@@ -286,7 +298,11 @@ def get_params(embedding_list,
                             I_total,
                             var,
                             'single',
-                            quantifier=quantifier) # Current value
+                            quantifier=quantifier,
+                            kappaVal=kappaVal,
+                            lambdaVal=lambdaVal,
+                            betaVal=betaVal,
+                            nuVal=nuVal) # Current value
             measure_val.append(val_curr)
 
         if(var == 'full'):
@@ -298,7 +314,11 @@ def get_params(embedding_list,
                             I_total,
                             None,
                             'full',
-                            quantifier=quantifier) # Current value
+                            quantifier=quantifier,
+                            kappaVal=kappaVal,
+                            lambdaVal=lambdaVal,
+                            betaVal=betaVal,
+                            nuVal=nuVal) # Current value
             measure_val.append(val_curr)
 
     return measure_val
@@ -306,7 +326,11 @@ def get_params(embedding_list,
 def select_model(embedding_list,
                  dataset_list,
                  var,
-                 quantifier
+                 quantifier,
+                 kappaVal=1.0,
+                 lambdaVal=2,
+                 betaVal=0.75,
+                 nuVal=1
                  ):
     
     """
@@ -325,7 +349,11 @@ def select_model(embedding_list,
     measure_val = get_params(embedding_list,
                              dataset_list,
                              var,
-                             quantifier)
+                             quantifier,
+                             kappaVal=kappaVal,
+                             lambdaVal=lambdaVal,
+                             betaVal=betaVal,
+                             nuVal=nuVal)
 
     ##### Optimal selection
     if(var in ['R','Ar','ArCd','Ar_psi','Cd_psi','Ar*','corr','DCG','ERR','U','infAp','NegRel','RPP','relEnt']):
