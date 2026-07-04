@@ -103,35 +103,37 @@ def get_val(embedding,
                                     e_prime,
                                     G_total,
                                     False,
-                                    False)
+                                    False,
+                                    lambda_scale=lambdaVal,
+                                    kappa=kappaVal)
         
         if(measure_req == 'ArCd'): # Ar*C_D
-            beta = 0.75
+            beta = betaVal
             C_I, C_D = CGID_Score_Calculator(embedding,y_dev)
-            ArCd = acceptance_score(dgbqa_score,e_prime,G_total,False,False)* np.exp(-beta*C_D)
+            ArCd = acceptance_score(dgbqa_score,e_prime,G_total,False,False,lambda_scale=lambdaVal,kappa=kappaVal)* np.exp(-beta*C_D)
             return ArCd
         
         if(measure_req == 'Ar_psi'): # Ar*psi
-            nu = 1
+            nu = nuVal
             alpha = 2
             d = pattern_match_dist(dgbqa_score,e_prime,G_total)
-            return acceptance_score(dgbqa_score,e_prime,G_total,False,False)*(np.log2(2+nu*d)**(-1/alpha))
+            return acceptance_score(dgbqa_score,e_prime,G_total,False,False,lambda_scale=lambdaVal,kappa=kappaVal)*(np.log2(2+nu*d)**(-1/alpha))
         
         if(measure_req == 'Cd_psi'): # C_D*psi
-            nu = 1
             alpha = 2
-            beta = 0.75
+            nu = nuVal
+            beta = betaVal
             C_I, C_D = CGID_Score_Calculator(embedding,y_dev)
             d = pattern_match_dist(dgbqa_score,e_prime,G_total)
             return (np.log2(2+nu*d)**(-1/alpha))*np.exp(-beta*C_D)
         
         if(measure_req == 'Ar*'): # Full: Ar* x psi x C_D
-            nu = 1
             alpha = 2
-            beta = 0.75
+            nu = nuVal
+            beta = betaVal
             C_I, C_D = CGID_Score_Calculator(embedding,y_dev)
             d = pattern_match_dist(dgbqa_score,e_prime,G_total)
-            return acceptance_score(dgbqa_score,e_prime,G_total,False,False)*(np.log2(2+nu*d)**(-1/alpha))*np.exp(-beta*C_D)
+            return acceptance_score(dgbqa_score,e_prime,G_total,False,False,kappa=kappaVal,lambda_scale=lambdaVal)*(np.log2(2+nu*d)**(-1/alpha))*np.exp(-beta*C_D)
         
         if(measure_req == 'euclid'):
             return euclidean_distance(dgbqa_score,e_prime)
@@ -164,9 +166,9 @@ def get_val(embedding,
             return compute_RPP(dgbqa_score,e_prime,G_total)
 
         if(measure_req == 'relEnt'):
-            beta = 0.75
+            beta = betaVal
             C_I, C_D = CGID_Score_Calculator(embedding,y_dev)
-            return acceptance_score(dgbqa_score,e_prime,G_total,False,True)**np.exp(-beta*C_D)
+            return acceptance_score(dgbqa_score,e_prime,G_total,False,True,lambda_scale=lambdaVal,kappa=kappaVal)**np.exp(-beta*C_D)
         
     if(mode == 'full'): # returns all nine metrics
         alpha = 2
@@ -180,7 +182,8 @@ def get_val(embedding,
                                     e_prime,
                                     G_total,
                                     False,
-                                    True) # Relevance
+                                    True,
+                                    ) # Relevance
         d = pattern_match_dist(dgbqa_score,
                                     e_prime,
                                     G_total) # Pattern match distance
@@ -241,7 +244,7 @@ def get_params(embedding_list,
                 betaVal=0.75):
 
     """
-    Function to get params
+    Function to get measure value for the embedding list
     
     INPUTS:-
     1) embedding_list: The list of embeddings from which the optimal is to be derived
@@ -334,7 +337,7 @@ def select_model(embedding_list,
                  ):
     
     """
-    Function to get optimal model as per metrics
+    Function to get optimal model as per the 'var' metric
     
     INPUTS:-
     1) embedding_list: The list of embeddings from which the optimal is to be derived

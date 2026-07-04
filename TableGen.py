@@ -99,7 +99,6 @@ if(args.dataset == 'soli'):
 
 
 if(args.dataset == 'handlogin'):
-
     embedding_list = ['./Embeddings/MS_ViViT_pt5-pt5_HandLogin.npz',
                         './Embeddings/MS_ViViT_pt5-1_HandLogin.npz',
                         './Embeddings/MS_ViViT_pt5-1pt5_HandLogin.npz',
@@ -418,9 +417,4 @@ if(args.mode == 'stability'):
                 resultFile.write(str(item)+'      ')
             else:
                 resultFile.write(str(item)+'\n')
-
-    
-
-
-    
 

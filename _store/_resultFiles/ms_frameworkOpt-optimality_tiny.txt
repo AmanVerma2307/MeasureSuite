@@ -18,6 +18,7 @@ dgbqa           infAp           ./Embeddings/MS_MF_1-1pt5_Tiny.npz           0.3
 dgbqa           NegRel           ./Embeddings/DGBQA_CGID_Res3D-ViViT_pt5-1_Tiny.npz           0.2451           1.4545           8.4478           2.2668           0.502
 dgbqa           RPP           ./Embeddings/DGBQA_CGID_Res3D-ViViT_pt5-2pt5_Tiny.npz           0.2643           1.2727           8.3498           2.5903           0.4692
 dgbqa           relEnt           ./Embeddings/DGBQA_CGID_Res3D-ViViT_pt5-2pt5_Tiny.npz           0.2643           1.2727           8.3498           2.5903           0.4692
+
 deltaDistance           Ar*           ./Embeddings/DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny.npz           0.2383           1.6364           8.0789           3.4827           0.5408
 deltaDistance           R           ./Embeddings/DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny.npz           0.2383           1.6364           8.0789           3.4827           0.5408
 deltaDistance           psi           ./Embeddings/DGBQA_CGID_Res3D-ViViT_pt5-2pt5_Tiny.npz           0.1389           2.0           7.9444           2.9874           0.4692
@@ -37,6 +38,7 @@ deltaDistance           infAp           ./Embeddings/DGBQA_CGID_Res3D-ViViT_pt5-
 deltaDistance           NegRel           ./Embeddings/MS_MF_1-1pt5_Tiny.npz           0.0471           3.6364           6.0455           5.2918           0.4836
 deltaDistance           RPP           ./Embeddings/DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny.npz           0.2383           1.6364           8.0789           3.4827           0.5408
 deltaDistance           relEnt           ./Embeddings/DGBQA_CGID_Res3D-ViViT_pt5-2pt5_Tiny.npz           0.1389           2.0           7.9444           2.9874           0.4692
+
 masterFace           Ar*           ./Embeddings/DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny.npz           0.3199           1.0909           8.2919           2.8731           0.4881
 masterFace           R           ./Embeddings/DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny.npz           0.3199           1.0909           8.2919           2.8731           0.4881
 masterFace           psi           ./Embeddings/MS_MF_1-2pt5_Tiny.npz           0.1825           2.0           7.644           2.5504           0.478
@@ -56,6 +58,7 @@ masterFace           infAp           ./Embeddings/DGBQA_CGID_Res3D-ViViT_pt5-1_T
 masterFace           NegRel           ./Embeddings/MS_TAM_1-1_Tiny.npz           0.1695           2.0           7.4957           3.8971           0.6514
 masterFace           RPP           ./Embeddings/DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny.npz           0.3199           1.0909           8.2919           2.8731           0.4881
 masterFace           relEnt           ./Embeddings/DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny.npz           0.3199           1.0909           8.2919           2.8731           0.4881
+
 genCapacity           Ar*           ./Embeddings/DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny.npz           0.222           1.4545           7.2666           4.4466           0.5408
 genCapacity           R           ./Embeddings/DGBQA_CGID_Res3D-ViViT_1-1_Tiny.npz           0.2144           1.2727           7.7425           3.2035           0.5151
 genCapacity           psi           ./Embeddings/DGBQA_CGID_Res3D-ViViT_1-1_Tiny.npz           0.2144           1.2727           7.7425           3.2035           0.5151
@@ -75,6 +78,7 @@ genCapacity           infAp           ./Embeddings/MS_TAM_1-1pt5_Tiny.npz       
 genCapacity           NegRel           ./Embeddings/MS_MF_1-1pt5_Tiny.npz           0.1397           2.3636           6.9926           4.5885           0.4836
 genCapacity           RPP           ./Embeddings/MS_MF_1-1pt5_Tiny.npz           0.1397           2.3636           6.9926           4.5885           0.4836
 genCapacity           relEnt           ./Embeddings/DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny.npz           0.1923           1.6364           7.4435           4.3702           0.4881
+
 swipeQuality           Ar*           ./Embeddings/MS_TAM_1-2pt5_Tiny.npz           0.1373           2.9091           7.1167           2.9727           0.5556
 swipeQuality           R           ./Embeddings/MS_TAM_1-2pt5_Tiny.npz           0.1373           2.9091           7.1167           2.9727           0.5556
 swipeQuality           psi           ./Embeddings/MS_TAM_1-2pt5_Tiny.npz           0.1373           2.9091           7.1167           2.9727           0.5556

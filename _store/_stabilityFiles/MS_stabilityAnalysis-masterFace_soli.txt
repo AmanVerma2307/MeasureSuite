@@ -1,2 +1,0 @@
-kappa      lambda      nu      beta      model
-0.01      2.0      1.0      0.75      DGBQA_CGID_Res3D-MF_pt5-1_SOLI
