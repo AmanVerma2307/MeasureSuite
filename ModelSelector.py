@@ -166,9 +166,9 @@ def get_val(embedding,
             return compute_RPP(dgbqa_score,e_prime,G_total)
 
         if(measure_req == 'relEnt'):
-            beta = betaVal
+            beta = 0.75
             C_I, C_D = CGID_Score_Calculator(embedding,y_dev)
-            return acceptance_score(dgbqa_score,e_prime,G_total,False,True,lambda_scale=lambdaVal,kappa=kappaVal)**np.exp(-beta*C_D)
+            return acceptance_score(dgbqa_score,e_prime,G_total,False,True)**np.exp(-beta*C_D)
         
     if(mode == 'full'): # returns all nine metrics
         alpha = 2
@@ -182,8 +182,7 @@ def get_val(embedding,
                                     e_prime,
                                     G_total,
                                     False,
-                                    True,
-                                    ) # Relevance
+                                    True) # Relevance
         d = pattern_match_dist(dgbqa_score,
                                     e_prime,
                                     G_total) # Pattern match distance
