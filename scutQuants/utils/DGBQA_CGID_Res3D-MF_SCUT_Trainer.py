@@ -1,16 +1,13 @@
-####### Importing Libraries
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-plt.switch_backend('agg')
-import tensorflow as tf
 import time
 import argparse
- 
+import numpy as np
+import tensorflow as tf
+from models.motionFormer import *
+from loss.icgd import *
+
 ####### Loading Dataset
-###### Loading Arrays
-X_train = np.load('./Datasets/SCUT/DGBQA-Seen/X_train_DGBQA_Seen_SCUT.npz',allow_pickle=True)['arr_0']
-X_dev = np.load('./Datasets/SCUT/DGBQA-Seen/X_dev_DGBQA_Seen_SCUT.npz',allow_pickle=True)['arr_0']
+X_train = (np.load('./Datasets/SCUT/DGBQA-Seen/X_train_DGBQA_Seen_SCUT.npz',allow_pickle=True)['arr_0'])[:,:-1,:,:,:]
+X_dev = (np.load('./Datasets/SCUT/DGBQA-Seen/X_dev_DGBQA_Seen_SCUT.npz',allow_pickle=True)['arr_0'])[:,:-1,:,:,:]
 y_train = np.load('./Datasets/SCUT/DGBQA-Seen/y_train_DGBQA_Seen_SCUT.npz',allow_pickle=True)['arr_0']
 y_dev = np.load('./Datasets/SCUT/DGBQA-Seen/y_dev_DGBQA_Seen_SCUT.npz',allow_pickle=True)['arr_0']
 y_train_id = np.load('./Datasets/SCUT/DGBQA-Seen/y_train_id_DGBQA_Seen_SCUT.npz',allow_pickle=True)['arr_0']
@@ -60,291 +57,18 @@ parser.add_argument("--local_batch_size",
 parser.add_argument("--exp_name",
                     type=str,
                     help="Name of the Experiment being run, will be used saving the model and correponding outputs")
+parser.add_argument("--numEpochs",
+                    type=int,
+                    default=100,
+                    help="Number of epochs to run")
 
 args = parser.parse_args()
-
-####### Model Making
-
-###### Video Vision Transformer 
-
-##### Tubelet Embedding
-class Tubelet_Embedding(tf.keras.layers.Layer):
-
-    def __init__(self, embed_dim, patch_size):
-
-        #### Defining Essentials
-        super().__init__()
-        self.embed_dim = embed_dim # Embedding Dimensions 
-        self.patch_size = patch_size # A tuple of dimensions - (p_t,p_h,p_w), with each corresponding to patch dimensions
-
-        #### Defining Layers
-        self.embedding_layer =  tf.keras.layers.Conv3D(filters=self.embed_dim,
-                                                        kernel_size=self.patch_size,
-                                                        strides=self.patch_size,
-                                                        padding="VALID") # Tubelet Patch and Embedding Creation Layer
-        self.flatten =  tf.keras.layers.Reshape((-1,self.embed_dim)) # Layer to Flatten the Patches
-
-    def get_config(self):
-        config = super().get_config().copy()
-        config.update({
-            'embed_dim': self.embed_dim,
-            'patch_size': self.patch_size
-        })
-
-    def call(self,X_in):
-
-        """
-        Layer to Project the input spatio-temporal sequence into Tubelet Tokens
-
-        INPUTS:-
-        1) X_in: Input video sequence of dimensions (T,H,W,C)
-
-        OUTPUTS:-
-        1) X_o: Tubelet Embeddings of shape (n_t*n_h*n_w,embed_dim)
-        
-        """
-        #### Tubelet Embedding Creation
-        X_o = self.embedding_layer(X_in) # Embedding Layer
-        X_o = self.flatten(X_o) # Flattening Input
-
-        return X_o
-
-###### Positional Embedding
-class PositionEmbedding(tf.keras.layers.Layer):
-    
-    def __init__(self, maxlen, embed_dim):
-
-        #### Defining Essentials
-        super().__init__()
-        self.maxlen = maxlen # Maximum Signal Length
-        self.embed_dim = embed_dim # Input Embedding Dimensions
-
-        #### Defining Layers
-        self.pos_emb = tf.keras.layers.Embedding(input_dim=maxlen, output_dim=embed_dim)
-
-    def get_config(self):
-        config = super().get_config().copy()
-        config.update({
-            'maxlen': self.maxlen, 
-            'embed_dim': self.embed_dim 
-        })
-        return config 
-
-    def call(self, x):
-        positions = tf.range(start=0, limit=self.maxlen, delta=1)
-        positions = self.pos_emb(positions)
-        return x + positions
-
-###### Encoder Block
-class Encoder(tf.keras.layers.Layer):
-    
-    def __init__(self, d_model, num_heads, dff_dim, rate=0.1):
-
-        #### Defining Essentials
-        super().__init__()
-        self.d_model = d_model # Embedding Dimensions of the Encoder Layer
-        self.num_heads = num_heads # Number of Self-Attention Heads
-        self.dff_dim = dff_dim # Projection Dimensions of Feed-Forward Network
-        self.rate = rate # Dropout Rate
-
-        #### Defining Layers
-        self.att = tf.keras.layers.MultiHeadAttention(num_heads=self.num_heads,key_dim=self.d_model)
-        self.ffn = tf.keras.Sequential([
-            tf.keras.layers.Dense(self.dff_dim, activation="relu"),
-            tf.keras.layers.Dense(self.d_model),
-        ])
-        self.layernorm1 = tf.keras.layers.LayerNormalization(epsilon=1e-6)
-        self.layernorm2 = tf.keras.layers.LayerNormalization(epsilon=1e-6)
-        self.dropout1 = tf.keras.layers.Dropout(self.rate)
-        self.dropout2 = tf.keras.layers.Dropout(self.rate)
-
-    def get_config(self):
-        config = super().get_config().copy()
-        config.update({
-            'd_model': self.d_model, 
-            'num_heads': self.num_heads, 
-            'dff_dim': self.dff_dim,
-            'rate': self.rate
-        })
-        return config 
-
-    def call(self, inputs, training):
-        attn_output = self.att(inputs, inputs)  # self-attention layer
-        attn_output = self.dropout1(attn_output, training=training)
-        out1 = self.layernorm1(inputs + attn_output)  # layer norm
-        ffn_output = self.ffn(out1)  #feed-forward layer
-        ffn_output = self.dropout2(ffn_output, training=training)
-        return self.layernorm2(out1 + ffn_output)  # layer norm
-    
-####### Cross-Gesture Identity-Disentanglement Loss
-
-###### Mask Generation
-
-##### Positive Mask
-@tf.function
-def get_positive_mask(labels):
-    """
-    Return a 2D mask where mask[a, p] is True iff a and p are distinct and have same label.
-    Args:
-        labels: tf.int32 `Tensor` with shape [batch_size]
-    Returns:
-        mask: tf.bool `Tensor` with shape [batch_size, batch_size]
-    """
-    # Check that i and j are distinct
-    indices_equal = tf.cast(tf.eye(labels.shape[0]), tf.bool)
-    indices_not_equal = tf.logical_not(indices_equal)
-
-    # Check if labels[i] == labels[j]
-    # Uses broadcasting where the 1st argument has shape (1, batch_size) and the 2nd (batch_size, 1)
-    labels_equal = tf.equal(tf.expand_dims(labels, 0), tf.expand_dims(labels, 1))
-
-    # Combine the two masks``
-    mask = tf.logical_and(indices_not_equal, labels_equal)
-
-    # label-mask
-    one_vec = tf.ones_like(tf.reshape(labels,(labels.shape[0],1)))
-    zero_mask = tf.linalg.matmul(one_vec,tf.reshape(labels,(labels.shape[0],1)),transpose_b=True)
-
-    # Mask Generation
-    mask = tf.logical_and(mask, tf.cast(zero_mask,dtype=tf.bool))
-
-    return mask
-    
-##### Negative Mask - Different Mask
-@tf.function
-def get_negative_mask(labels):
-    """Return a 2D mask where mask[a, n] is True iff a and n have distinct labels.
-    Args:
-        labels: tf.int32 `Tensor` with shape [batch_size]
-    Returns:
-        mask: tf.bool `Tensor` with shape [batch_size, batch_size]
-    """
-    # Check if labels[i] != labels[k]
-    # Uses broadcasting where the 1st argument has shape (1, batch_size) and the 2nd (batch_size, 1)
-    labels_equal = tf.equal(tf.expand_dims(labels, 0), tf.expand_dims(labels, 1))
-
-    mask = tf.logical_not(labels_equal)
-
-    return mask
-
-###### Loss Function
-class CG_ID_Loss(tf.keras.losses.Loss):
-
-    """
-    Loss to Enforce Identity level gesture disentanglement.
-
-    INPUTS:
-    1) N: Batch-Size
-    2) d: Embedding Dimensions
-    3) I: Total Identities
-    4) G: Total Gestures
-    """
-
-    def __init__(self,N,d,I,G):
-        
-        ##### Defining Essentials
-        super().__init__()
-        self.N = N # Batch Size
-        self.d = d # Embedding Dimensions
-        self.I = I # Total Identities
-        self.G = G # Total Gestures
-
-    def get_config(self):
-
-        config = super().get_config.copy()
-        config.update({
-            'N':self.N,
-            'd':self.d,
-            'I':self.I,
-            'G':self.G
-        })
-        return config
-    
-    @tf.function
-    def call(self,y_stash,f_theta):
-
-        """
-        Enforcing Gramian Matrix to become Identity Matrix, considering L2-Normalized embeddings. 
-
-        INPUTS:-  
-        1) f_theta: Final Embeddings of the embedder; shape=(self.N,self.d)
-        2) y_stash: Vector List:[y_hgr,y_id] with y_hgr.shape=(N,) and y_id being one-hot encoded of shape (self.N,self.I)
-
-        OUTPUTS:-
-        1) loss_batch: Total L-CGID for the Batch
-        """
-        ##### Separating Labels
-        y_hgr = y_stash[:,0] # HGR Labels - Useful for Boolean Mask Creation
-        y_id = y_stash[:,1:] # Identity Labels - Useful for Disentangling Terms Estimation        
-
-        ##### L2-Normalization
-        f_theta = tf.math.l2_normalize(f_theta,axis=1)
-
-        ##### Gramian Matrix Formation
-        G_bar = tf.linalg.matmul(f_theta,f_theta,transpose_b=True)
-
-        ##### Gramian-Matrix Positive Mask
-        zero_matrix = tf.zeros_like(G_bar) # Matrix of all zeros to compare with Gramian Matrix
-        Gamma_bar = tf.cast(tf.math.greater_equal(G_bar,zero_matrix),dtype=tf.float32) # Mask for all the negative values
-
-        ##### Different Gesture Mask Computation
-        delta_bar = get_negative_mask(y_hgr)
-
-        ##### Lower Triangular Matrix
-        LT_Mask = tf.linalg.band_part(tf.ones(shape=G_bar.shape),0,-1) # Lower Triangular Matrix
-
-        ##### Loss Computation
-        #### Defining Essentials
-        Loss_CG_ID = 0 # Loss for the Current Batch
-
-        #### Iterating over the Identities
-        for sub_idx in range(self.I):
-
-            y_id_curr = y_id[:,sub_idx] # Extracting labels for the current identity
-            delta_curr = get_positive_mask(y_id_curr) # Extracting positive mask of the current identity
-            Loss_CG_ID_curr = tf.math.reduce_sum(tf.math.multiply(Gamma_bar,tf.math.abs(tf.math.multiply(tf.math.multiply(tf.cast(LT_Mask,dtype=tf.float32),tf.cast(delta_bar,dtype=tf.float32)),
-                                                                                      tf.math.multiply(tf.cast(delta_curr,dtype=tf.float32),G_bar)))))
-            Normalization_Factor = tf.math.reduce_sum(tf.math.multiply(Gamma_bar,tf.math.multiply(tf.math.multiply(tf.cast(LT_Mask,dtype=tf.float32),tf.cast(delta_bar,dtype=tf.float32)),
-                                                                       tf.cast(delta_curr,dtype=tf.float32)))) 
-            Loss_CG_ID = Loss_CG_ID + (Loss_CG_ID_curr/(Normalization_Factor+1))
-
-        return Loss_CG_ID/self.I       
-
-###### Custom Model Checkpointing
-class ModelCheckpointing_Loss(tf.keras.callbacks.Callback):
-
-    """
-     Callback to save the model with least validation loss
-    """
-
-    def __init__(self,filepath):
-        
-        ##### Defining Essentials    
-        super(ModelCheckpointing_Loss, self).__init__()
-        self.best_loss = np.inf # Initializing with Infinite Loss
-        self.filepath = filepath # Path of the File wherein weights are to be saved
-
-    def on_epoch_begin(self, epoch, logs={}):
-        return
-
-    def on_epoch_end(self, epoch, logs={}):
-
-        #### Logging Current Values
-        loss_curr = logs['val_loss']
-
-        #### Saving Weights
-        if(loss_curr < self.best_loss):
-            self.model.save_weights(self.filepath) # Saving Model
-            self.best_loss = loss_curr # Updating current loss
-
-        else:
-            return
 
 ####### Model Training
 ###### Defining Layers and Model
 
 ###### Defining Essentials
-T = 63
+T = 62
 H = 64
 W = 64
 C_rdi = 1
@@ -355,11 +79,12 @@ dff_dim = 128
 p_t = 5
 p_h = 5
 p_w = 5
-n_t = (((T - p_t)//p_t)+1)
+n_t = int(T/2)
 n_h = (((H - p_h)//p_h)+1)
 n_w = (((W - p_w)//p_w)+1)
-max_seq_len = int(n_t*n_h/2*n_w/2)
-pe_input = int(n_t*n_h/2*n_w/2)
+S = int(n_h/2*n_w/2)
+max_seq_len = n_t*(n_h/2*n_w/2)
+pe_input = n_t*(n_h/2*n_w/2)
 rate = 0.3
 
 ###### Defining Layers
@@ -370,20 +95,21 @@ rate = 0.3
 conv11_rdi = tf.keras.layers.Conv3D(filters=16,kernel_size=(3,3,3),padding='same',activation='relu')
 conv12_rdi = tf.keras.layers.Conv3D(filters=16,kernel_size=(3,3,3),padding='same',activation='relu')
 conv13_rdi = tf.keras.layers.Conv3D(filters=16,kernel_size=(3,3,3),padding='same',activation='relu')
-maxpool_1 = tf.keras.layers.MaxPool3D(pool_size=(1,2,2))
+maxpool_1 = tf.keras.layers.MaxPool3D(pool_size=(2,2,2))
 
 conv21_rdi = tf.keras.layers.Conv3D(filters=32,kernel_size=(3,3,3),padding='same',activation='relu')
 conv22_rdi = tf.keras.layers.Conv3D(filters=32,kernel_size=(3,3,3),padding='same',activation='relu')
 conv23_rdi = tf.keras.layers.Conv3D(filters=32,kernel_size=(3,3,3),padding='same',activation='relu')
 
 ##### ViViT
-tubelet_embedding_layer = Tubelet_Embedding(d_model,(p_t,p_h,p_w))
-positional_embedding_encoder = PositionEmbedding(max_seq_len,d_model)
-enc_block_1 = Encoder(d_model,num_heads,dff_dim,rate)
-enc_block_2 = Encoder(d_model,num_heads,dff_dim,rate)
+patch_embedding_layer = Patch_Embedding(n_t,d_model,(p_h,p_w))
+positional_embedding_encoder = positionalEmbedding_mf(S,n_t,d_model)
+enc_block_1 = MotionFormer_Encoder(num_heads,d_model,dff_dim,n_t,S,rate)
+enc_block_2 = MotionFormer_Encoder(num_heads,d_model,dff_dim,n_t,S,rate)
 
 ###### Defining Model
-with strategy.scope():
+
+with strategy.scope(): # Model Declaration under the scope of Mirrored Strategy
 
     ##### Input Layer
     Input_Layer = tf.keras.layers.Input(shape=(T,H,W,C_rdi))
@@ -392,7 +118,7 @@ with strategy.scope():
 
     #### Res3DNet
     ### Residual Block - 1
-    conv11_rdi = conv11_rdi(Input_Layer) 
+    conv11_rdi = conv11_rdi(Input_Layer)
     conv12_rdi = conv12_rdi(conv11_rdi)
     conv13_rdi = conv13_rdi(conv12_rdi)
     conv13_rdi = tf.keras.layers.Add()([conv13_rdi,conv11_rdi])
@@ -405,7 +131,7 @@ with strategy.scope():
     conv23_rdi = tf.keras.layers.Add()([conv23_rdi,conv21_rdi])
 
     #####  ViViT
-    tubelet_embedding = tubelet_embedding_layer(conv23_rdi)
+    tubelet_embedding = patch_embedding_layer(conv23_rdi)
     tokens = positional_embedding_encoder(tubelet_embedding)
     enc_block_1_op = enc_block_1(tokens)
     enc_block_2_op = enc_block_2(enc_block_1_op)
@@ -434,7 +160,7 @@ model.summary()
 
 ##### Defining Essentials
 #### Training Heuristics
-num_epochs = 150
+num_epochs = args.numEpochs
 batch_size = args.local_batch_size # Local Batch Size
 G_Total = 6 # Total Gestures
 I_Total = 143 # Total Identites
