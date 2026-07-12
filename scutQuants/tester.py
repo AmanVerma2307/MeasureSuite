@@ -1,5 +1,4 @@
 import itertools
-import argparse
 import numpy as np
 import matplotlib.pyplot as plt
 plt.switch_backend('agg')
@@ -8,16 +7,18 @@ from sklearn.manifold import TSNE
 from utils.parser import *
 from model import getModel
 
-####### Loading Dataset
-###### Loading Arrays
-X_train = (np.load('./Datasets/SCUT/DGBQA-Seen/X_train_DGBQA_Seen_SCUT.npz',allow_pickle=True)['arr_0'])[:,:-1,:,:,:]
-X_dev = (np.load('./Datasets/SCUT/DGBQA-Seen/X_dev_DGBQA_Seen_SCUT.npz',allow_pickle=True)['arr_0'])[:,:-1,:,:,:]
-y_train = np.load('./Datasets/SCUT/DGBQA-Seen/y_train_DGBQA_Seen_SCUT.npz',allow_pickle=True)['arr_0']
-y_dev = np.load('./Datasets/SCUT/DGBQA-Seen/y_dev_DGBQA_Seen_SCUT.npz',allow_pickle=True)['arr_0']
-y_train_id = np.load('./Datasets/SCUT/DGBQA-Seen/y_train_id_DGBQA_Seen_SCUT.npz',allow_pickle=True)['arr_0']
-y_dev_id = np.load('./Datasets/SCUT/DGBQA-Seen/y_dev_id_DGBQA_Seen_SCUT.npz',allow_pickle=True)['arr_0']
+args = parseArgs()
 
-X_dev_NonShuffled = (np.load('./Datasets/SCUT/DGBQA-Seen/X_dev_DGBQA_Seen_NonShuffled_SCUT.npz',allow_pickle=True)['arr_0'])[:,:-1,:,:,:] # Non-Shuffled
+####### Loading Dataset
+if(args.modelChoice != 'motionFomrer'):
+    X_dev = (np.load('./Datasets/SCUT/DGBQA-Seen/X_dev_DGBQA_Seen_SCUT.npz',allow_pickle=True)['arr_0'])
+    X_dev_NonShuffled = (np.load('./Datasets/SCUT/DGBQA-Seen/X_dev_DGBQA_Seen_NonShuffled_SCUT.npz',allow_pickle=True)['arr_0'])
+else:
+    X_dev = (np.load('./Datasets/SCUT/DGBQA-Seen/X_dev_DGBQA_Seen_SCUT.npz',allow_pickle=True)['arr_0'])[:,:-1,:,:,:]
+    X_dev_NonShuffled = (np.load('./Datasets/SCUT/DGBQA-Seen/X_dev_DGBQA_Seen_NonShuffled_SCUT.npz',allow_pickle=True)['arr_0'])[:,:-1,:,:,:]
+
+y_dev = np.load('./Datasets/SCUT/DGBQA-Seen/y_dev_DGBQA_Seen_SCUT.npz',allow_pickle=True)['arr_0']
+y_dev_id = np.load('./Datasets/SCUT/DGBQA-Seen/y_dev_id_DGBQA_Seen_SCUT.npz',allow_pickle=True)['arr_0']
 
 ###### Preparing One Hot Vectors
 ##### One Hot Encoding Creation
@@ -35,19 +36,15 @@ def get_ohot(vec):
     return vec_ohot
 
 ##### Extracting One Hot Encoding
-y_train_id_ohot = get_ohot(y_train_id)
 y_dev_id_ohot = get_ohot(y_dev_id)
 
 ##### Joint Label Creation
-y_train_final = np.append(np.append(np.reshape(y_train,(y_train.shape[0],1)),np.reshape(y_train_id,(y_train_id.shape[0],1)),axis=-1),
-                            np.append(np.reshape(y_train,(y_train.shape[0],1)),y_train_id_ohot,axis=-1),axis=-1)
 y_dev_final = np.append(np.append(np.reshape(y_dev,(y_dev.shape[0],1)),np.reshape(y_dev_id,(y_dev_id.shape[0],1)),axis=-1),
                             np.append(np.reshape(y_dev,(y_dev.shape[0],1)),y_dev_id_ohot,axis=-1),axis=-1)
-print(y_train_final.shape,y_dev.shape)
+print(y_dev.shape)
 
 ###### Testing the Model
 strategy = tf.distribute.MirroredStrategy()
-args = parseArgs()
 
 model = getModel(args,strategy)
 model.summary()

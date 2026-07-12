@@ -5,10 +5,16 @@ from utils.parser import *
 from model import getModel
 from loss.icgd import *
 
+args = parseArgs()
+
 ####### Loading Dataset
-###### Loading Arrays
-X_train = np.load('./Datasets/SCUT/DGBQA-Seen/X_train_DGBQA_Seen_SCUT.npz',allow_pickle=True)['arr_0']
-X_dev = np.load('./Datasets/SCUT/DGBQA-Seen/X_dev_DGBQA_Seen_SCUT.npz',allow_pickle=True)['arr_0']
+if(args.modelChoice != 'motionFormer'):
+    X_train = np.load('./Datasets/SCUT/DGBQA-Seen/X_train_DGBQA_Seen_SCUT.npz',allow_pickle=True)['arr_0']
+    X_dev = np.load('./Datasets/SCUT/DGBQA-Seen/X_dev_DGBQA_Seen_SCUT.npz',allow_pickle=True)['arr_0']
+else:
+    X_train = np.load('./Datasets/SCUT/DGBQA-Seen/X_train_DGBQA_Seen_SCUT.npz',allow_pickle=True)['arr_0'][:,:-1,:,:,:]
+    X_dev = np.load('./Datasets/SCUT/DGBQA-Seen/X_dev_DGBQA_Seen_SCUT.npz',allow_pickle=True)['arr_0'][:,:-1,:,:,:]
+    
 y_train = np.load('./Datasets/SCUT/DGBQA-Seen/y_train_DGBQA_Seen_SCUT.npz',allow_pickle=True)['arr_0']
 y_dev = np.load('./Datasets/SCUT/DGBQA-Seen/y_dev_DGBQA_Seen_SCUT.npz',allow_pickle=True)['arr_0']
 y_train_id = np.load('./Datasets/SCUT/DGBQA-Seen/y_train_id_DGBQA_Seen_SCUT.npz',allow_pickle=True)['arr_0']
@@ -42,7 +48,6 @@ print(y_train_final.shape,y_dev.shape)
 
 ###### Training the Model
 strategy = tf.distribute.MirroredStrategy()
-args = parseArgs()
 
 model = getModel(args,strategy)
 model.summary()
@@ -308,10 +313,6 @@ for epoch_num in range(num_epochs):
     print('Training ID Accuracy: '+str(float(acc_epoch_id/Total_Training_Examples)))
     print('Val HGR Accuracy: '+str(float(val_acc_epoch_hgr/Total_Val_Examples)))
     print('Val ID Accuracy: '+str(float(val_acc_epoch_id/Total_Val_Examples)))
-
-#history = model.fit(X_train,(y_train,y_train_id,tf.stack([y_train,y_train_id],axis=-1)),epochs=200,batch_size=32,
-#                validation_data=(X_dev,(y_dev,y_dev_id,tf.stack([y_train,y_train_id],axis=-1))),validation_batch_size=32,
-#                   callbacks=checkpoint)
 
 ##### Saving Training History
 np.save('./Model History/'+args.exp_name+'_TrainLoss.npy',np.array(train_loss,dtype=float))
