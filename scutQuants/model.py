@@ -8,22 +8,20 @@ def getModel(args, strategy):
     H = 64
     W = 64
     C_rdi = 1
-    num_layers = 2
     d_model = 32
     num_heads = 16
     dff_dim = 128
     p_t = 5
     p_h = 5
     p_w = 5
-    n_h = (((H - p_h)//p_h)+1)
-    n_w = (((W - p_w)//p_w)+1)
-    max_seq_len = n_t*(n_h/2*n_w/2)
-    pe_input = n_t*(n_h/2*n_w/2)
     rate = 0.3
 
     if(args.modelChoice == 'vivit'):
         T = 63
+        n_h = (((H - p_h)//p_h)+1)
+        n_w = (((W - p_w)//p_w)+1)
         n_t = (((T - p_t)//p_t)+1)
+        max_seq_len = n_t*(n_h/2*n_w/2)
   
         #### Res3DNet
         conv11_rdi = tf.keras.layers.Conv3D(filters=16,kernel_size=(3,3,3),padding='same',activation='relu')
@@ -84,8 +82,11 @@ def getModel(args, strategy):
 
     if(args.modelChoice == 'motionFormer'):
         T = 62
+        n_h = (((H - p_h)//p_h)+1)
+        n_w = (((W - p_w)//p_w)+1)
         n_t = int(T/2)
         S = int(n_h/2*n_w/2)
+        max_seq_len = n_t*(n_h/2*n_w/2)
         
         #### Res3DNet
         conv11_rdi = tf.keras.layers.Conv3D(filters=16,kernel_size=(3,3,3),padding='same',activation='relu')
@@ -152,8 +153,6 @@ def getModel(args, strategy):
         p_w = 4
         n_t = (((T - p_t)//p_t)+1)
         max_seq_len = int(n_t*(n_h)*(n_w))
-        pe_input = n_t*n_h*n_w
-        expansion_ratio = 4
         rate = 0.3
 
         #### Res3DNet
@@ -228,7 +227,7 @@ def getModel(args, strategy):
             dense2_hgr = tf.keras.layers.Dense(6,activation='softmax')(dense1)
 
             #### ID Output
-            dense2_id = tf.keras.layers.Dense(143,activation='softmax')(dense1)
+            dense2_id = tf.keras.layers.Dense(10,activation='softmax')(dense1)
 
             ###### Compiling Model
             model = tf.keras.models.Model(inputs=Input_Layer,outputs=[dense2_hgr,dense2_id,dense1])

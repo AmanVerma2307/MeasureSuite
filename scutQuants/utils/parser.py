@@ -20,6 +20,10 @@ def parseArgs():
                         type=int,
                         default=100,
                         help="Number of epochs to run")
+    parser.add_argument("--modelChoice",
+                        type=str,
+                        default='vivit',
+                        help="Number of epochs to run")
 
     args = parser.parse_args()
 
