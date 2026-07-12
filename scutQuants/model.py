@@ -18,10 +18,10 @@ def getModel(args, strategy):
 
     if(args.modelChoice == 'vivit'):
         T = 63
-        n_h = (((H - p_h)//p_h)+1)
-        n_w = (((W - p_w)//p_w)+1)
-        n_t = (((T - p_t)//p_t)+1)
-        max_seq_len = n_t*(n_h/2*n_w/2)
+        n_h = int(((H - p_h)//p_h)+1)
+        n_w = int(((W - p_w)//p_w)+1)
+        n_t = int(((T - p_t)//p_t)+1)
+        max_seq_len = int(n_t*(n_h/2*n_w/2))
   
         #### Res3DNet
         conv11_rdi = tf.keras.layers.Conv3D(filters=16,kernel_size=(3,3,3),padding='same',activation='relu')
@@ -82,11 +82,11 @@ def getModel(args, strategy):
 
     if(args.modelChoice == 'motionFormer'):
         T = 62
-        n_h = (((H - p_h)//p_h)+1)
-        n_w = (((W - p_w)//p_w)+1)
+        n_h = int(((H - p_h)//p_h)+1)
+        n_w = int(((W - p_w)//p_w)+1)
         n_t = int(T/2)
         S = int(n_h/2*n_w/2)
-        max_seq_len = n_t*(n_h/2*n_w/2)
+        max_seq_len = int(n_t*(n_h/2*n_w/2))
         
         #### Res3DNet
         conv11_rdi = tf.keras.layers.Conv3D(filters=16,kernel_size=(3,3,3),padding='same',activation='relu')
@@ -151,7 +151,9 @@ def getModel(args, strategy):
         p_t = 2
         p_h = 4
         p_w = 4
-        n_t = (((T - p_t)//p_t)+1)
+        n_h = int(((H - p_h)//p_h)+1)
+        n_w = int(((W - p_w)//p_w)+1)
+        n_t = int(((T - p_t)//p_t)+1)
         max_seq_len = int(n_t*(n_h)*(n_w))
         rate = 0.3
 
@@ -227,9 +229,23 @@ def getModel(args, strategy):
             dense2_hgr = tf.keras.layers.Dense(6,activation='softmax')(dense1)
 
             #### ID Output
-            dense2_id = tf.keras.layers.Dense(10,activation='softmax')(dense1)
+            dense2_id = tf.keras.layers.Dense(143,activation='softmax')(dense1)
 
             ###### Compiling Model
             model = tf.keras.models.Model(inputs=Input_Layer,outputs=[dense2_hgr,dense2_id,dense1])
 
     return model
+
+
+if __name__ == "__main__":
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--modelChoice",
+                        type=str,
+                        default='vivit',
+                        help="Number of epochs to run")
+    args = parser.parse_args()
+
+    strategy = tf.distribute.MirroredStrategy()
+    model = getModel(args,strategy)
+    model.summary()
