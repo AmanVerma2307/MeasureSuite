@@ -10,6 +10,7 @@ kappa      lambda      nu      beta      model
 2.0      2.0      1.0      0.75      MS_MF_1-1pt5_Tiny
 3.0      2.0      1.0      0.75      MS_MF_1-1pt5_Tiny
 4.0      2.0      1.0      0.75      MS_MF_1-1pt5_Tiny
+
 1.0      0.01      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-1_Tiny
 1.0      0.05      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-1_Tiny
 1.0      0.1      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-1_Tiny
@@ -21,6 +22,7 @@ kappa      lambda      nu      beta      model
 1.0      2.0      1.0      0.75      MS_MF_1-1pt5_Tiny
 1.0      3.0      1.0      0.75      MS_MF_1-1pt5_Tiny
 1.0      4.0      1.0      0.75      MS_TAM_1-2pt5_Tiny
+
 1.0      2.0      0.01      0.75      MS_MF_1-1pt5_Tiny
 1.0      2.0      0.05      0.75      MS_MF_1-1pt5_Tiny
 1.0      2.0      0.1      0.75      MS_MF_1-1pt5_Tiny
@@ -32,6 +34,7 @@ kappa      lambda      nu      beta      model
 1.0      2.0      2.0      0.75      MS_MF_1-1pt5_Tiny
 1.0      2.0      3.0      0.75      MS_MF_1-1pt5_Tiny
 1.0      2.0      4.0      0.75      MS_MF_1-1pt5_Tiny
+
 1.0      2.0      1.0      0.01      MS_MF_1-1pt5_Tiny
 1.0      2.0      1.0      0.05      MS_MF_1-1pt5_Tiny
 1.0      2.0      1.0      0.1      MS_MF_1-1pt5_Tiny

@@ -10,7 +10,7 @@ from model import getModel
 args = parseArgs()
 
 ####### Loading Dataset
-if(args.modelChoice != 'motionFomrer'):
+if(args.modelChoice != 'motionFormer'):
     X_dev = (np.load('./Datasets/SCUT/DGBQA-Seen/X_dev_DGBQA_Seen_SCUT.npz',allow_pickle=True)['arr_0'])
     X_dev_NonShuffled = (np.load('./Datasets/SCUT/DGBQA-Seen/X_dev_DGBQA_Seen_NonShuffled_SCUT.npz',allow_pickle=True)['arr_0'])
 else:
@@ -57,12 +57,12 @@ def normalisation_layer(x):
     return(tf.math.l2_normalize(x, axis=1, epsilon=1e-12))
 
 ###### Extracting Model Outputs
-g_hgr, g_id, f_theta = model.predict(X_dev,batch_size=8*strategy.num_replicas_in_sync)
+g_hgr, g_id, f_theta = model.predict(X_dev,batch_size=args.local_batch_size*strategy.num_replicas_in_sync)
 f_theta_norm =  tf.keras.layers.Lambda(normalisation_layer)(f_theta)
 f_theta_norm = f_theta_norm.numpy()
 G_bar = np.matmul(f_theta_norm,f_theta_norm.T) # Gram-Matrix
 
-g_hgr_nonshuffled, g_id_nonshuffled, f_theta_nonshuffled = model.predict(X_dev_NonShuffled,batch_size=8*strategy.num_replicas_in_sync)
+g_hgr_nonshuffled, g_id_nonshuffled, f_theta_nonshuffled = model.predict(X_dev_NonShuffled,batch_size=args.local_batch_size*strategy.num_replicas_in_sync)
 f_theta_nonshuffled_norm = tf.keras.layers.Lambda(normalisation_layer)(f_theta_nonshuffled)
 f_theta_nonshuffled_norm = f_theta_nonshuffled_norm.numpy()
 G_bar_nonshuffled = np.matmul(f_theta_nonshuffled_norm,f_theta_nonshuffled_norm.T) # Gram-Matrix
