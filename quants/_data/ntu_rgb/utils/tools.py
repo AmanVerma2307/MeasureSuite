@@ -1,57 +1,6 @@
 import numpy as np
 
-def read_skeleton(file):
-    with open(file, 'r') as f:
-        skeleton_sequence = {}
-        skeleton_sequence['numFrame'] = int(f.readline())
-        skeleton_sequence['frameInfo'] = []
-        for t in range(skeleton_sequence['numFrame']):
-            frame_info = {}
-            frame_info['numBody'] = int(f.readline())
-            frame_info['bodyInfo'] = []
-            for m in range(frame_info['numBody']):
-                body_info = {}
-                body_info_key = [
-                    'bodyID', 'clipedEdges', 'handLeftConfidence',
-                    'handLeftState', 'handRightConfidence', 'handRightState',
-                    'isResticted', 'leanX', 'leanY', 'trackingState'
-                ]
-                body_info = {
-                    k: float(v)
-                    for k, v in zip(body_info_key, f.readline().split())
-                }
-                body_info['numJoint'] = int(f.readline())
-                body_info['jointInfo'] = []
-                for v in range(body_info['numJoint']):
-                    joint_info_key = [
-                        'x', 'y', 'z', 'depthX', 'depthY', 'colorX', 'colorY',
-                        'orientationW', 'orientationX', 'orientationY',
-                        'orientationZ', 'trackingState'
-                    ]
-                    joint_info = {
-                        k: float(v)
-                        for k, v in zip(joint_info_key, f.readline().split())
-                    }
-                    body_info['jointInfo'].append(joint_info)
-                frame_info['bodyInfo'].append(body_info)
-            skeleton_sequence['frameInfo'].append(frame_info)
-    return skeleton_sequence
-
-
-def read_xyz(file, max_body=2, num_joint=25):
-    seq_info = read_skeleton(file)
-    data = np.zeros((3, seq_info['numFrame'], num_joint, max_body))
-    for n, f in enumerate(seq_info['frameInfo']):
-        for m, b in enumerate(f['bodyInfo']):
-            for j, v in enumerate(b['jointInfo']):
-                if m < max_body and j < num_joint:
-                    data[:, n, j, m] = [v['x'], v['y'], v['z']]
-                else:
-                    pass
-    return data
-
-
-def _read_skeleton(file_path, save_skelxyz=True, save_rgbxy=True, save_depthxy=True):
+def read_skeleton(file_path, save_skelxyz=True, save_rgbxy=True, save_depthxy=True):
     f = open(file_path, 'r')
     datas = f.readlines()
     f.close()
@@ -114,7 +63,30 @@ def _read_skeleton(file_path, save_skelxyz=True, save_rgbxy=True, save_depthxy=T
                 del bodymat['depth_body{}'.format(each)]
     return bodymat 
 
+def load_missing_file(path):
+    missing_files = dict()
+    with open(path, 'r') as f:
+        lines = f.readlines()
+        for line in lines:
+            line = line[:-1]
+            if line not in missing_files:
+                missing_files[line] = True 
+    return missing_files 
 
 if __name__ == "__main__":
-    skateSamp = _read_skeleton('./data/S001C001P001R001A001.skeleton')
-    print(skateSamp['skel_body0'].shape)
+
+    import matplotlib.pyplot as plt
+    import plotly.graph_objects as go
+
+    missingFile = load_missing_file('./utils/missingSkeletons.txt')
+    skateSamp = read_skeleton('./data/S001C001P001R001A001.skeleton')['skel_body0']
+
+    fig= go.Figure(go.Scatter3d(x=skateSamp[50,:,1],
+                            y=skateSamp[50,:,2],
+                            z=skateSamp[50,:,0], 
+                            mode='lines', 
+                            line_width=2, 
+                            line_color='blue'))
+    fig.update_layout(width=600, height=600)
+    fig.show()
+
