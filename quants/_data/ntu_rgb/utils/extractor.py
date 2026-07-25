@@ -150,18 +150,3 @@ if(args.mode == 'analyzer'):
         print(dataMat)
         plotGramMatrix(dataMat >= 6)
 
-
-
-
-
-
-
-
-
-
-
-        
-
-
-
-    

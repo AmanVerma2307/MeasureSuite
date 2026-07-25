@@ -73,20 +73,76 @@ def load_missing_file(path):
                 missing_files[line] = True 
     return missing_files 
 
+
+def makeDict():
+
+    """
+    Function to create data dictionaries for both the sets
+
+    OUTPUTS:-
+    1) dataDict: Dictionary containing dictionary of action and identity values as keys and labels as values
+    """
+
+    action_ntu60 = {'A027':0,
+                    'A007':1,
+                    'A035':2,
+                    'A028':3,
+                    'A033':4,
+                    'A049':5}
+    
+    action_ntu120 = {'A099':0,
+                     'A098':1,
+                     'A102':2,
+                     'A069':3}
+
+    id_ntu60 = {}
+    id_ntu120 = {'P006':0,
+                 'P008':1,
+                 'P011':2}
+
+    for id in range(1,41):
+        if(id <= 9):
+            idVal = 'P00'+str(id)
+            id_ntu60.update({idVal:(id-1)})
+        else:
+            idVal = 'P0'+str(id)
+            id_ntu60.update({idVal:(id-1)})
+
+    for idx, id in enumerate(np.arange(41,107)):
+        if(id <= 99):
+            idVal = 'P0'+str(id)
+            id_ntu120.update({idVal:idx+3})
+        else:
+            idVal = 'P'+str(id)
+            id_ntu120.update({idVal:idx+3})
+
+    return {'ntu_60':{'action':action_ntu60,
+                      'id':id_ntu60},
+            'ntu_120':{'action':action_ntu120,
+                       'id':id_ntu120}
+            }
+
 if __name__ == "__main__":
 
-    import matplotlib.pyplot as plt
-    import plotly.graph_objects as go
+    dataDict = makeDict()
+    print(dataDict.items())
+    print(dataDict['ntu_60']['action'],
+          dataDict['ntu_60']['id'],
+          dataDict['ntu_120']['action'],
+          dataDict['ntu_120']['id'])
 
-    missingFile = load_missing_file('./utils/missingSkeletons.txt')
-    skateSamp = read_skeleton('./data/S001C001P001R001A001.skeleton')['skel_body0']
+    # import matplotlib.pyplot as plt
+    # import plotly.graph_objects as go
 
-    fig= go.Figure(go.Scatter3d(x=skateSamp[50,:,1],
-                            y=skateSamp[50,:,2],
-                            z=skateSamp[50,:,0], 
-                            mode='lines', 
-                            line_width=2, 
-                            line_color='blue'))
-    fig.update_layout(width=600, height=600)
-    fig.show()
+    # missingFile = load_missing_file('./utils/missingSkeletons.txt')
+    # skateSamp = read_skeleton('./data/S001C001P001R001A001.skeleton')['skel_body0']
+
+    # fig= go.Figure(go.Scatter3d(x=skateSamp[50,:,1],
+    #                         y=skateSamp[50,:,2],
+    #                         z=skateSamp[50,:,0], 
+    #                         mode='lines', 
+    #                         line_width=2, 
+    #                         line_color='blue'))
+    # fig.update_layout(width=600, height=600)
+    # fig.show()
 
