@@ -125,7 +125,6 @@ if(args.mode == 'analyzer'):
         plt.show()
 
     if(args.analyzeMode == 'countSubjectsActions'):
-
         subjectList = []
         for file in reqFiles:
             if(file[8:12] not in subjectList):
