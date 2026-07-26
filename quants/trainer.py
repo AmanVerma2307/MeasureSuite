@@ -38,6 +38,20 @@ if(args.dataset == 'soli'):
     G = 11
     I = 10
 
+if(args.dataset in ['ntu_60', 'ntu_120']):
+    T = args.ntu_numFrames
+    H = None
+    W = None
+    C = None
+
+    if(args.dataset == 'ntu_60'):
+        G = 6
+        I = 40
+
+    if(args.dataset == 'ntu_120'):
+        G = 4
+        I = 69
+
 train_dataLoader, test_dataLoader = dataLoader(args)
 
 model = quantModel(args,

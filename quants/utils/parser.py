@@ -38,6 +38,12 @@ def parse():
                         default=False,
                         help="Shuffling in the dataset")
 
+    #### NTU arguments
+    parser.add_argument('--ntu_numFrames',
+                        type=int,
+                        default=120,
+                        help="Total number of frames in ntu dataset")
+
     #### Model arguments
     parser.add_argument('--model',
                         type=str,

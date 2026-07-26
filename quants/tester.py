@@ -42,8 +42,30 @@ if(args.dataset == 'soli'):
     y_dev = np.load('./_data/soli/data/y_dev_DGBQA-Seen_SOLI.npz',allow_pickle=True)['arr_0']
     y_dev_id = np.load('./_data/soli/data/y_dev_DGBQA-Seen_SOLI.npz',allow_pickle=True)['arr_0']
 
+if(args.dataset in ['ntu_60', 'ntu_120']):
+    T = args.ntu_numFrames
+    H = None
+    W = None
+    C = None
+
+    if(args.dataset == 'ntu_60'):
+        G = 6
+        I = 40
+        cm_plot_labels = ['Jump up','Throw','Nod head','Make a phone call','Check time','Use a fan']
+        colors = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd","#8c564b"]
+        
+    if(args.dataset == 'ntu_120'):
+        G = 4
+        I = 69
+        m_plot_labels = ['Running on the spot','Arm swings','Nod head','Side kick','Thumbs up']
+        colors = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728"]
+
+    y_dev = np.load('./_data/ntu_rgb/dataProcessed/y_dev_non-idf_T'+str(args.ntu_numFrames)+'_'+str(args.dataset)+'.npz')['arr_0']
+    y_dev_id = np.load('./_data/ntu_rgb/dataProcessed/y_dev_id_non-idf_T'+str(args.ntu_numFrames)+'_'+str(args.dataset)+'.npz')['arr_0']
+
+    
 train_dataLoader, test_dataLoader = dataLoader(args)
-train_dataLoader_ns, test_dataLoader_ns = dataloader_nonShuffled(args)
+test_dataLoader_ns = dataloader_nonShuffled(args)
 
 model = quantModel(args,
                    T=T,
