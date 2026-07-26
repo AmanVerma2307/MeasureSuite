@@ -46,7 +46,3 @@ for actionIdx, actionVal in enumerate(actionLabels): # Iteration over actions
                 X_train.append(collector[itemIdx])
                 y_train.append(actionIdx)
                 y_train_id.append(subjectIdx)
-
-
-print(X_train)
-print(X_dev)
