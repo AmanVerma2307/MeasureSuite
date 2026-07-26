@@ -1,5 +1,6 @@
 run/
-quants/_data
+quants/_data/soli
 quants/_run
 quants/_store
-scutQuants/_run
+quants/_data/ntu_rgb/data/
+quants/_data/ntu_rgb/dataProcessed/

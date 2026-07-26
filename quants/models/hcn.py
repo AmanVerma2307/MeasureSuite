@@ -23,7 +23,7 @@ class HCN(nn.Module):
                  num_joint=25,
                  num_person=1,
                  out_channel=64,
-                 window_size=64
+                 window_size=120
                  ):
         super(HCN, self).__init__()
         self.num_person = num_person
@@ -115,10 +115,10 @@ class HCN(nn.Module):
 if __name__ == "__main__":
 
     device = torch.device('cuda:0')
-    input = torch.randn(size=(100,3,64,25,1)).to(device)
+    input = torch.randn(size=(100,3,120,25,1)).to(device)
 
     model = HCN()
     model.to(device)
 
     op = model(input)
-    print(op.size())
+    print(op.size(),print(op))

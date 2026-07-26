@@ -288,7 +288,7 @@ class SkateFormerBlockDS(nn.Module):
 class SkateFormerStage(nn.Module):
     def __init__(
             self, depth, in_channels, out_channels, first_depth=False,
-            num_points=50, kernel_size=7, num_heads=32,
+            num_points=25, kernel_size=7, num_heads=32,
             type_1_size=(1, 1), type_2_size=(1, 1), type_3_size=(1, 1), type_4_size=(1, 1),
             attn_drop=0., drop=0., rel=True, drop_path=0., mlp_ratio=4.,
             act_layer=nn.GELU, norm_layer_transformer=nn.LayerNorm):
@@ -332,9 +332,9 @@ class SkateFormer(nn.Module):
                  depths=(2, 2, 2, 2),
                  channels=(96, 192, 192, 192), 
                  num_classes=60,
-                 embed_dim=64, 
+                 embed_dim=120, 
                  num_people=1, 
-                 num_frames=64, 
+                 num_frames=120, 
                  num_points=25, 
                  kernel_size=7, 
                  num_heads=32,
@@ -468,10 +468,10 @@ def SkateFormer_(**kwargs):
 if __name__ == "__main__":
 
     device = torch.device('cuda:0')
-    input = torch.randn(size=(100,3,64,25,1)).to(device)
+    input = torch.randn(size=(100,3,120,25,1)).to(device)
 
     model = SkateFormer_()
     model.to(device)
 
     op = model(input)
-    print(op.size())
+    print(op.size(),print(op))
