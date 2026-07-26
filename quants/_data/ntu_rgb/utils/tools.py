@@ -125,6 +125,37 @@ def makeDict():
                        'id':id_ntu120}
             }
 
+
+def processSkeleton(filePath,
+                    numFrames,
+                    numJoints=25,
+                    numSubjects=1):
+
+    """
+    Function to process skeleton
+
+    INPUTS:-
+    1) filePath: Path to input skeleton files
+    2) numFrames: Number of frames in the input
+    3) numJoints: Total number of joints
+    4) numSubjects: Total number of subjects, Default: 1
+
+    OUTPUTS:-
+    1) sample: Processed output sample of shape - (3,numFrames,numJoints,numPerson)
+    """
+
+    sample = read_skeleton(filePath)['skel_body0']
+
+    if(sample.shape[0] <= numFrames):
+        sample = np.concatenate((sample,np.zeros((numFrames-sample.shape[0],numJoints,3))),axis=0)
+
+    if(sample.shape[0] > numFrames):
+        sample = sample[:numFrames]
+
+    sample = np.expand_dims(sample,axis=-1)
+    sample = np.transpose(sample,(2,0,1,3))
+    return sample
+
 if __name__ == "__main__":
 
     dataDict = makeDict()
@@ -139,6 +170,8 @@ if __name__ == "__main__":
 
     # missingFile = load_missing_file('./utils/missingSkeletons.txt')
     # skateSamp = read_skeleton('./data/S001C001P001R001A001.skeleton')['skel_body0']
+    sample = processSkeleton('./data/S001C001P001R001A027.skeleton',numFrames=120)
+    print(sample.shape)
 
     # fig= go.Figure(go.Scatter3d(x=skateSamp[50,:,1],
     #                         y=skateSamp[50,:,2],

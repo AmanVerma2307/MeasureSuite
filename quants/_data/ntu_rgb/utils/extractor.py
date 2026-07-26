@@ -145,15 +145,37 @@ if(args.mode == 'analyzer'):
 
         dataMat = np.zeros(shape=(106,10))
         for file in reqFiles:
-            currSubject = int(file[9:12])-1
-            currAction = classMapping[(file[16:20])]
-            dataMat[currSubject, currAction] = dataMat[currSubject, currAction] + 1
+
+            if(file in ['S005C002P010R001A049.skeleton', 
+                        'S005C002P018R001A028.skeleton',
+                        'S007C003P027R002A007.skeleton',
+                        'S008C003P007R001A028.skeleton',
+                        'S008C003P025R002A049.skeleton',
+                        'S009C002P017R001A028.skeleton',
+                        'S019C002P042R001A098.skeleton',
+                        'S019C002P042R001A099.skeleton',
+                        'S024C002P067R001A099.skeleton',
+                        'S024C002P067R001A099.skeleton',
+                        'S028C003P046R001A102.skeleton',
+                        'S028C003P046R001A102.skeleton',
+                        'S019C002P042R001A102.skeleton',
+                        'S024C002P067R001A099.skeleton',
+                        'S024C002P067R001A102.skeleton',
+                        'S028C003P046R002A069.skeleton',
+                        'S031C002P067R001A069.skeleton',
+                        'S031C003P082R002A069.skeleton'
+                            ]):
+                pass
+            else:
+                currSubject = int(file[9:12])-1
+                currAction = classMapping[(file[16:20])]
+                dataMat[currSubject, currAction] = dataMat[currSubject, currAction] + 1
   
         print(dataMat)
         plotGramMatrix(dataMat >= 6)
 
     if(args.analyzeMode == 'countFrames'):
-        frameCount = np.zeros(shape=(150,1))
+        frameCount = np.zeros(shape=(200,1))
 
         for idx, fileName in enumerate(reqFiles):
             print('idx: '+str(idx+1)+' file: '+str(fileName))
@@ -180,10 +202,13 @@ if(args.mode == 'analyzer'):
             else:
                 itemCurr = read_skeleton('./data/'+fileName)['skel_body0']
                 frames = itemCurr.shape[0]
-                if(frames > (149)):
-                    frames = 149
+                if(frames > (199)):
+                    frames = 199
                 frameCount[frames,0] = frameCount[frames,0] + 1
 
-        print(np.mean(frameCount),np.std(frameCount))
-        plt.bar(np.arange(1,151),frameCount[:,0])
+        print(np.mean(frameCount),np.std(frameCount),np.max(frameCount),np.min(frameCount),
+              np.percentile(frameCount,q=95),
+              np.percentile(frameCount,q=90),
+              np.percentile(frameCount,q=80))
+        plt.bar(np.arange(1,201),frameCount[:,0])
         plt.show()
