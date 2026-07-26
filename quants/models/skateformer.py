@@ -437,8 +437,8 @@ class SkateFormer(nn.Module):
         return output
 
     def forward(self, input, index_t=False):
-        B, C, T, V = input.shape
-        output = input
+        B, C, T, V, M = input.shape
+        output = input.permute(0, 1, 2, 4, 3).contiguous().view(B, C, T, -1)  # [B, C, T, M * V]
         for layer in self.stem:
             output = layer(output)
         if self.index_t:
@@ -468,7 +468,7 @@ def SkateFormer_(**kwargs):
 if __name__ == "__main__":
 
     device = torch.device('cuda:0')
-    input = torch.randn(size=(100,3,64,25)).to(device)
+    input = torch.randn(size=(100,3,64,25,1)).to(device)
 
     model = SkateFormer_()
     model.to(device)
