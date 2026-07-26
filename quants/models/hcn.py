@@ -3,7 +3,7 @@
 @time: 18-4-16 下午6:51
 Permission is given to modify the code, any problem please contact huguyuehuhu@gmail.com
 """
-import numpy as np
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -27,6 +27,7 @@ class HCN(nn.Module):
                  ):
         super(HCN, self).__init__()
         self.num_person = num_person
+        self.embedDims = 512
         # position
         self.conv1 = nn.Sequential(
             nn.Conv2d(in_channels=in_channel,out_channels=out_channel,kernel_size=1,stride=1,padding=0),

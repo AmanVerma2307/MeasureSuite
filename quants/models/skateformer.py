@@ -361,6 +361,7 @@ class SkateFormer(nn.Module):
         self.head_drop = head_drop
         self.index_t = index_t
         self.embed_dim = embed_dim
+        self.embedDims = 192
 
         if self.head_drop != 0:
             self.dropout = nn.Dropout(p=self.head_drop)
@@ -456,8 +457,9 @@ class SkateFormer(nn.Module):
         return output.mean(dim=(2, 3))
 
 
-def SkateFormer_(**kwargs):
+def SkateFormer_(T=120,**kwargs):
     return SkateFormer(
+        num_frames=T,
         depths=(2, 2, 2, 2),
         channels=(96, 192, 192, 192),
         embed_dim=96,

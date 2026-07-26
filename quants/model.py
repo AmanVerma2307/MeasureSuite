@@ -4,6 +4,8 @@ from models.vivit import *
 from models.i3d import *
 from models.fstanet import *
 from models.videomae import *
+from models.skateformer import *
+from models.hcn import *
 
 def getModel(args,
              T,
@@ -14,28 +16,38 @@ def getModel(args,
     Function to get model
     """
 
-    if(args.model == 'vivit'):
-        model = res3dViViT(input_dim=args.input_dim,
-                           patch_size=[args.patchSizeT,args.patchSizeH,args.patchSizeW],
-                           T=T,
-                           H=H,
-                           W=W,
-                           C=C,
-                           d_model=args.d_model,
-                           num_heads=args.numHeads,
-                           dff=args.dff,
-                           rate=args.vivit_rate,
-                           num_encoders=args.numEncoders,
-                           )
-        
-    if(args.model == 'i3d'):
-         model = i3d()
+    if(args.dataset not in ['ntu_60', 'ntu_120']):
 
-    if(args.model == 'fstanet'):
-         model = fsta(T)
+        if(args.model == 'vivit'):
+            model = res3dViViT(input_dim=args.input_dim,
+                            patch_size=[args.patchSizeT,args.patchSizeH,args.patchSizeW],
+                            T=T,
+                            H=H,
+                            W=W,
+                            C=C,
+                            d_model=args.d_model,
+                            num_heads=args.numHeads,
+                            dff=args.dff,
+                            rate=args.vivit_rate,
+                            num_encoders=args.numEncoders,
+                            )
+            
+        if(args.model == 'i3d'):
+            model = i3d()
 
-    if(args.model == 'videomae'):
-         model = videomae(modelStyle="B")
+        if(args.model == 'fstanet'):
+            model = fsta(T)
+
+        if(args.model == 'videomae'):
+            model = videomae(modelStyle="B")
+
+    if(args.dataset in ['ntu_60', 'ntu_120']):
+
+        if(args.model == 'skateformer'):
+            model = SkateFormer_(T=T)
+
+        if(args.model == 'hcn'):
+            model = HCN(window_size=T)
 
     total_params = sum(p.numel() for p in model.parameters())
     print('++++++++++++++++++')
@@ -71,7 +83,7 @@ class quantModel(torch.nn.Module):
         self.W = W # Input width dimensions
         self.C = C # Number of channels in the input
 
-        if(self.args.RGB == 1):
+        if(self.args.RGB == 1 or self.args.dataset in ['ntu_60','nntu_120']):
             self.backbone = getModel(self.args,
                                      T=T,
                                      H=H,
@@ -153,6 +165,9 @@ if __name__ == "__main__":
     parser.add_argument('--model',
                         type=str,
                         default="fstanet")
+    parser.add_argument('--dataset',
+                        type=str,
+                        default='soli')
     parser.add_argument('--RGB',
                         type=int,
                         default=1,
@@ -170,7 +185,14 @@ if __name__ == "__main__":
     args = parser.parse_args()
     device = torch.device('cuda:0')
 
-    model = quantModel(args,64,128,128,3,10,11).to(device)
-    input = torch.randn(size=(2,3,64,128,128)).to(device)
-    op1, op2, op3 = model(input)
-    print(op1.size(),op2.size(),op3.size())
+    if(args.dataset not in ['ntu_60', 'ntu_120']):
+        model = quantModel(args,64,128,128,3,10,11).to(device)
+        input = torch.randn(size=(2,3,64,128,128)).to(device)
+        op1, op2, op3 = model(input)
+        print(op1.size(),op2.size(),op3.size())
+
+    if(args.dataset in ['ntu_60', 'ntu_120']):
+        model = quantModel(args,T=120,H=None,W=None,C=3,G=6,I=40).to(device)
+        input = torch.randn(size=(100,3,120,25,1)).to(device)
+        op1, op2, op3 = model(input)
+        print(op1.size(),op2.size(),op3.size())
