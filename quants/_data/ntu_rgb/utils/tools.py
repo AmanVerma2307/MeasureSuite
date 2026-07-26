@@ -10,12 +10,14 @@ def read_skeleton(file_path, save_skelxyz=True, save_rgbxy=True, save_depthxy=Tr
     # specify the maximum number of the body shown in the sequence, according to the certain sequence, need to pune the 
     # abundant bodys. 
     # read all lines into the pool to speed up, less io operation. 
+    
     nframe = int(datas[0][:-1])
     bodymat = dict()
     bodymat['file_name'] = file_path[-29:-9]
     nbody = int(datas[1][:-1])
     bodymat['nbodys'] = [] 
     bodymat['njoints'] = njoints 
+
     for body in range(max_body):
         if save_skelxyz:
             bodymat['skel_body{}'.format(body)] = np.zeros(shape=(nframe, njoints, 3))
@@ -23,6 +25,7 @@ def read_skeleton(file_path, save_skelxyz=True, save_rgbxy=True, save_depthxy=Tr
             bodymat['rgb_body{}'.format(body)] = np.zeros(shape=(nframe, njoints, 2))
         if save_depthxy:
             bodymat['depth_body{}'.format(body)] = np.zeros(shape=(nframe, njoints, 2))
+
     # above prepare the data holder
     cursor = 0
     for frame in range(nframe):
