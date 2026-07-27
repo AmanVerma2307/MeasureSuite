@@ -10,7 +10,7 @@ def getScheduler(optimizer,args):
         if(args.lrScheduler_mode == 'step'):
             return torch.optim.lr_scheduler.StepLR(optimizer,step_size=10,gamma=args.lrScheduler_stepGamma)
         if(args.lrScheduler_mode == 'multiStep'):
-            return torch.optim.MultiStepLR(optimizer,milestones=[20,40,50,60,80,90], gamma=args.lrScheduler_stepGamma)
+            return torch.optim.lr_scheduler.MultiStepLR(optimizer,milestones=[20,40,60,80], gamma=args.lrScheduler_stepGamma)
         if(args.lrScheduler_mode == 'exponential'):
             return torch.optim.lr_scheduler.ExponentialLR(optimizer, gamma=0.95)
         if(args.lrScheduler_mode == 'plateau'):
