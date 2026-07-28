@@ -57,7 +57,7 @@ if(args.dataset in ['ntu_60', 'ntu_120']):
     if(args.dataset == 'ntu_120'):
         G = 4
         I = 69
-        m_plot_labels = ['Running on the spot','Arm swings','Nod head','Side kick','Thumbs up']
+        cm_plot_labels = ['Running on the spot','Arm swings','Side kick','Thumbs up']
         colors = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728"]
 
     y_dev = np.load('./_data/ntu_rgb/dataProcessed/y_dev_non-idf_T'+str(args.ntu_numFrames)+'_'+str(args.dataset)+'.npz')['arr_0']
