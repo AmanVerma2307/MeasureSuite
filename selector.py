@@ -1,4 +1,3 @@
-####### Importing Libraries
 import numpy as np
 import pandas as pd
 from src.DGBQA_Score import gbqa_delta_dist_compute
@@ -18,7 +17,7 @@ def get_val(embedding,
             I_total,
             measure_req,
             mode,
-            quantifier,
+            quantifier='dgbqa',
             kappaVal=1,
             lambdaVal=2,
             nuVal=1,
@@ -236,11 +235,11 @@ def get_val(embedding,
 def get_params(embedding_list,
                dataset_list,
                var,
-               quantifier,
-                kappaVal=1,
-                lambdaVal=2,
-                nuVal=1,
-                betaVal=0.75):
+               quantifier='dgbqa',
+               kappaVal=1,
+               lambdaVal=2,
+               nuVal=1,
+               betaVal=0.75):
 
     """
     Function to get measure value for the embedding list
