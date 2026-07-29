@@ -3,7 +3,7 @@ sys.path.insert(1,'./')
 
 import numpy as np
 import matplotlib.pyplot as plt
-from hyperparameter import get_nar
+from utils.hyperparameter import get_nar
 
 ####### Testing
 #embedding_list = ['./Embeddings/DGBQA_CGID_Res3D-ViViT_1pt5-pt5_SOLI.npz',

@@ -2,7 +2,7 @@ import sys
 sys.path.insert(1,'./')
 import numpy as np
 import matplotlib.pyplot as plt
-from selector import get_val
+from utils.selector import get_val
 
 ####### Plot generation
 

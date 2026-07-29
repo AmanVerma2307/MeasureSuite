@@ -1,7 +1,7 @@
 import sys
 sys.path.insert(1,'./')
 
-from hyperparameter import get_nar
+from utils.hyperparameter import get_nar
 
 embedding_list = ['./Embeddings/MS_ViViT_pt5-pt5_HandLogin.npz',
                   './Embeddings/Test/DGBQA_CGID_Res3D-MF_1-pt5_HandLogin.npz',

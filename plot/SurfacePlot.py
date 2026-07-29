@@ -3,7 +3,7 @@ sys.path.insert(1,'./')
 
 import numpy as np
 import matplotlib.pyplot as plt
-from hyperparameter import compute_acceptance
+from utils.hyperparameter import compute_acceptance
 
 ####### Surface Plot
 def get_nar(embedding_list,
