@@ -1,8 +1,8 @@
-####### Importing Libraries
-import os
+import sys
+sys.path.insert(1,'./')
 import numpy as np
 import matplotlib.pyplot as plt
-from ModelSelector import get_val
+from selector import get_val
 
 ####### Plot generation
 
@@ -52,7 +52,8 @@ for embedding_path in embedding_list_full:
                               G_total,
                               I_total,
                               'r',
-                              'full'))
+                              'full',
+                              quantifier='dgbqa'))
 
 data_store = np.array(data_store) 
 measure_count = int(data_store.shape[-1])

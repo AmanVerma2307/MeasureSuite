@@ -1,4 +1,6 @@
-####### Importing Libraries
+import sys
+sys.path.insert(1,'./')
+
 import numpy as np
 import matplotlib.pyplot as plt
 from hyperparameter import get_nar

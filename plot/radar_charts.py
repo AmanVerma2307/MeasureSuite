@@ -1,9 +1,10 @@
-####### Importing Libraries
-import os
+import sys
+sys.path.insert(1,'./')
+
 import numpy as np
 import matplotlib.pyplot as plt
 from RadarPlot import get_data, radar_factory
-from ModelSelector import select_model
+from selector import select_model
 
 ####### Plotting
 alpha = 2

@@ -2,7 +2,7 @@ import argparse
 import numpy as np
 import matplotlib.pyplot as plt
 from src.quantifiers import *
-from ModelSelector import get_val, select_model
+from selector import get_val, select_model
 
 ###### Selecting model embeddings
 parser = argparse.ArgumentParser()

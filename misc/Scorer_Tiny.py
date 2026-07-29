@@ -1,7 +1,6 @@
-######## Importing libraries
-import os                                                                                                         
-import gc
-import math
+import sys
+sys.path.insert(1,'./')
+
 import argparse
 import numpy as np
 from sklearn.preprocessing import normalize as norm

@@ -1,6 +1,6 @@
-####### Importing Libraries
-import numpy as np
-import matplotlib.pyplot as plt
+import sys
+sys.path.insert(1,'./')
+
 from hyperparameter import get_nar
 
 embedding_list = ['./Embeddings/MS_ViViT_pt5-pt5_HandLogin.npz',

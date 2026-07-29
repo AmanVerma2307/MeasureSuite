@@ -1,5 +1,6 @@
-####### Importing Libraries
-import os
+import sys
+sys.path.insert(1,'./')
+
 import numpy as np
 import matplotlib.pyplot as plt
 from src.DGBQA_Score import gbqa_delta_dist_compute

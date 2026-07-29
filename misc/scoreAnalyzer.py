@@ -1,3 +1,6 @@
+import sys
+sys.path.insert(1,'./')
+
 import argparse
 import numpy as np
 import matplotlib.pyplot as plt
@@ -137,6 +140,8 @@ def plotScores(score1,
     plt.show()
 
 if __name__ == "__main__":
+
+    print(True)
     
     if(args.mode == 'scorePlots'):
         plotScores(score1,

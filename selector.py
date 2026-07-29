@@ -7,7 +7,7 @@ from src.RankDeviation import avg_rank_deviation
 from src.AcceptanceScore import acceptance_score
 from src.PatternMatchDistance import pattern_match_dist
 from src.quantifiers import *
-from ComparisonMeasures import *
+from src.measures import *
 
 ####### Model selection
 def get_val(embedding,

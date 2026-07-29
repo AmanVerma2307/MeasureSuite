@@ -1,9 +1,7 @@
-####### Importing Libraries
-import os
-import argparse
+import sys
+sys.path.insert(1,'./')
+
 import numpy as np
-import tensorflow as tf
-import matplotlib.pyplot as plt
 from matplotlib.patches import Circle, RegularPolygon
 from matplotlib.path import Path
 from matplotlib.projections import register_projection
