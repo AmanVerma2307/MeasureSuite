@@ -35,6 +35,9 @@ parser.add_argument('--initCorrFile',
 parser.add_argument('--nameCorrFile',
                     type=str,
                     help="Name of the CorrFile for storing correlation results")
+parser.add_argument('--corrPath',
+                    type=str,
+                    help="Name of the experiment for plotting Correlation plot")
 parser.add_argument('--baPath',
                     type=str,
                     help="Name of the experiment for plotting Baldman-Altman plot")
@@ -48,12 +51,14 @@ labels = {'r':'$\\mathcal{r}$',
             'Cd':'$C_{d}$',
             'Ar_star':'$nAr^{*}(\Delta)$',
             'euclid':'Euclidean dist.',
+            'corr':'Correlation',
             'Kendall':'$\\tau$',
-            'DCG':'nDCG',
+            'DCG':'DCG',
             'err':'err',
             'U':'U measure',
             'gre':'GRE',
             'infAp':'infAp',
+            'neg_rel':'Negative Relevance',
             'rpp':'RPP'}
 colors = {'soli':0,
           'handlogin':1,
@@ -77,7 +82,8 @@ if(args.mode == 'corrPlots'):
                   color=rocket[colors[args.dataset]])
     plt.xlabel(labels[args.measure1],fontsize=14)
     plt.ylabel(labels[args.measure2],fontsize=14)
-    plt.show()
+    plt.savefig('./_store/_graphs/_corrPlots/'+args.corrPath+'.png')
+    plt.close()
 
 if(args.mode == 'corrQuants'):
         corrVal_spear, pVal_spear = scipy.stats.spearmanr(df[args.measure1].values[:],
@@ -95,14 +101,14 @@ if(args.mode == 'corrQuants'):
         entries = [args.dataset,
                    args.measure1,
                    args.measure2,
-                   corrVal_spear,
-                   pVal_spear,
-                   corrVal_kend,
-                   pVal_kend]
+                   np.round(corrVal_spear,4),
+                   np.round(pVal_spear,4),
+                   np.round(corrVal_kend,4),
+                   np.round(pVal_kend,4)]
 
         if(args.initCorrFile == 1):
             corrFile = open('./_store/_corrFiles/'+args.nameCorrFile+'.txt','w')
-            for idx, item in enumerate(labels):
+            for idx, item in enumerate(heads):
                 if(idx in [0,1,2,3,4,5]):
                     corrFile.write(str(item)+'      ')
                 else:
@@ -114,7 +120,7 @@ if(args.mode == 'corrQuants'):
                 else:
                     corrFile.write(str(item)+'\n')
 
-        if(args.initCorrFile == 1):
+        if(args.initCorrFile == 0):
             corrFile = open('./_store/_corrFiles/'+args.nameCorrFile+'.txt','a')
             for idx, item in enumerate(entries):
                 if(idx in [0,1,2,3,4,5]):
@@ -125,4 +131,4 @@ if(args.mode == 'corrQuants'):
 if(args.mode == 'blandAltman'):
     pyCompare.blandAltman(df[args.measure1].values[:],
                           df[args.measure2].values[:],
-                          savePath='./_store/graphs/_blandAltman'+args.baPath+'.png')
+                          savePath='./_store/_graphs/_blandAltman/'+args.baPath+'.png')
