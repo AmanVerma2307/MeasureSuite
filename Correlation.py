@@ -12,6 +12,10 @@ parser.add_argument('--dataset',
                     type=str,
                     default='soli',
                     help="Dataset to be analyzed")
+parser.add_argument("--bdbMode",
+                    type=str,
+                    default='Acc',
+                    help="bdb sensor to be used.")
 parser.add_argument('--mode',
                     type=str,
                     default='corrPlots',
