@@ -1,2 +1,2 @@
 Quantifier             Metric             selectedModel                                  nAr*             r             R             Psi             Cd
-dgbqa           Ar*           ./Embeddings/MS_MViT_pt5-1_SOLI.npz           26.315           0.8182           8.6974           1.638           0.1233
+genCapacity           Ar*           ./Embeddings/bdb/idf_vanilla_lgtranet_k3-5_1-pt5-1_sensorGyro_bdb.npz           0.0971           1.75           2.067           3.2496           0.1321

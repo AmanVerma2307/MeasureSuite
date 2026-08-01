@@ -191,12 +191,10 @@ if(args.mode == "comparison"):
                 'full',
                 quantifier=args.quantifier)
     print('nAr*: '+str(val[8]))
-
     print('Rank deviation: '+str(val[0]))
     print('Relevance: '+str(val[1]))
     print('Trend deviation: '+str(val[2]))
     print('Entanglement: '+str(val[3]))
-
 
     titles = ['Quantifier',
             'Metric',
@@ -209,7 +207,7 @@ if(args.mode == "comparison"):
     entries = [str(args.quantifier),
             str(args.metric),
             str(model),
-            str(round(val[4],4)),
+            str(round(val[8],4)),
             str(round(val[0],4)),
             str(round(val[1],4)),
             str(round(val[2],4)),

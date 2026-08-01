@@ -49,13 +49,15 @@ def dgbqa(embeddings,g_id,num_subjects,y_dev,y_dev_id):
                     dist_store_s.append(dist_curr) # Appending the Computed Distance to dist_curr
 
         #### Computing Maximal Distance for the Current Gesture and Subject
-        d_cs_curr = np.max(dist_store_s)
-        d_cs.append(d_cs_curr) # Storing Values
+        if(len(dist_store_s) >= 1):
+            d_cs_curr = np.max(dist_store_s)
+            d_cs.append(d_cs_curr) # Storing Values
 
         ##### Inter-Subject Distance
         #### Subject's Gesture Centroid
-        emb_avg_s_curr = np.average(embedding_store_s,axis=0) # Subject Specific Gesture Centroid
-        emb_avg_s.append(emb_avg_s_curr)
+        if(len(embedding_store_s) >= 1):
+            emb_avg_s_curr = np.average(embedding_store_s,axis=0) # Subject Specific Gesture Centroid
+            emb_avg_s.append(emb_avg_s_curr)
 
     ###### Computing Avg. Maximal Intra-Subject Distance
     d_cs_avg = np.average(d_cs)
@@ -83,6 +85,8 @@ def dgbqa(embeddings,g_id,num_subjects,y_dev,y_dev_id):
     dgbqa_score_wo = math.exp(d_c_star - d_cs_avg)
 
     return dgbqa_score, d_c_star, d_cs_avg, dgbqa_score_wo
+
+
 
 def deltaDistance(embeddings,g_id,num_subjects,y_dev,y_dev_id):
 
@@ -128,14 +132,17 @@ def deltaDistance(embeddings,g_id,num_subjects,y_dev,y_dev_id):
                     dist_store_s.append(dist_curr) # Appending the Computed Distance to dist_curr
 
         ##### Computing Maximal Distance for the Current Gesture and Subject
-        d_cs_curr = np.max(dist_store_s)
-        d_cs.append(d_cs_curr) # Storing Values
+        if(len(dist_store_s) >= 1):
+            d_cs_curr = np.max(dist_store_s)
+            d_cs.append(d_cs_curr) # Storing Values
 
     ###### Computing Delta Distance
     d_c = np.max(d_cs) # Maximal Distance Amongst all the Subjects
     delta_dist = np.average(np.abs(d_cs - d_c)/d_c) # Averaging Computed Delta Distance Per Subject
     
     return delta_dist
+
+
 
 def masterFace(d_c_star,d_size): 
 
@@ -152,6 +159,8 @@ def masterFace(d_c_star,d_size):
 
     MasterFace_Capacity = np.exp((d_size*(0.993 - 0.436*(1-d_c_star))+3.701-3.706*(1 - d_c_star)))
     return MasterFace_Capacity
+
+
 
 def generativeCapacity(embeddings,
                        y_dev,
@@ -252,10 +261,11 @@ def generativeCapacity(embeddings,
                 if(id_store[item_idx] == id_idx): # Identity Match-found
                     X_id_store.append(item) # Storing the Feature
 
-            #### Estimation of Intra-Gesture Intra-Id Angular Spread
-            g_id_angle_curr,_,_ = get_cosine_bounds(np.array(X_id_store))
-            g_id_angle_curr = (g_id_angle_curr/2)*(np.pi/180)    
-            g_id_angle_store.append(g_id_angle_curr)
+            if(len(X_id_store) >= 2): # Adding condition to  check if there are enough samples per subject for that gesture
+                #### Estimation of Intra-Gesture Intra-Id Angular Spread
+                g_id_angle_curr,_,_ = get_cosine_bounds(np.array(X_id_store))
+                g_id_angle_curr = (g_id_angle_curr/2)*(np.pi/180)    
+                g_id_angle_store.append(g_id_angle_curr)
 
         g_id_angle_curr_overall = np.average(g_id_angle_store) # Avg. Angular Spread of all the Identities within the gesture under consideration
         g_id_angle.append(g_id_angle_curr_overall) # Storing in Global List
@@ -265,6 +275,8 @@ def generativeCapacity(embeddings,
         Capacity_Value.append(capacity_curr) # Storing Values
 
     return Capacity_Value[g_id]
+
+
 
 def swipeQuality(embeddings, 
                  y, 
@@ -310,6 +322,8 @@ def swipeQuality(embeddings,
         quality_val.append(quality_val_curr)
             
     return quality_val[g_id]
+
+
 
 def distinctiveness(embeddings, y, y_id, num_gestures, num_id):
 
