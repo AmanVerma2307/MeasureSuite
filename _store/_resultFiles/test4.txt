@@ -1,2 +1,2 @@
 Quantifier             Metric             selectedModel                                  nAr*             r             R             Psi             Cd
-dgbqa           Ar*           ./Embeddings/ntu/ms_hcn_1-2-1pt5-multiStepmin3_ntu60.npz           18.1542           0.6667           5.445           2.2037           0.2136
+dgbqa           Ar*           ./Embeddings/MS_MViT_pt5-1_SOLI.npz           26.315           0.8182           8.6974           1.638           0.1233
