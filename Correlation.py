@@ -20,6 +20,10 @@ parser.add_argument('--mode',
                     type=str,
                     default='corrPlots',
                     help="Mode of correlation analysis")
+parser.add_argument('--quantifier',
+                    type=str,
+                    default='dgbqa',
+                    help="The quantifier to be used for score generation")
 parser.add_argument('--measure1',
                     type=str,
                     default='r',
@@ -44,7 +48,7 @@ parser.add_argument('--corrPath',
                     help="Name of the experiment for plotting Correlation plot")
 parser.add_argument('--baPath',
                     type=str,
-                    help="Name of the experiment for plotting Baldman-Altman plot")
+                    help="Name of the experiment for plotting Bland-Altman plot")
 
 args = parser.parse_args()
 
@@ -72,9 +76,16 @@ colors = {'soli':0,
           'ntu_60':5,
           'ntu_120':5}
 
+if(args.dataset in ['bdb','ntu_60','ntu_120'] and args.quantifier == 'masterFace'):
+    normalize = 0
+else:
+    normalize = 1
+
 measureVal = get_params(embeddingList,
                         datasetList,
-                        'full')
+                        'full',
+                        quantifier=args.quantifier,
+                        normalize=normalize)
 df = make_df(np.array(measureVal))
 
 if(args.mode == 'corrPlots'):

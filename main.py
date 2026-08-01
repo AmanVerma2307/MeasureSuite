@@ -50,7 +50,6 @@ parser.add_argument('--nuVal',
                     default=1.0,
                     help="nu parameter of nAr*")
 
-
 args = parser.parse_args()
 
 ##### Defining essentials
@@ -171,12 +170,17 @@ if(args.dataset== 'ntu_120'):
 
     eer_values = list(100 - np.array([88.03,91.25,85.18,65.18]))
 
+if(args.dataset in ['bdb','ntu_60','ntu_120'] and args.quantifier == 'masterFace'):
+    normalize = 0
+else:
+    normalize = 1
 
 if(args.mode == "comparison"):
     model = select_model(embedding_list,
                         dataset_list,
                         args.metric,
-                        quantifier=args.quantifier)
+                        quantifier=args.quantifier,
+                        normalize=normalize)
     print(model)
 
     embedding = np.load(model)['arr_0']
@@ -189,7 +193,9 @@ if(args.mode == "comparison"):
                 I_total,
                 None,
                 'full',
-                quantifier=args.quantifier)
+                quantifier=args.quantifier,
+                normalize=normalize)
+    
     print('nAr*: '+str(val[8]))
     print('Rank deviation: '+str(val[0]))
     print('Relevance: '+str(val[1]))
@@ -362,7 +368,8 @@ if(args.mode == 'stability'):
                                 kappaVal=args.kappaVal,
                                 lambdaVal=args.lambdaVal,
                                 nuVal=args.nuVal,
-                                betaVal=args.betaVal)
+                                betaVal=args.betaVal,
+                                normalize=normalize)
     
     labels = ['kappa','lambda','nu','beta','model']
     entries = [args.kappaVal,

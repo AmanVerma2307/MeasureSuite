@@ -1,2 +1,2 @@
 Quantifier             Metric             selectedModel                                  nAr*             r             R             Psi             Cd
-genCapacity           Ar*           ./Embeddings/bdb/idf_vanilla_lgtranet_k3-5_1-pt5-1_sensorGyro_bdb.npz           0.0971           1.75           2.067           3.2496           0.1321
+masterFace           Ar*           ./Embeddings/ntu/ms_skateformer_1-pt5-pt5-multiStepmin3_ntu120.npz           0.251           0.5           3.3661           8.9159           0.1384

@@ -21,7 +21,8 @@ def get_val(embedding,
             kappaVal=1,
             lambdaVal=2,
             nuVal=1,
-            betaVal=0.75):
+            betaVal=0.75,
+            normalize=1):
     
     """
     Function to seek a particular measure
@@ -67,12 +68,14 @@ def get_val(embedding,
 
     dgbqa_score = np.array(dgbqa_score) # Array Formation
     dgbqa_score = (dgbqa_score - np.mean(dgbqa_score))/np.std(dgbqa_score) # Mean Normalization
-    dgbqa_score = dgbqa_score/np.linalg.norm(dgbqa_score) # L2-Normalization
+    if(normalize == 1):
+        dgbqa_score = dgbqa_score/np.linalg.norm(dgbqa_score) # L2-Normalization
 
     ##### Ground truth equal error rates
     e_prime = 100 - np.array(eer_values)
     e_prime = (e_prime - np.mean(e_prime))/np.std(e_prime)
-    e_prime = e_prime/np.linalg.norm(e_prime)
+    if(normalize == 1):
+       e_prime = e_prime/np.linalg.norm(e_prime)
 
     ##### Metric computation
     if(mode == 'single'): # Only one metric is required:
@@ -239,7 +242,8 @@ def get_params(embedding_list,
                kappaVal=1,
                lambdaVal=2,
                nuVal=1,
-               betaVal=0.75):
+               betaVal=0.75,
+               normalize=1):
 
     """
     Function to get measure value for the embedding list
@@ -249,6 +253,7 @@ def get_params(embedding_list,
     2) dataset_list: Corresponding list of the dataset
     3) var: 'full' or a metric
     4) quantifier: The choice of quantifier
+    5) normalize: If l2 normalization is to be performed over the dgbqa scores
 
     OUPUTS:-
     1) measure_val: Measurment values
@@ -386,7 +391,8 @@ def get_params(embedding_list,
                             kappaVal=kappaVal,
                             lambdaVal=lambdaVal,
                             betaVal=betaVal,
-                            nuVal=nuVal) # Current value
+                            nuVal=nuVal,
+                            normalize=normalize) # Current value
             measure_val.append(val_curr)
 
         if(var == 'full'):
@@ -402,7 +408,8 @@ def get_params(embedding_list,
                             kappaVal=kappaVal,
                             lambdaVal=lambdaVal,
                             betaVal=betaVal,
-                            nuVal=nuVal) # Current value
+                            nuVal=nuVal,
+                            normalize=normalize) # Current value
             measure_val.append(val_curr)
 
     return measure_val
@@ -414,7 +421,8 @@ def select_model(embedding_list,
                  kappaVal=1.0,
                  lambdaVal=2,
                  betaVal=0.75,
-                 nuVal=1
+                 nuVal=1,
+                 normalize=1
                  ):
     
     """
@@ -425,6 +433,7 @@ def select_model(embedding_list,
     2) dataset_list: Corresponding list of the dataset
     3) var: The measure upon which optimal is to be derived
     4) quantifier: The quantifier to be used for scoring
+    5) normalize: If True, l2 normalization will be performed 
 
     OUPUTS:-
     1) opt_model: The optimal model/models
@@ -437,7 +446,8 @@ def select_model(embedding_list,
                              kappaVal=kappaVal,
                              lambdaVal=lambdaVal,
                              betaVal=betaVal,
-                             nuVal=nuVal)
+                             nuVal=nuVal,
+                             normalize=normalize)
 
     ##### Optimal selection
     if(var in ['R','Ar','ArCd','Ar_psi','Cd_psi','Ar*','corr','DCG','ERR','U','infAp','NegRel','RPP','relEnt']):
