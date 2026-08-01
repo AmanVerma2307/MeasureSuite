@@ -56,8 +56,9 @@ args = parser.parse_args()
 ##### Defining essentials
 if(args.dataset in ['soli','handlogin','tiny','scut','ntu_60','ntu_120']):
     embedding_list, dataset_list = retList(args.dataset)
-else:
-    embedding_list, dataset_list = retList(args.dataset,bdbMode='bdb'+str(args.bdbMode))
+if(args.dataset == 'bdb'):
+    embedding_list, dataset_list = retList(args.dataset,
+                                           bdbMode=str(args.bdbMode))
 
 if(args.dataset == 'soli'):
     y_dev = np.load('./Embeddings/y_dev_DeltaDistance_SOLI.npz')['arr_0']
@@ -94,6 +95,7 @@ if(args.dataset == 'scut'):
     y_dev_id = np.load('./Embeddings/y_dev_id_DGBQA_Seen_SCUT.npz')['arr_0']
     G_total = 6
     I_total = 143
+    labels = ['Fist','Rotate to Fist','Catch and Release','Four Fingers','Bend Four Fingers','Fist Opening']
 
     e1_val = 100 - 11.41
     e2_val = 100 - 3.293 
@@ -109,38 +111,65 @@ if(args.dataset == 'bdb'):
     y_dev_id = np.load('./Embeddings/y_dev_id_sensor_'+args.bdbMode.lower()+'_seqLen150_bdb.npz')['arr_0']
     G_total = 4
     I_total = 51
+    labels = ['keystroke','read text','gallery','tap']
 
     if(args.bdbMode == 'Acc'):
-        eer_values = 100 - []
-
-    if(args.bdbMode == 'Gyro'):
-        eer_values = 100 - []
+        e1_val = 61.80
+        e2_val = 55.39
+        e1 = np.array([66.23, 58.61, 62.08, 60.27])
+        e2 = np.array([56.22, 52.92, 51.45, 60.98])
+        eer_values = (e1_val*e1 + e2_val*e2)/(e1+e2)
+        eer_values = list(100 - eer_values)
 
     if(args.bdbMode == 'Grav'):
-        eer_values = 100 - []
+        e1_val = 60.61
+        e2_val = 56.35
+        e1 = np.array([63.84, 57.28, 60.47, 60.83])
+        e2 = np.array([59.43, 56.31, 53.77, 55.88])
+        eer_values = (e1_val*e1 + e2_val*e2)/(e1+e2)
+        eer_values = list(100 - eer_values)
+
+    if(args.bdbMode == 'Gyro'):
+        e1_val = 62.86
+        e2_val = 57.80
+        e1 = np.array([66.47, 59.66, 60.75, 64.56])
+        e2 = np.array([58.89, 50.78, 60.53, 60.98])
+        eer_values = (e1_val*e1 + e2_val*e2)/(e1+e2)
+        eer_values = list(100 - eer_values)
 
     if(args.bdbMode == 'Accl'):
-        eer_values = 100 - []
+        e1_val = 73.03
+        e2_val = 60.06
+        e1 = np.array([79.25, 64.72, 77.50, 70.66])
+        e2 = np.array([67.28, 53.33, 63.73, 55.88])
+        eer_values = (e1_val*e1 + e2_val*e2)/(e1+e2)
+        eer_values = list(100 - eer_values)
 
     if(args.bdbMode == 'Magn'):
-        eer_values = 100 - []
+        e1_val = 75.43
+        e2_val = 55.60
+        e1 = np.array([81.55, 72.39, 75.20, 72.58])
+        e2 = np.array([60.27, 50.67, 57.36, 54.08])
+        eer_values = (e1_val*e1 + e2_val*e2)/(e1+e2)
+        eer_values = list(100 - eer_values)
 
 if(args.dataset== 'ntu_60'):
-    y_dev = np.load('./Embeddings/y_dev_non-idf_T120_ntu_60.npz.npz')['arr_0']
+    y_dev = np.load('./Embeddings/y_dev_non-idf_T120_ntu_60.npz')['arr_0']
     y_dev_id = np.load('./Embeddings/y_dev_id_non-idf_T120_ntu_60.npz')['arr_0']
     G_total = 6
     I_total = 40
+    labels = ['Jump up','Throw','Nod head','Make a phone call','Check time','Use a fan']
 
-    eer_values = 100 - []
+    eer_values = list(100 - np.array([88.96,87.25,67.03,63.11,62.22,60.37]))
 
-if(args.dataset== 'ntu_60'):
-    y_dev = np.load('./Embeddings/y_dev_non-idf_T120_ntu_120.npz.npz')['arr_0']
+if(args.dataset== 'ntu_120'):
+    y_dev = np.load('./Embeddings/y_dev_non-idf_T120_ntu_120.npz')['arr_0']
     y_dev_id = np.load('./Embeddings/y_dev_id_non-idf_T120_ntu_120.npz')['arr_0']
     G_total = 4
     I_total = 69
+    labels = ['Running on the spot','Arm swings','Side kick','Thumbs up']
 
-    eer_values = 100 - []
-
+    eer_values = list(100 - np.array([88.03,91.25,85.18,65.18]))
 
 
 if(args.mode == "comparison"):

@@ -164,7 +164,7 @@ if(args.mode == 'analyzer'):
                         'S028C003P046R002A069.skeleton',
                         'S031C002P067R001A069.skeleton',
                         'S031C003P082R002A069.skeleton'
-                            ]):
+                        ]):
                 pass
             else:
                 currSubject = int(file[9:12])-1

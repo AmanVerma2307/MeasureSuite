@@ -48,7 +48,7 @@ parser.add_argument('--baPath',
 
 args = parser.parse_args()
 
-embeddingList, datasetList = retList(args.dataset)
+embeddingList, datasetList = retList(args.dataset,args.bdbMode)
 labels = {'r':'$\\mathcal{r}$',
            'relevance':'R',
             'psi':'$\\psi$',
@@ -135,4 +135,4 @@ if(args.mode == 'corrQuants'):
 if(args.mode == 'blandAltman'):
     pyCompare.blandAltman(df[args.measure1].values[:],
                           df[args.measure2].values[:],
-                          savePath='./_store/_graphs/_blandAltman/'+args.baPath+'.png')
+                         savePath='./_store/_graphs/_blandAltman/'+args.baPath+'.png')

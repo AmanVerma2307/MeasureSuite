@@ -269,12 +269,14 @@ def get_params(embedding_list,
             I_total = 10
             eer_values = [15.60,14.33,8.98,14.33,4.83,4.74,7.13,7.60,8.15,5.94,18.63]
 
+
         if(dataset_curr == 'HandLogin'):
             y_dev = np.load('./Embeddings/y_dev_DGBQA_Seen_HandLogin.npz')['arr_0']
             y_dev_id = np.load('./Embeddings/y_dev_id_DGBQA_Seen_HandLogin.npz')['arr_0']
             G_total = 4
             I_total = 16
             eer_values = [0.44,1.29,4.89,1.05]
+
 
         if(dataset_curr == 'Tiny'):
             y_dev = np.load('./Embeddings/y_dev_DGBQA_Seen_Tiny.npz')['arr_0']
@@ -288,6 +290,7 @@ def get_params(embedding_list,
             e2 = np.array([21.12,26.42,32.30,20.34,18.18,17.33,19.81,24.45,25.70,11.52,39.81])
             eer_values = (e1_val*e1+e2_val*e2)/(e1_val+e2_val)
             eer_values = list(eer_values)
+
 
         if(dataset_curr == 'scut'):
             y_dev = np.load('./Embeddings/y_dev_DGBQA_Seen_SCUT.npz')['arr_0']
@@ -304,6 +307,7 @@ def get_params(embedding_list,
             eer_values = (e1_val*e1+e2_val*e2+e3_val*e3)/(e1_val+e2_val+e3_val)
             eer_values = list(eer_values)
 
+
         if(dataset_curr in ['bdbAcc','bdbGyro','bdbGrav','bdbAccl','bdbMagn']):
             y_dev = np.load('./Embeddings/y_dev_sensor_'+dataset_curr[3:].lower()+'_seqLen150_bdb.npz')['arr_0']
             y_dev_id = np.load('./Embeddings/y_dev_id_sensor_'+dataset_curr[3:].lower()+'_seqLen150_bdb.npz')['arr_0']
@@ -311,36 +315,63 @@ def get_params(embedding_list,
             I_total = 51
 
             if(dataset_curr == 'bdbAcc'):
-                eer_values = 100 - []
-
-            if(dataset_curr == 'bdbGyro'):
-                eer_values = 100 - []
+                e1_val = 61.80
+                e2_val = 55.39
+                e1 = np.array([66.23, 58.61, 62.08, 60.27])
+                e2 = np.array([56.22, 52.92, 51.45, 60.98])
+                eer_values = (e1_val*e1 + e2_val*e2)/(e1+e2)
+                eer_values = list(100 - eer_values)
 
             if(dataset_curr == 'bdbGrav'):
-                eer_values = 100 - []
+                e1_val = 60.61
+                e2_val = 56.35
+                e1 = np.array([63.84, 57.28, 60.47, 60.83])
+                e2 = np.array([59.43, 56.31, 53.77, 55.88])
+                eer_values = (e1_val*e1 + e2_val*e2)/(e1+e2)
+                eer_values = list(100 - eer_values)
+
+            if(dataset_curr == 'bdbGyro'):
+                e1_val = 62.86
+                e2_val = 57.80
+                e1 = np.array([66.47, 59.66, 60.75, 64.56])
+                e2 = np.array([58.89, 50.78, 60.53, 60.98])
+                eer_values = (e1_val*e1 + e2_val*e2)/(e1+e2)
+                eer_values = list(100 - eer_values)
 
             if(dataset_curr == 'bdbAccl'):
-                eer_values = 100 - []
+                e1_val = 73.03
+                e2_val = 60.06
+                e1 = np.array([79.25, 64.72, 77.50, 70.66])
+                e2 = np.array([67.28, 53.33, 63.73, 55.88])
+                eer_values = (e1_val*e1 + e2_val*e2)/(e1+e2)
+                eer_values = list(100 - eer_values)
 
             if(dataset_curr == 'bdbMagn'):
-                eer_values = 100 - []
-
+                e1_val = 75.43
+                e2_val = 55.60
+                e1 = np.array([81.55, 72.39, 75.20, 72.58])
+                e2 = np.array([60.27, 50.67, 57.36, 54.08])
+                eer_values = (e1_val*e1 + e2_val*e2)/(e1+e2)
+                eer_values = list(100 - eer_values)
+                
+    
         if(dataset_curr == 'ntu_60'):
-            y_dev = np.load('./Embeddings/y_dev_non-idf_T120_ntu_60.npz.npz')['arr_0']
+            y_dev = np.load('./Embeddings/y_dev_non-idf_T120_ntu_60.npz')['arr_0']
             y_dev_id = np.load('./Embeddings/y_dev_id_non-idf_T120_ntu_60.npz')['arr_0']
             G_total = 6
             I_total = 40
 
-            eer_values = 100 - []
+            eer_values = list(100 - np.array([88.96,87.25,67.03,63.11,62.22,60.37]))
 
-        if(dataset_curr == 'ntu_60'):
-            y_dev = np.load('./Embeddings/y_dev_non-idf_T120_ntu_120.npz.npz')['arr_0']
+
+        if(dataset_curr == 'ntu_120'):
+            y_dev = np.load('./Embeddings/y_dev_non-idf_T120_ntu_120.npz')['arr_0']
             y_dev_id = np.load('./Embeddings/y_dev_id_non-idf_T120_ntu_120.npz')['arr_0']
             G_total = 4
             I_total = 69
 
-            eer_values = 100 - []
-
+            eer_values = list(100 - np.array([88.03,91.25,85.18,65.18]))
+            
         ##### Measure computation
         if(var != 'full'):
             val_curr = get_val(embedding_curr,
