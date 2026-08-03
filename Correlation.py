@@ -89,16 +89,17 @@ measureVal = get_params(embeddingList,
 df = make_df(np.array(measureVal))
 
 if(args.mode == 'corrPlots'):
-    rocket = sns.color_palette(args.corrPlot_palette)
+    cp = sns.color_palette(args.corrPlot_palette)
     sns.jointplot(x=args.measure1,
                   y=args.measure2,
                   data=df,
                   kind="reg",
-                  color=rocket[colors[args.dataset]])
+                  color=cp[colors[args.dataset]])
     plt.xlabel(labels[args.measure1],fontsize=14)
     plt.ylabel(labels[args.measure2],fontsize=14)
     plt.savefig('./_store/_graphs/_corrPlots/'+args.corrPath+'.png')
     plt.close()
+
 
 if(args.mode == 'corrQuants'):
         corrVal_spear, pVal_spear = scipy.stats.spearmanr(df[args.measure1].values[:],
@@ -143,8 +144,71 @@ if(args.mode == 'corrQuants'):
                     corrFile.write(str(item)+'      ')
                 else:
                     corrFile.write(str(item)+'\n')
+
         
 if(args.mode == 'blandAltman'):
     pyCompare.blandAltman(df[args.measure1].values[:],
                           df[args.measure2].values[:],
                          savePath='./_store/_graphs/_blandAltman/'+args.baPath+'.png')
+
+
+if(args.mode == 'full'):
+    # Correlation plots
+    cp = sns.color_palette(args.corrPlot_palette)
+    sns.jointplot(x=args.measure1,
+                    y=args.measure2,
+                    data=df,
+                    kind="reg",
+                    color=cp[colors[args.dataset]])
+    plt.xlabel(labels[args.measure1],fontsize=14)
+    plt.ylabel(labels[args.measure2],fontsize=14)
+    plt.savefig('./_store/_graphs/_corrPlots/'+args.corrPath+'.png')
+    plt.close()
+
+    # Correlation values: statistical analysis
+    corrVal_spear, pVal_spear = scipy.stats.spearmanr(df[args.measure1].values[:],
+                                                      df[args.measure2].values[:])
+    
+    corrVal_kend, pVal_kend = scipy.stats.kendalltau(df[args.measure1].values[:],
+                                                     df[args.measure2].values[:])
+    print('Spearman Corr: '+str(corrVal_spear))
+    print('Spearman pVal: '+str(pVal_spear))
+    print('Kendall Corr: '+str(corrVal_kend))
+    print('Kendall pVal: '+str(pVal_kend))
+
+    heads = ['dataset','quants','measure1','measure2','CorrSpear','pValSpear','CorrKend','pValKend']
+    entries = [args.dataset,
+                args.quantifier,
+                args.measure1,
+                args.measure2,
+                np.round(corrVal_spear,4),
+                np.round(pVal_spear,4),
+                np.round(corrVal_kend,4),
+                np.round(pVal_kend,4)]
+
+    if(args.initCorrFile == 1):
+        corrFile = open('./_store/_corrFiles/'+args.nameCorrFile+'.txt','w')
+        for idx, item in enumerate(heads):
+            if(idx in [0,1,2,3,4,5,6]):
+                corrFile.write(str(item)+'      ')
+            else:
+                corrFile.write(str(item)+'\n')
+
+        for idx, item in enumerate(entries):
+            if(idx in [0,1,2,3,4,5,6]):
+                corrFile.write(str(item)+'      ')
+            else:
+                corrFile.write(str(item)+'\n')
+
+    if(args.initCorrFile == 0):
+        corrFile = open('./_store/_corrFiles/'+args.nameCorrFile+'.txt','a')
+        for idx, item in enumerate(entries):
+            if(idx in [0,1,2,3,4,5,6]):
+                corrFile.write(str(item)+'      ')
+            else:
+                corrFile.write(str(item)+'\n')
+
+    # Bland-Altman plots
+    pyCompare.blandAltman(df[args.measure1].values[:],
+                              df[args.measure2].values[:],
+                             savePath='./_store/_graphs/_blandAltman/'+args.baPath+'.png')
