@@ -371,8 +371,9 @@ if(args.mode == 'stability'):
                                 betaVal=args.betaVal,
                                 normalize=normalize)
     
-    labels = ['kappa','lambda','nu','beta','model']
-    entries = [args.kappaVal,
+    labels = ['quants','kappa','lambda','nu','beta','model']
+    entries = [args.quantifier,
+               args.kappaVal,
                args.lambdaVal,
                args.nuVal,
                args.betaVal,
@@ -384,13 +385,13 @@ if(args.mode == 'stability'):
         resultFile = open('./_store/_stabilityFiles/'+args.nameResultFile+'.txt','w')
 
         for idx, item in enumerate(labels):
-            if(idx in [0,1,2,3]):
+            if(idx in [0,1,2,3,4]):
                 resultFile.write(str(item)+'      ')
             else:
                 resultFile.write(str(item)+'\n')
 
         for idx, item in enumerate(entries):
-            if(idx in [0,1,2,3]):
+            if(idx in [0,1,2,3,4]):
                 resultFile.write(str(item)+'      ')
             else:
                 resultFile.write(str(item)+'\n')
@@ -398,7 +399,7 @@ if(args.mode == 'stability'):
     if(args.initResultFile == 0):
         resultFile = open('./_store/_stabilityFiles/'+args.nameResultFile+'.txt','a')
         for idx, item in enumerate(entries):
-            if(idx in [0,1,2,3]):
+            if(idx in [0,1,2,3,4]):
                 resultFile.write(str(item)+'      ')
             else:
                 resultFile.write(str(item)+'\n')

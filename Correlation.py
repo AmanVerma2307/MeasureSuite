@@ -112,8 +112,9 @@ if(args.mode == 'corrQuants'):
         print('Kendall Corr: '+str(corrVal_kend))
         print('Kendall pVal: '+str(pVal_kend))
 
-        heads = ['dataset','measure1','measure2','CorrSpear','pValSpear','CorrKend','pValKend']
+        heads = ['dataset','quants','measure1','measure2','CorrSpear','pValSpear','CorrKend','pValKend']
         entries = [args.dataset,
+                   args.quantifier,
                    args.measure1,
                    args.measure2,
                    np.round(corrVal_spear,4),
@@ -124,13 +125,13 @@ if(args.mode == 'corrQuants'):
         if(args.initCorrFile == 1):
             corrFile = open('./_store/_corrFiles/'+args.nameCorrFile+'.txt','w')
             for idx, item in enumerate(heads):
-                if(idx in [0,1,2,3,4,5]):
+                if(idx in [0,1,2,3,4,5,6]):
                     corrFile.write(str(item)+'      ')
                 else:
                     corrFile.write(str(item)+'\n')
 
             for idx, item in enumerate(entries):
-                if(idx in [0,1,2,3,4,5]):
+                if(idx in [0,1,2,3,4,5,6]):
                     corrFile.write(str(item)+'      ')
                 else:
                     corrFile.write(str(item)+'\n')
@@ -138,7 +139,7 @@ if(args.mode == 'corrQuants'):
         if(args.initCorrFile == 0):
             corrFile = open('./_store/_corrFiles/'+args.nameCorrFile+'.txt','a')
             for idx, item in enumerate(entries):
-                if(idx in [0,1,2,3,4,5]):
+                if(idx in [0,1,2,3,4,5,6]):
                     corrFile.write(str(item)+'      ')
                 else:
                     corrFile.write(str(item)+'\n')
