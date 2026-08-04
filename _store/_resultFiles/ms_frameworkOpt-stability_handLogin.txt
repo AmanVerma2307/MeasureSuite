@@ -1,5 +1,5 @@
-Quantifier             Metric             selectedModel                                  nAr*             r             R             Psi             Cd
-dgbqa           Ar*           MS_MViT_1-1pt5_HandLogin                      0.6456           0.0           4.1232           1.2563           0.284
+Quantifier             Metric             selectedModel                      nAr*             r             R             Psi             Cd
+dgbqa                   Ar*           MS_MViT_1-1pt5_HandLogin               0.6456           0.0           4.1232           1.2563           0.284
 deltaDistance           Ar*           MS_ViViT_pt5-1pt5_HandLogin           0.6874           0.0           4.1121           2.0055           0.2652
 masterFace           Ar*           MS_MViT_1-1_HandLogin                    0.6366           0.0           4.1432           1.7404           0.3726
 swipeQuality           Ar*           MS_TPN_1pt5-2pt5_HandLogin             0.749           0.25           4.0856           2.709             0.001
