@@ -1,0 +1,2 @@
+dataset      quants      measure1      measure2      CorrSpear      pValSpear      CorrKend      pValKend
+soli      masterFace      r      Ar_star      -0.7265      0.0      -0.5484      0.0

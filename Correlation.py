@@ -18,7 +18,7 @@ parser.add_argument("--bdbMode",
                     help="bdb sensor to be used.")
 parser.add_argument('--mode',
                     type=str,
-                    default='corrPlots',
+                    default='full',
                     help="Mode of correlation analysis")
 parser.add_argument('--quantifier',
                     type=str,
