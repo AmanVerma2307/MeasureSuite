@@ -4,16 +4,19 @@ bdb      deltaDistance      r      relevance      -0.7504      0.0      -0.6222 
 bdb      genCapacity      r      relevance      -0.6569      0.0      -0.5937      0.0001
 bdb      masterFace      r      relevance      -0.7229      0.0      -0.6441      0.0001
 bdb      swipeQuality      r      relevance      -0.8741      0.0      -0.7535      0.0
+
 bdb      dgbqa      r      psi      -0.8032      0.0      -0.666      0.0
 bdb      deltaDistance      r      psi      -0.6644      0.0      -0.5509      0.0002
 bdb      genCapacity      r      psi      0.1739      0.341      0.098      0.5189
 bdb      masterFace      r      psi      0.1946      0.2858      0.1734      0.2785
 bdb      swipeQuality      r      psi      -0.6115      0.0002      -0.5134      0.0003
+
 bdb      dgbqa      relevance      psi      0.9872      0.0      0.9274      0.0
 bdb      deltaDistance      relevance      psi      0.8402      0.0      0.6895      0.0
 bdb      genCapacity      relevance      psi      0.1241      0.4987      0.2243      0.114
 bdb      masterFace      relevance      psi      -0.7852      0.0      -0.5691      0.0001
 bdb      swipeQuality      relevance      psi      0.798      0.0      0.7177      0.0
+
 bdb      dgbqa      r      Ar_star      -0.8032      0.0      -0.666      0.0
 bdb      deltaDistance      r      Ar_star      -0.7504      0.0      -0.6222      0.0
 bdb      genCapacity      r      Ar_star      -0.3063      0.0882      -0.1606      0.2563
@@ -49,21 +52,25 @@ bdb      deltaDistance      DCG      Ar_star      0.9241      0.0      0.7621   
 bdb      genCapacity      DCG      Ar_star      0.2159      0.2353      0.1067      0.4198
 bdb      masterFace      DCG      Ar_star      -0.7307      0.0      -0.5048      0.0002
 bdb      swipeQuality      DCG      Ar_star      0.9575      0.0      0.8387      0.0
+
 bdb      dgbqa      err      Ar_star      0.7665      0.0      0.5968      0.0
 bdb      deltaDistance      err      Ar_star      0.551      0.0011      0.3831      0.0018
 bdb      genCapacity      err      Ar_star      0.2022      0.2672      0.088      0.5089
 bdb      masterFace      err      Ar_star      0.8259      0.0      0.6067      0.0
 bdb      swipeQuality      err      Ar_star      0.9512      0.0      0.8145      0.0
+
 bdb      dgbqa      U      Ar_star      0.8424      0.0      0.6895      0.0
 bdb      deltaDistance      U      Ar_star      0.923      0.0      0.7621      0.0
 bdb      genCapacity      U      Ar_star      0.555      0.001      0.3815      0.0037
 bdb      masterFace      U      Ar_star      0.8796      0.0      0.6993      0.0
 bdb      swipeQuality      U      Ar_star      0.9575      0.0      0.8427      0.0
+
 bdb      dgbqa      gre      Ar_star      -0.8032      0.0      -0.666      0.0
 bdb      deltaDistance      gre      Ar_star      -0.7504      0.0      -0.6222      0.0
 bdb      genCapacity      gre      Ar_star      -0.919      0.0      -0.8032      0.0
 bdb      masterFace      gre      Ar_star      -0.9158      0.0      -0.7982      0.0
 bdb      swipeQuality      gre      Ar_star      -0.9082      0.0      -0.7957      0.0
+
 bdb      dgbqa      infAp      Ar_star      0.8032      0.0      0.666      0.0
 bdb      deltaDistance      infAp      Ar_star      0.7504      0.0      0.6222      0.0
 bdb      genCapacity      infAp      Ar_star      0.919      0.0      0.8032      0.0

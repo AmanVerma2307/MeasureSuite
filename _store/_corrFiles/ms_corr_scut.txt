@@ -4,16 +4,20 @@ scut      deltaDistance      r      relevance      -0.938      0.0      -0.8323 
 scut      genCapacity      r      relevance      -0.7802      0.0      -0.6298      0.0
 scut      masterFace      r      relevance      -0.8588      0.0      -0.7302      0.0
 scut      swipeQuality      r      relevance      -0.925      0.0      -0.8161      0.0
+
 scut      dgbqa      r      psi      0.6213      0.0      0.4379      0.0001
 scut      deltaDistance      r      psi      0.0001      0.9993      -0.0114      0.9181
 scut      genCapacity      r      psi      0.3475      0.0208      0.2696      0.0164
 scut      masterFace      r      psi      0.2859      0.0599      0.2086      0.0626
 scut      swipeQuality      r      psi      -0.0523      0.7358      -0.057      0.6119
+
 scut      dgbqa      relevance      psi      -0.6822      0.0      -0.4787      0.0
 scut      deltaDistance      relevance      psi      -0.0055      0.9717      -0.0085      0.9355
 scut      genCapacity      relevance      psi      -0.186      0.2268      -0.1319      0.2095
 scut      masterFace      relevance      psi      -0.403      0.0067      -0.2787      0.008
 scut      swipeQuality      relevance      psi      0.0795      0.6078      0.0553      0.5987
+
+
 scut      dgbqa      r      Ar_star      -0.9306      0.0      -0.8165      0.0
 scut      deltaDistance      r      Ar_star      -0.8763      0.0      -0.7248      0.0
 scut      genCapacity      r      Ar_star      -0.8851      0.0      -0.7552      0.0
@@ -49,21 +53,25 @@ scut      deltaDistance      DCG      Ar_star      0.7655      0.0      0.5723  
 scut      genCapacity      DCG      Ar_star      0.7181      0.0      0.5447      0.0
 scut      masterFace      DCG      Ar_star      0.8032      0.0      0.6085      0.0
 scut      swipeQuality      DCG      Ar_star      0.8211      0.0      0.6319      0.0
+
 scut      dgbqa      err      Ar_star      0.7586      0.0      0.5809      0.0
 scut      deltaDistance      err      Ar_star      0.6568      0.0      0.4809      0.0
 scut      genCapacity      err      Ar_star      0.7359      0.0      0.5574      0.0
 scut      masterFace      err      Ar_star      0.78      0.0      0.5702      0.0
 scut      swipeQuality      err      Ar_star      0.7962      0.0      0.6128      0.0
+
 scut      dgbqa      U      Ar_star      0.8921      0.0      0.7213      0.0
 scut      deltaDistance      U      Ar_star      0.7572      0.0      0.5596      0.0
 scut      genCapacity      U      Ar_star      0.7538      0.0      0.5745      0.0
 scut      masterFace      U      Ar_star      0.7314      0.0      0.5511      0.0
 scut      swipeQuality      U      Ar_star      0.8412      0.0      0.6574      0.0
+
 scut      dgbqa      gre      Ar_star      -0.8659      0.0      -0.7122      0.0
 scut      deltaDistance      gre      Ar_star      -0.835      0.0      -0.6269      0.0
 scut      genCapacity      gre      Ar_star      -0.8476      0.0      -0.6851      0.0
 scut      masterFace      gre      Ar_star      -0.8667      0.0      -0.7029      0.0
 scut      swipeQuality      gre      Ar_star      -0.8667      0.0      -0.6773      0.0
+
 scut      dgbqa      infAp      Ar_star      0.7994      0.0      0.5869      0.0
 scut      deltaDistance      infAp      Ar_star      0.7082      0.0      0.5048      0.0
 scut      genCapacity      infAp      Ar_star      0.7613      0.0      0.5699      0.0

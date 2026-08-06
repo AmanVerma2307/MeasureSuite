@@ -1,19 +1,23 @@
 dataset      quants      measure1      measure2      CorrSpear      pValSpear      CorrKend      pValKend
-ntu_120      dgbqa      r      relevance      -0.7781      0.0      -0.6478      0.0
+ntu_120      dgbqa              r      relevance      -0.7781      0.0      -0.6478      0.0
 ntu_120      deltaDistance      r      relevance      -0.8364      0.0      -0.6961      0.0
 ntu_120      genCapacity      r      relevance      -0.8793      0.0      -0.7623      0.0
 ntu_120      masterFace      r      relevance      -0.3815      0.0152      -0.3331      0.0186
 ntu_120      swipeQuality      r      relevance      -0.8554      0.0      -0.7152      0.0
-ntu_120      dgbqa      r      psi      0.6666      0.0      0.5593      0.0
+
+ntu_120      dgbqa              r      psi      0.6666      0.0      0.5593      0.0
 ntu_120      deltaDistance      r      psi      0.3215      0.0431      0.2727      0.0324
 ntu_120      genCapacity      r      psi      0.2856      0.074      0.2289      0.0651
 ntu_120      masterFace      r      psi      -0.094      0.5641      -0.0798      0.573
 ntu_120      swipeQuality      r      psi      0.5218      0.0006      0.4356      0.0009
-ntu_120      dgbqa      relevance      psi      -0.5767      0.0001      -0.5179      0.0
+
+ntu_120      dgbqa          relevance      psi      -0.5767      0.0001      -0.5179      0.0
 ntu_120      deltaDistance      relevance      psi      -0.2713      0.0904      -0.2103      0.056
 ntu_120      genCapacity      relevance      psi      -0.1701      0.2941      -0.152      0.1689
 ntu_120      masterFace      relevance      psi      0.7591      0.0      0.4746      0.0002
 ntu_120      swipeQuality      relevance      psi      -0.6934      0.0      -0.4821      0.0
+
+
 ntu_120      dgbqa      r      Ar_star      -0.5915      0.0001      -0.494      0.0002
 ntu_120      deltaDistance      r      Ar_star      -0.7923      0.0      -0.669      0.0
 ntu_120      genCapacity      r      Ar_star      -0.8373      0.0      -0.7117      0.0
@@ -49,21 +53,25 @@ ntu_120      deltaDistance      DCG      Ar_star      0.7846      0.0      0.607
 ntu_120      genCapacity      DCG      Ar_star      0.9007      0.0      0.7592      0.0
 ntu_120      masterFace      DCG      Ar_star      -0.5632      0.0002      -0.339      0.0041
 ntu_120      swipeQuality      DCG      Ar_star      0.9882      0.0      0.9333      0.0
+
 ntu_120      dgbqa      err      Ar_star      0.0426      0.7941      0.0154      0.8888
 ntu_120      deltaDistance      err      Ar_star      0.267      0.0958      0.2231      0.0426
 ntu_120      genCapacity      err      Ar_star      0.8546      0.0      0.7078      0.0
 ntu_120      masterFace      err      Ar_star      0.7788      0.0      0.6162      0.0
 ntu_120      swipeQuality      err      Ar_star      0.9878      0.0      0.9308      0.0
+
 ntu_120      dgbqa      U      Ar_star      0.3171      0.0462      0.2462      0.0253
 ntu_120      deltaDistance      U      Ar_star      0.6919      0.0      0.5308      0.0
 ntu_120      genCapacity      U      Ar_star      0.9259      0.0      0.7694      0.0
 ntu_120      masterFace      U      Ar_star      -0.5927      0.0001      -0.3774      0.0014
 ntu_120      swipeQuality      U      Ar_star      0.9767      0.0      0.8949      0.0
+
 ntu_120      dgbqa      gre      Ar_star      -0.2804      0.0797      -0.2613      0.0315
 ntu_120      deltaDistance      gre      Ar_star      -0.5573      0.0002      -0.3973      0.0005
 ntu_120      genCapacity      gre      Ar_star      -0.5973      0.0      -0.3948      0.0006
 ntu_120      masterFace      gre      Ar_star      -0.7242      0.0      -0.5252      0.0
 ntu_120      swipeQuality      gre      Ar_star      -0.6835      0.0      -0.4963      0.0001
+
 ntu_120      dgbqa      infAp      Ar_star      0.2207      0.1711      0.1978      0.1078
 ntu_120      deltaDistance      infAp      Ar_star      0.6802      0.0      0.5089      0.0
 ntu_120      genCapacity      infAp      Ar_star      0.7      0.0      0.5336      0.0
