@@ -10,6 +10,7 @@ dgbqa      1.5      2.0      1.0      0.75      MS_MViT_1-1pt5_HandLogin
 dgbqa      2.0      2.0      1.0      0.75      MS_MViT_1-1pt5_HandLogin
 dgbqa      3.0      2.0      1.0      0.75      MS_MViT_1-1pt5_HandLogin
 dgbqa      4.0      2.0      1.0      0.75      MS_MViT_1-1pt5_HandLogin
+
 dgbqa      1.0      0.01      1.0      0.75      MS_MViT_1-1pt5_HandLogin
 dgbqa      1.0      0.05      1.0      0.75      MS_MViT_1-1pt5_HandLogin
 dgbqa      1.0      0.1      1.0      0.75      MS_MViT_1-1pt5_HandLogin
@@ -21,6 +22,7 @@ dgbqa      1.0      1.5      1.0      0.75      MS_MViT_1-1pt5_HandLogin
 dgbqa      1.0      2.0      1.0      0.75      MS_MViT_1-1pt5_HandLogin
 dgbqa      1.0      3.0      1.0      0.75      MS_MViT_1-1pt5_HandLogin
 dgbqa      1.0      4.0      1.0      0.75      MS_TAM_1-2pt5_HandLogin
+
 dgbqa      1.0      2.0      0.01      0.75      MS_MViT_1-1pt5_HandLogin
 dgbqa      1.0      2.0      0.05      0.75      MS_MViT_1-1pt5_HandLogin
 dgbqa      1.0      2.0      0.1      0.75      MS_MViT_1-1pt5_HandLogin
@@ -32,6 +34,7 @@ dgbqa      1.0      2.0      1.5      0.75      MS_MViT_1-1pt5_HandLogin
 dgbqa      1.0      2.0      2.0      0.75      MS_MViT_1-1pt5_HandLogin
 dgbqa      1.0      2.0      3.0      0.75      MS_MViT_1-1pt5_HandLogin
 dgbqa      1.0      2.0      4.0      0.75      MS_MViT_1-1pt5_HandLogin
+
 dgbqa      1.0      2.0      1.0      0.01      MS_MViT_1-1pt5_HandLogin
 dgbqa      1.0      2.0      1.0      0.05      MS_MViT_1-1pt5_HandLogin
 dgbqa      1.0      2.0      1.0      0.1      MS_MViT_1-1pt5_HandLogin
@@ -43,6 +46,8 @@ dgbqa      1.0      2.0      1.0      1.5      MS_MViT_1-1pt5_HandLogin
 dgbqa      1.0      2.0      1.0      2.0      MS_TPN_1pt5-1_HandLogin
 dgbqa      1.0      2.0      1.0      3.0      MS_TPN_1pt5-1_HandLogin
 dgbqa      1.0      2.0      1.0      4.0      MS_TPN_1pt5-1_HandLogin
+
+
 deltaDistance      0.01      2.0      1.0      0.75      MS_ViViT_pt5-1pt5_HandLogin
 deltaDistance      0.05      2.0      1.0      0.75      MS_ViViT_pt5-1pt5_HandLogin
 deltaDistance      0.1      2.0      1.0      0.75      MS_ViViT_pt5-1pt5_HandLogin
@@ -54,6 +59,7 @@ deltaDistance      1.5      2.0      1.0      0.75      MS_ViViT_pt5-1pt5_HandLo
 deltaDistance      2.0      2.0      1.0      0.75      MS_ViViT_pt5-1pt5_HandLogin
 deltaDistance      3.0      2.0      1.0      0.75      MS_ViViT_pt5-1pt5_HandLogin
 deltaDistance      4.0      2.0      1.0      0.75      MS_ViViT_pt5-1pt5_HandLogin
+
 deltaDistance      1.0      0.01      1.0      0.75      MS_ViViT_pt5-1pt5_HandLogin
 deltaDistance      1.0      0.05      1.0      0.75      MS_ViViT_pt5-1pt5_HandLogin
 deltaDistance      1.0      0.1      1.0      0.75      MS_ViViT_pt5-1pt5_HandLogin
@@ -65,6 +71,7 @@ deltaDistance      1.0      1.5      1.0      0.75      MS_ViViT_pt5-1pt5_HandLo
 deltaDistance      1.0      2.0      1.0      0.75      MS_ViViT_pt5-1pt5_HandLogin
 deltaDistance      1.0      3.0      1.0      0.75      MS_ViViT_pt5-1pt5_HandLogin
 deltaDistance      1.0      4.0      1.0      0.75      MS_ViViT_pt5-1pt5_HandLogin
+
 deltaDistance      1.0      2.0      0.01      0.75      MS_ViViT_pt5-1pt5_HandLogin
 deltaDistance      1.0      2.0      0.05      0.75      MS_ViViT_pt5-1pt5_HandLogin
 deltaDistance      1.0      2.0      0.1      0.75      MS_ViViT_pt5-1pt5_HandLogin
@@ -76,6 +83,7 @@ deltaDistance      1.0      2.0      1.5      0.75      MS_ViViT_pt5-1pt5_HandLo
 deltaDistance      1.0      2.0      2.0      0.75      MS_ViViT_pt5-1pt5_HandLogin
 deltaDistance      1.0      2.0      3.0      0.75      MS_ViViT_pt5-1pt5_HandLogin
 deltaDistance      1.0      2.0      4.0      0.75      MS_ViViT_pt5-1pt5_HandLogin
+
 deltaDistance      1.0      2.0      1.0      0.01      MS_ViViT_1pt5-pt5_HandLogin
 deltaDistance      1.0      2.0      1.0      0.05      MS_ViViT_1pt5-pt5_HandLogin
 deltaDistance      1.0      2.0      1.0      0.1      MS_ViViT_1pt5-pt5_HandLogin
@@ -87,6 +95,7 @@ deltaDistance      1.0      2.0      1.0      1.5      MS_ViViT_pt5-1pt5_HandLog
 deltaDistance      1.0      2.0      1.0      2.0      MS_TPN_1pt5-1_HandLogin
 deltaDistance      1.0      2.0      1.0      3.0      MS_TPN_1pt5-1_HandLogin
 deltaDistance      1.0      2.0      1.0      4.0      MS_TPN_1pt5-1_HandLogin
+
 masterFace      0.01      2.0      1.0      0.75      MS_TPN_1pt5-2pt5_HandLogin
 masterFace      0.05      2.0      1.0      0.75      MS_TPN_1pt5-2pt5_HandLogin
 masterFace      0.1      2.0      1.0      0.75      MS_TPN_1pt5-2pt5_HandLogin
@@ -98,6 +107,7 @@ masterFace      1.5      2.0      1.0      0.75      MS_MViT_1-1_HandLogin
 masterFace      2.0      2.0      1.0      0.75      MS_MViT_1-1_HandLogin
 masterFace      3.0      2.0      1.0      0.75      MS_MViT_1-1_HandLogin
 masterFace      4.0      2.0      1.0      0.75      MS_MViT_1-1_HandLogin
+
 masterFace      1.0      0.01      1.0      0.75      MS_MViT_1-1pt5_HandLogin
 masterFace      1.0      0.05      1.0      0.75      MS_MViT_1-1pt5_HandLogin
 masterFace      1.0      0.1      1.0      0.75      MS_MViT_1-1pt5_HandLogin
@@ -109,6 +119,7 @@ masterFace      1.0      1.5      1.0      0.75      MS_MViT_1-1_HandLogin
 masterFace      1.0      2.0      1.0      0.75      MS_MViT_1-1_HandLogin
 masterFace      1.0      3.0      1.0      0.75      MS_TPN_1pt5-2pt5_HandLogin
 masterFace      1.0      4.0      1.0      0.75      MS_TPN_1pt5-2pt5_HandLogin
+
 masterFace      1.0      2.0      0.01      0.75      MS_MViT_1-1_HandLogin
 masterFace      1.0      2.0      0.05      0.75      MS_MViT_1-1_HandLogin
 masterFace      1.0      2.0      0.1      0.75      MS_MViT_1-1_HandLogin
@@ -120,6 +131,7 @@ masterFace      1.0      2.0      1.5      0.75      MS_MViT_1-1_HandLogin
 masterFace      1.0      2.0      2.0      0.75      MS_MViT_1-1_HandLogin
 masterFace      1.0      2.0      3.0      0.75      MS_MViT_1-1_HandLogin
 masterFace      1.0      2.0      4.0      0.75      MS_MViT_1-1_HandLogin
+
 masterFace      1.0      2.0      1.0      0.01      MS_MViT_1-1_HandLogin
 masterFace      1.0      2.0      1.0      0.05      MS_MViT_1-1_HandLogin
 masterFace      1.0      2.0      1.0      0.1      MS_MViT_1-1_HandLogin
@@ -131,6 +143,8 @@ masterFace      1.0      2.0      1.0      1.5      MS_TPN_1pt5-2pt5_HandLogin
 masterFace      1.0      2.0      1.0      2.0      MS_TPN_1pt5-2pt5_HandLogin
 masterFace      1.0      2.0      1.0      3.0      MS_TPN_1pt5-2pt5_HandLogin
 masterFace      1.0      2.0      1.0      4.0      MS_TPN_1pt5-2pt5_HandLogin
+
+
 swipeQuality      0.01      2.0      1.0      0.75      MS_TPN_1pt5-2pt5_HandLogin
 swipeQuality      0.05      2.0      1.0      0.75      MS_TPN_1pt5-2pt5_HandLogin
 swipeQuality      0.1      2.0      1.0      0.75      MS_TPN_1pt5-2pt5_HandLogin
@@ -142,6 +156,7 @@ swipeQuality      1.5      2.0      1.0      0.75      MS_TPN_1pt5-2pt5_HandLogi
 swipeQuality      2.0      2.0      1.0      0.75      MS_TPN_1pt5-2pt5_HandLogin
 swipeQuality      3.0      2.0      1.0      0.75      MS_TPN_1pt5-2pt5_HandLogin
 swipeQuality      4.0      2.0      1.0      0.75      MS_TPN_1pt5-2pt5_HandLogin
+
 swipeQuality      1.0      0.01      1.0      0.75      MS_TPN_1pt5-2pt5_HandLogin
 swipeQuality      1.0      0.05      1.0      0.75      MS_TPN_1pt5-2pt5_HandLogin
 swipeQuality      1.0      0.1      1.0      0.75      MS_TPN_1pt5-2pt5_HandLogin
@@ -153,6 +168,7 @@ swipeQuality      1.0      1.5      1.0      0.75      MS_TPN_1pt5-2pt5_HandLogi
 swipeQuality      1.0      2.0      1.0      0.75      MS_TPN_1pt5-2pt5_HandLogin
 swipeQuality      1.0      3.0      1.0      0.75      MS_TPN_1pt5-2pt5_HandLogin
 swipeQuality      1.0      4.0      1.0      0.75      MS_TPN_pt5-pt5_HandLogin
+
 swipeQuality      1.0      2.0      0.01      0.75      MS_TPN_1pt5-2pt5_HandLogin
 swipeQuality      1.0      2.0      0.05      0.75      MS_TPN_1pt5-2pt5_HandLogin
 swipeQuality      1.0      2.0      0.1      0.75      MS_TPN_1pt5-2pt5_HandLogin
@@ -164,6 +180,7 @@ swipeQuality      1.0      2.0      1.5      0.75      MS_TPN_1pt5-2pt5_HandLogi
 swipeQuality      1.0      2.0      2.0      0.75      MS_TPN_1pt5-2pt5_HandLogin
 swipeQuality      1.0      2.0      3.0      0.75      MS_TPN_1pt5-2pt5_HandLogin
 swipeQuality      1.0      2.0      4.0      0.75      MS_TPN_1pt5-2pt5_HandLogin
+
 swipeQuality      1.0      2.0      1.0      0.01      MS_TPN_1pt5-2pt5_HandLogin
 swipeQuality      1.0      2.0      1.0      0.05      MS_TPN_1pt5-2pt5_HandLogin
 swipeQuality      1.0      2.0      1.0      0.1      MS_TPN_1pt5-2pt5_HandLogin
