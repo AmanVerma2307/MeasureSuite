@@ -381,7 +381,9 @@ def getScores(embPath,
               y_dev,
               y_dev_id,
               G_total,
-              I_total):
+              I_total,
+              normalize=1,
+              average=0):
     
 
     """
@@ -429,14 +431,26 @@ def getScores(embPath,
 
     dgbqa_score = np.array(dgbqa_score) # Array Formation
     dgbqa_score = (dgbqa_score - np.mean(dgbqa_score))/np.std(dgbqa_score) # Mean Normalization
-    dgbqa_score = dgbqa_score/np.linalg.norm(dgbqa_score) # L2-Normalization
+    if(normalize == 1):
+        dgbqa_score = dgbqa_score/np.linalg.norm(dgbqa_score) # L2-Normalization
+
+    if(average == 1):
+        dgbqa_score = np.mean(dgbqa_score,keepdims=False)
 
     return dgbqa_score
 
 
 if __name__ == "__main__":
-    x = np.load('./GBQA_tdsNet_CU-5050-Prune_Tiny.npz',allow_pickle=True)['arr_0']
-    y = np.load('./y_dev_GBQA-CU-5050-Prune_Tiny.npz',allow_pickle=True)['arr_0']
-    y_id = np.load('./y_dev_id_GBQA-CU-5050-Prune_Tiny.npz',allow_pickle=True)['arr_0']-16
-    capacity_val = generativeCapacity(x,y,y_id,6,10,32,0)
-    print(capacity_val)
+    x = np.load('./Embeddings/MS_MF_1-1pt5_Tiny.npz',allow_pickle=True)['arr_0']
+    y_dev = np.load('./Embeddings/y_dev_DeltaDistance_SOLI.npz')['arr_0']
+    y_dev_id = np.load('./Embeddings/y_dev_id_DeltaDistance_SOLI.npz')['arr_0']
+
+    scores = getScores('./Embeddings/MS_MViT_1pt5-pt5_SOLI.npz',
+                        quantifier='dgbqa',
+                        y_dev=y_dev,
+                        y_dev_id=y_dev_id,
+                        G_total=11,
+                        I_total=10,
+                        normalize=1,
+                        average=1)
+    print(scores)
