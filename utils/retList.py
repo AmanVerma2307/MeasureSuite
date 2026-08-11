@@ -313,10 +313,10 @@ def retList(dataset,
 
         if(dataset == 'soliTiny'):
             embedding_list = [['./Embeddings/MS_MViT_pt5-1_SOLI.npz',
-                               './Embeddings/DGBQA_CGID_Res3D-ViViT_1pt5-pt5_SOLI.npz'
+                               './Embeddings/DGBQA_CGID_Res3D-ViViT_1pt5-pt5_SOLI.npz',
                                './Embeddings/DGBQA_CGID_Res3D-ViViT_1pt5-1_SOLI.npz'],
-                              ['./Embeddings/MS_MF_1-1pt5_Tiny.npz'
-                               './Embeddings/DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny.npz'
+                              ['./Embeddings/MS_MF_1-1pt5_Tiny.npz',
+                               './Embeddings/DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny.npz',
                                './Embeddings/DGBQA_CGID_Res3D-ViViT_pt5-2pt5_Tiny.npz']]
             dataset_list = [['Soli',
                              'Soli',
