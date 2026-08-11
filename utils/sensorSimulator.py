@@ -90,10 +90,12 @@ class sensorSimulator():
 
     def __init__(self,
                  dataset,
-                 quantifier):
+                 quantifier,
+                 totalModels=3):
 
         self.dataset = dataset
         self.quantifier = quantifier
+        self.totalModels = totalModels
         self.embeddingList, self.dataList = retList(dataset=self.dataset,
                                                     bdbMode=None,
                                                     sensorSelect=True)
@@ -125,7 +127,8 @@ class sensorSimulator():
                                                         I_total=I_total,
                                                         normalize=normalize,
                                                         average=1)
-                _, disentScores[sensorIdx, modelIdx] = CGID_Score_Calculator(np.load(embeddingCurr,allow_pickle=True)['arr_0'],
+                _, disentScores[sensorIdx, modelIdx] = CGID_Score_Calculator(np.load(embeddingCurr,
+                                                                                     allow_pickle=True)['arr_0'],
                                                                                 y_dev)
 
             eerVal.append(np.mean(groundVal_curr))
@@ -141,9 +144,46 @@ class sensorSimulator():
         self.disentScores = disentScores
         self.groundVal = groundVal
         self.eerVal = eerVal
-        
 
+
+        if(self.dataset == 'soliTiny'):
+            totalSensors = 2
+            self.dataMat = []
+            self.disentMat = []
+            
+            for i, score1 in enumerate(self.scores[0,:]):
+                for j, score2 in enumerate(self.scores[1,:]):
+                    self.dataMat.append([score1, score2])
+
+            for i, score1 in enumerate(self.disentScores[0,:]):
+                for j, score2 in enumerate(self.disentScores[1,:]):
+                    self.disentMat.append(np.average([score1, score2]))
+
+        if(self.dataset == 'bdb'):
+            totalSensors = 5
+            self.dataMat = []
+            self.disentMat = []
+            
+            for i, score1 in enumerate(self.disentScores[0,:]):
+                for j, score2 in enumerate(self.disentScores[1,:]):
+                    for k, score3 in enumerate(self.disentScores[2,:]):
+                        for l, score4 in enumerate(self.disentScores[3,:]):
+                            for m, score5 in enumerate(self.disentScores[4,:]):
+                                self.dataMat.append([score1, score2, score3, score4, score5])
+
+            for i, score1 in enumerate(self.disentScores[0,:]):
+                for j, score2 in enumerate(self.disentScores[1,:]):
+                    for k, score3 in enumerate(self.disentScores[2,:]):
+                        for l, score4 in enumerate(self.disentScores[3,:]):
+                            for m, score5 in enumerate(self.disentScores[4,:]):
+                                self.disentMat.append(np.average([score1, score2, score3, score4, score5]))
+
+        self.dataMat = np.array(self.dataMat)
+        self.disentMat = np.array(self.disentMat)
+
+            
 if __name__ == "__main__":
-
-    senSim = sensorSimulator('bdb',quantifier='dgbqa')
+    senSim = sensorSimulator('soliTiny',quantifier='dgbqa')
     print(senSim.scores, senSim.disentScores, senSim.groundVal, senSim.eerVal)
+    print(senSim.dataMat.shape, senSim.disentMat.shape)
+    print(senSim.dataMat, senSim.disentMat)
