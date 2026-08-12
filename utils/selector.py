@@ -170,7 +170,7 @@ def get_val(embedding,
         if(measure_req == 'relEnt'):
             beta = 0.75
             C_I, C_D = CGID_Score_Calculator(embedding,y_dev)
-            return acceptance_score(dgbqa_score,e_prime,G_total,False,True)**np.exp(-beta*C_D)
+            return acceptance_score(dgbqa_score,e_prime,G_total,False,True)*np.exp(-beta*C_D)
         
     if(mode == 'full'): # returns all nine metrics
         alpha = 2

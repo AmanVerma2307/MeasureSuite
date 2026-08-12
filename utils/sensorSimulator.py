@@ -105,7 +105,7 @@ class sensorSimulator():
         disentScores = np.zeros_like(scores) # Initializing disentanglement score values
         groundVal = []
         eerVal = []
-        
+
         for sensorIdx in range(len(self.embeddingList)):
             for modelIdx in range(len(self.dataList[0])):
 
@@ -153,7 +153,11 @@ class sensorSimulator():
             
             for i, score1 in enumerate(self.scores[0,:]):
                 for j, score2 in enumerate(self.scores[1,:]):
-                    self.dataMat.append([score1, score2])
+                    scoreVal = np.array([score1, score2])
+                    if(normalize == 1):
+                        scoreVal = scoreVal/np.linalg.norm(scoreVal)
+                    self.dataMat.append(scoreVal)
+                    
 
             for i, score1 in enumerate(self.disentScores[0,:]):
                 for j, score2 in enumerate(self.disentScores[1,:]):
@@ -169,7 +173,11 @@ class sensorSimulator():
                     for k, score3 in enumerate(self.disentScores[2,:]):
                         for l, score4 in enumerate(self.disentScores[3,:]):
                             for m, score5 in enumerate(self.disentScores[4,:]):
-                                self.dataMat.append([score1, score2, score3, score4, score5])
+                                scoreVal = np.array([score1, score2, score3, score4, score5])
+                                scoreVal = (scoreVal - np.mean(scoreVal))/(np.std(scoreVal))
+                                if(normalize == 1):
+                                    scoreVal = scoreVal/np.linalg.norm(scoreVal)
+                                self.dataMat.append(scoreVal)
 
             for i, score1 in enumerate(self.disentScores[0,:]):
                 for j, score2 in enumerate(self.disentScores[1,:]):
@@ -178,12 +186,173 @@ class sensorSimulator():
                             for m, score5 in enumerate(self.disentScores[4,:]):
                                 self.disentMat.append(np.average([score1, score2, score3, score4, score5]))
 
-        self.dataMat = np.array(self.dataMat)
-        self.disentMat = np.array(self.disentMat)
+        self.totalSensors = totalSensors # The total number of
+        self.dataMat = np.array(self.dataMat) # The matrix stores different quantification scores for all embedding combinations
+        self.disentMat = np.array(self.disentMat) # The matrix stores disentanglement values for all the embedding combinations
 
+
+    def getOptModel(self,
+                    measure_req='Ar*',
+                    lambdaVal = 2,
+                    kappaVal = 1,
+                    nuVal = 1,
+                    betaVal = 0.75):
+
+
+        """
+        Function to collect measurement values and store optimal values
+        """
+
+        self.valueStore = [] # List to store values for the current measure 
+        self.measureMat = [] # List to store values for the all the embeddings
+        alpha = 2 
+
+        for idx, scoresCurr in enumerate(self.dataMat):
+
+            r = avg_rank_deviation(np.array(self.eerVal),
+                                   scoresCurr,
+                                   self.totalSensors)
             
+            R = acceptance_score(scoresCurr,
+                                 self.groundVal,
+                                 self.totalSensors,
+                                 False,
+                                 True)
+            
+            d = pattern_match_dist(scoresCurr,
+                                   self.groundVal,
+                                   self.totalSensors)
+
+            Cd = self.disentMat[idx]
+
+            Ar_star = acceptance_score(scoresCurr,
+                                    self.groundVal,
+                                    self.totalSensors,
+                                    False,
+                                    False,
+                                    lambda_scale=lambdaVal,
+                                    kappa=kappaVal)*(np.log2(2+nuVal*d)**(-1/alpha))*np.exp(-betaVal*Cd)
+            nAr_star = Ar_star/acceptance_score(scoresCurr,
+                                                self.groundVal,
+                                                self.totalSensors,
+                                                True,
+                                                False,
+                                                lambda_scale=lambdaVal,
+                                                kappa=kappaVal)
+            
+            self.measureMat.append([nAr_star,r,R,d,Cd])
+            
+
+            if(measure_req == 'r'): # Rank deviation
+                self.valueStore.append(r)
+
+            if(measure_req == 'R'): # Relevance
+                self.valueStore.append(R)
+
+            if(measure_req == 'psi'): # Trend deviation
+                self.valueStore.append(d)
+
+            if(measure_req == 'Cd'): # Disentanglement values
+                self.valueStore.append(Cd)
+
+            if(measure_req == 'Ar'): # Acceptance score
+                self.valueStore.append(acceptance_score(scoresCurr,
+                                                        self.groundVal,
+                                                        self.totalSensors,
+                                                        False,
+                                                        False,
+                                                        lambda_scale=lambdaVal,
+                                                        kappa=kappaVal))
+
+            if(measure_req == 'ArCd'):
+                ArCd = acceptance_score(scoresCurr,
+                                        self.groundVal,
+                                        self.totalSensors,
+                                        False,
+                                        False,
+                                        lambda_scale=lambdaVal,
+                                        kappa=kappaVal)*np.exp(-betaVal*Cd)
+                self.valueStore.append(ArCd)
+
+            if(measure_req == 'Ar_psi'):
+                Ar_psi = acceptance_score(scoresCurr,
+                                        self.groundVal,
+                                        self.totalSensors,
+                                        False,
+                                        False,
+                                        lambda_scale=lambdaVal,
+                                        kappa=kappaVal)*(np.log2(2+nuVal*d)**(-1/alpha))
+                self.valueStore.append(Ar_psi)
+
+
+            if(measure_req == 'Cd_psi'):
+                self.valueStore.append((np.log2(2+nuVal*d)**(-1/alpha))*np.exp(-betaVal*Cd))
+
+            if(measure_req == 'Ar*'):
+                self.valueStore.append(Ar_star)
+
+            if(measure_req == 'euclid'):
+                self.valueStore.append(euclidean_distance(scoresCurr,
+                                                          self.groundVal))
+
+            if(measure_req == 'corr'):
+                self.valueStore.append(correlation(scoresCurr,
+                                                   self.groundVal))
+
+            if(measure_req == 'DCG'):
+                self.valueStore.append(compute_DCG(scoresCurr,
+                                                   self.groundVal))
+
+            if(measure_req == 'Kendall'):
+                self.valueStore.append(compute_Kendalls(scoresCurr,
+                                                        self.groundVal,
+                                                        self.totalSensors))
+
+            if(measure_req == 'ERR'):
+                self.valueStore.append(compute_ERR(scoresCurr,
+                                                   self.groundVal,
+                                                   self.totalSensors))
+
+            if(measure_req == 'U'):
+                self.valueStore.append(compute_u(scoresCurr,
+                                                   self.groundVal,
+                                                   self.totalSensors))
+
+            if(measure_req == 'GRE'):
+                self.valueStore.append(compute_GRE(scoresCurr,
+                                                 self.groundVal,
+                                                 self.totalSensors))
+
+            if(measure_req == 'infAp'):
+                self.valueStore.append(compute_infAp(scoresCurr,
+                                                     self.groundVal,
+                                                     self.totalSensors))
+
+            if(measure_req == 'NegRel'):
+                self.valueStore.append(compute_NegativeRelevance(scoresCurr,
+                                                                 self.groundVal))
+
+            if(measure_req == 'RPP'):
+                self.valueStore.append(compute_RPP(scoresCurr,
+                                                   self.groundVal))
+
+            if(measure_req == 'relEnt'):
+                relEnt = acceptance_score(scoresCurr,
+                                          self.groundVal,
+                                          self.totalSensors,
+                                          False,
+                                          True)*np.exp(-betaVal*Cd)
+                self.valueStore.append(relEnt)
+
+        if(measure_req in ['R','Ar','ArCd','Ar_psi','Cd_psi','Ar*','corr','DCG','ERR','U','infAp','NegRel','RPP','relEnt']):
+            optModel = self.measureMat[int(np.argmax(self.valueStore))]
+        else:
+            optModel = self.measureMat[int(np.argmin(self.valueStore))]
+
+        return optModel
+        
+                
 if __name__ == "__main__":
-    senSim = sensorSimulator('soliTiny',quantifier='dgbqa')
-    print(senSim.scores, senSim.disentScores, senSim.groundVal, senSim.eerVal)
-    print(senSim.dataMat.shape, senSim.disentMat.shape)
-    print(senSim.dataMat, senSim.disentMat)
+    senSim = sensorSimulator('bdb',quantifier='dgbqa')
+    optModel = senSim.getOptModel()
+    print(optModel)
