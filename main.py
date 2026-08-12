@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from src.quantifiers import *
 from utils.selector import get_val, select_model
 from utils.retList import *
+from utils.sensorSimulator import *
 
 ###### Selecting model embeddings
 parser = argparse.ArgumentParser()
@@ -22,6 +23,10 @@ parser.add_argument('--quantifier',
                     type=str,
                     default='dgbqa',
                     help="The quantifier to be used for score generation")
+parser.add_argument('--senSim_totalModels',
+                    type=int,
+                    default=3,
+                    help="Number of models per sensor")
 parser.add_argument('--initResultFile',
                     type=int,
                     default=0,
@@ -404,3 +409,60 @@ if(args.mode == 'stability'):
             else:
                 resultFile.write(str(item)+'\n')
 
+if(args.mode == 'sensorSimulator'):
+
+    senSim = sensorSimulator(dataset=args.dataset,
+                             quantifier=args.quantifier,
+                             totalModels=args.senSim_totalModels)
+    optModel = senSim.getOptModel(measure_req=args.metric,
+                                  kappaVal=args.kappaVal,
+                                  lambdaVal=args.lambdaVal,
+                                  nuVal=args.nuVal,
+                                  betaVal=args.betaVal)
+
+    print('nAr*: '+str(optModel[0]))
+    print('Rank deviation: '+str(optModel[1]))
+    print('Relevance: '+str(optModel[2]))
+    print('Trend deviation: '+str(optModel[3]))
+    print('Entanglement: '+str(optModel[4]))
+
+    labels = ['Quantifier',
+            'Metric',
+            'nAr*',
+            'r',
+            'R',
+            'Psi',
+            'Cd']
+    entries = [args.quantifier,
+               args.metric,
+               round(optModel[0],4),
+               round(optModel[1],4),
+               round(optModel[2],4),
+               round(optModel[3],4),
+               round(optModel[4],4)]
+
+    if(args.initResultFile == 1):
+        resultFile = open('./_store/_senSimFiles/'+args.nameResultFile+'.txt','w')
+        
+        for idx, item in enumerate(labels):
+            if(idx in [0,1,2,3,4,5]):
+                resultFile.write(str(item)+'      ')
+            else:
+                resultFile.write(str(item)+'\n')
+
+        for idx, item in enumerate(entries):
+            if(idx in [0,1,2,3,4,5]):
+                resultFile.write(str(item)+'      ')
+            else:
+                resultFile.write(str(item)+'\n')
+        
+    if(args.initResultFile == 0):
+        resultFile = open('./_store/_senSimFiles/'+args.nameResultFile+'.txt','a')
+        for idx, item in enumerate(entries):
+            if(idx in [0,1,2,3,4,5]):
+                resultFile.write(str(item)+'      ')
+            else:
+                resultFile.write(str(item)+'\n')
+        
+
+    

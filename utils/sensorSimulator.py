@@ -2,7 +2,7 @@ import sys
 sys.path.insert(1,'./')
 
 import numpy as np
-from retList import *
+from utils.retList import *
 from src.measures import *
 from src.quantifiers import *
 from src.ICGDScore import CGID_Score_Calculator
@@ -190,7 +190,6 @@ class sensorSimulator():
         self.dataMat = np.array(self.dataMat) # The matrix stores different quantification scores for all embedding combinations
         self.disentMat = np.array(self.disentMat) # The matrix stores disentanglement values for all the embedding combinations
 
-
     def getOptModel(self,
                     measure_req='Ar*',
                     lambdaVal = 2,
@@ -289,7 +288,7 @@ class sensorSimulator():
                 self.valueStore.append((np.log2(2+nuVal*d)**(-1/alpha))*np.exp(-betaVal*Cd))
 
             if(measure_req == 'Ar*'):
-                self.valueStore.append(Ar_star)
+                self.valueStore.append(nAr_star)
 
             if(measure_req == 'euclid'):
                 self.valueStore.append(euclidean_distance(scoresCurr,
