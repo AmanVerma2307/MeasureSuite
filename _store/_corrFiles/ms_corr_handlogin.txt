@@ -1,0 +1,72 @@
+dataset      quants      measure1      measure2      CorrSpear      pValSpear      CorrKend      pValKend
+handlogin      dgbqa      r      relevance      -0.88      0.0      -0.7639      0.0
+handlogin      deltaDistance      r      relevance      -0.8993      0.0      -0.782      0.0
+handlogin      masterFace      r      relevance      -0.8451      0.0      -0.7317      0.0
+handlogin      swipeQuality      r      relevance      -0.8876      0.0      -0.7712      0.0
+
+handlogin      dgbqa      r      psi      0.6081      0.0      0.4817      0.0
+handlogin      deltaDistance      r      psi      0.4883      0.0002      0.3962      0.0001
+handlogin      masterFace      r      psi      0.575      0.0      0.4826      0.0
+handlogin      swipeQuality      r      psi      0.1205      0.381      0.0894      0.3902
+
+handlogin      dgbqa      relevance      psi      -0.7101      0.0      -0.5717      0.0
+handlogin      deltaDistance      relevance      psi      -0.4839      0.0002      -0.3562      0.0001
+handlogin      masterFace      relevance      psi      -0.7449      0.0      -0.6323      0.0
+handlogin      swipeQuality      relevance      psi      -0.3409      0.0109      -0.2444      0.0084
+
+handlogin      dgbqa      r      Ar_star      -0.8057      0.0      -0.6933      0.0
+handlogin      deltaDistance      r      Ar_star      -0.8847      0.0      -0.774      0.0
+handlogin      masterFace      r      Ar_star      -0.834      0.0      -0.7153      0.0
+handlogin      swipeQuality      r      Ar_star      -0.9255      0.0      -0.8147      0.0
+handlogin      dgbqa      relevance      Ar_star      0.8606      0.0      0.6997      0.0
+handlogin      deltaDistance      relevance      Ar_star      0.8776      0.0      0.7158      0.0
+handlogin      masterFace      relevance      Ar_star      0.9105      0.0      0.7441      0.0
+handlogin      swipeQuality      relevance      Ar_star      0.8848      0.0      0.7172      0.0
+handlogin      dgbqa      psi      Ar_star      -0.7924      0.0      -0.6404      0.0
+handlogin      deltaDistance      psi      Ar_star      -0.5683      0.0      -0.4114      0.0
+handlogin      masterFace      psi      Ar_star      -0.762      0.0      -0.6431      0.0
+handlogin      swipeQuality      psi      Ar_star      -0.1875      0.1704      -0.1421      0.1256
+handlogin      dgbqa      euclid      Ar_star      -0.8361      0.0      -0.6902      0.0
+handlogin      deltaDistance      euclid      Ar_star      -0.8224      0.0      -0.6283      0.0
+handlogin      masterFace      euclid      Ar_star      -0.8376      0.0      -0.6593      0.0
+handlogin      swipeQuality      euclid      Ar_star      -0.7449      0.0      -0.5488      0.0
+handlogin      dgbqa      corr      Ar_star      0.8361      0.0      0.6902      0.0
+handlogin      deltaDistance      corr      Ar_star      0.8224      0.0      0.6283      0.0
+handlogin      masterFace      corr      Ar_star      0.8376      0.0      0.6593      0.0
+handlogin      swipeQuality      corr      Ar_star      0.7449      0.0      0.5488      0.0
+handlogin      dgbqa      Kendall      Ar_star      -0.4631      0.0004      -0.3861      0.0004
+handlogin      deltaDistance      Kendall      Ar_star      -0.4941      0.0001      -0.3897      0.0002
+handlogin      masterFace      Kendall      Ar_star      -0.6035      0.0      -0.4904      0.0
+handlogin      swipeQuality      Kendall      Ar_star      -0.4147      0.0016      -0.3167      0.0025
+handlogin      dgbqa      DCG      Ar_star      0.8785      0.0      0.7441      0.0
+handlogin      deltaDistance      DCG      Ar_star      0.8509      0.0      0.6525      0.0
+handlogin      masterFace      DCG      Ar_star      0.8848      0.0      0.7172      0.0
+handlogin      swipeQuality      DCG      Ar_star      0.8604      0.0      0.7091      0.0
+
+handlogin      dgbqa      err      Ar_star      0.8452      0.0      0.7051      0.0
+handlogin      deltaDistance      err      Ar_star      0.8451      0.0      0.6458      0.0
+handlogin      masterFace      err      Ar_star      0.8623      0.0      0.6835      0.0
+handlogin      swipeQuality      err      Ar_star      0.8278      0.0      0.6606      0.0
+
+handlogin      dgbqa      U      Ar_star      0.8606      0.0      0.6997      0.0
+handlogin      deltaDistance      U      Ar_star      0.8776      0.0      0.7158      0.0
+handlogin      masterFace      U      Ar_star      0.9105      0.0      0.7441      0.0
+handlogin      swipeQuality      U      Ar_star      0.8848      0.0      0.7172      0.0
+
+handlogin      dgbqa      gre      Ar_star      -0.8263      0.0      -0.6702      0.0
+handlogin      deltaDistance      gre      Ar_star      -0.8306      0.0      -0.6241      0.0
+handlogin      masterFace      gre      Ar_star      -0.8557      0.0      -0.7216      0.0
+handlogin      swipeQuality      gre      Ar_star      -0.8953      0.0      -0.7421      0.0
+
+handlogin      dgbqa      infAp      Ar_star      0.5267      0.0      0.3966      0.0001
+handlogin      deltaDistance      infAp      Ar_star      0.6926      0.0      0.5393      0.0
+handlogin      masterFace      infAp      Ar_star      0.5674      0.0      0.4309      0.0
+handlogin      swipeQuality      infAp      Ar_star      0.6138      0.0      0.473      0.0
+handlogin      dgbqa      neg_rel      Ar_star      0.3552      0.0078      0.2566      0.0057
+handlogin      deltaDistance      neg_rel      Ar_star      0.4259      0.0012      0.2498      0.0071
+handlogin      masterFace      neg_rel      Ar_star      0.4153      0.0016      0.2498      0.0071
+handlogin      swipeQuality      neg_rel      Ar_star      0.5201      0.0      0.4047      0.0
+handlogin      dgbqa      rpp      Ar_star      0.9343      0.0      0.7881      0.0
+handlogin      deltaDistance      rpp      Ar_star      0.9392      0.0      0.7962      0.0
+handlogin      masterFace      rpp      Ar_star      0.8943      0.0      0.7192      0.0
+handlogin      swipeQuality      rpp      Ar_star      0.9087      0.0      0.7535      0.0

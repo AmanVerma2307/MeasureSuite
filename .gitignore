@@ -1,0 +1,10 @@
+quants/_data/soli
+quants/_run
+quants/_store
+quants/_data/ntu_rgb/data/
+quants/_data/ntu_rgb/dataProcessed/
+quants/wandb/
+_store/_graphs/_gramMatrix
+_store/_graphs/_tsne
+misc/Embeddings/
+run/

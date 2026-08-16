@@ -1,0 +1,73 @@
+dataset      quants      measure1      measure2      CorrSpear      pValSpear      CorrKend      pValKend
+bdb      dgbqa      r      relevance      nan      nan      nan      nan
+bdb      deltaDistance      r      relevance      -0.8664      0.0      -0.7184      0.0
+bdb      masterFace      r      relevance      -0.8808      0.0      -0.7848      0.0
+bdb      swipeQuality      r      relevance      nan      nan      nan      nan
+
+bdb      dgbqa      r      psi      nan      nan      nan      nan
+bdb      deltaDistance      r      psi      0.8258      0.0      0.6847      0.0
+bdb      masterFace      r      psi      -0.8228      0.0      -0.7331      0.0
+bdb      swipeQuality      r      psi      nan      nan      nan      nan
+
+bdb      dgbqa      relevance      psi      -0.8695      0.0      -0.7258      0.0
+bdb      deltaDistance      relevance      psi      -0.9183      0.0      -0.7581      0.0
+bdb      masterFace      relevance      psi      0.8405      0.0      0.6436      0.0
+bdb      swipeQuality      relevance      psi      -0.6727      0.0      -0.5      0.0
+
+
+bdb      dgbqa      r      Ar_star      nan      nan      nan      nan
+bdb      deltaDistance      r      Ar_star      -0.8664      0.0      -0.7184      0.0
+bdb      masterFace      r      Ar_star      0.763      0.0      0.6327      0.0
+bdb      swipeQuality      r      Ar_star      nan      nan      nan      nan
+bdb      dgbqa      relevance      Ar_star      0.048      0.7941      0.0645      0.6179
+bdb      deltaDistance      relevance      Ar_star      0.7797      0.0      0.5444      0.0
+bdb      masterFace      relevance      Ar_star      -0.8725      0.0      -0.6901      0.0
+bdb      swipeQuality      relevance      Ar_star      0.0792      0.6666      0.125      0.3253
+bdb      dgbqa      psi      Ar_star      -0.3732      0.0354      -0.2742      0.0277
+bdb      deltaDistance      psi      Ar_star      -0.8387      0.0      -0.6411      0.0
+bdb      masterFace      psi      Ar_star      -0.8271      0.0      -0.6391      0.0
+bdb      swipeQuality      psi      Ar_star      -0.4076      0.0206      -0.3185      0.0101
+bdb      dgbqa      euclid      Ar_star      -0.4124      0.019      -0.2944      0.0178
+bdb      deltaDistance      euclid      Ar_star      -0.8856      0.0      -0.6976      0.0
+bdb      masterFace      euclid      Ar_star      -0.7624      0.0      -0.528      0.0001
+bdb      swipeQuality      euclid      Ar_star      -0.1389      0.4483      -0.1694      0.1798
+bdb      dgbqa      corr      Ar_star      0.4124      0.019      0.2944      0.0178
+bdb      deltaDistance      corr      Ar_star      0.8856      0.0      0.6976      0.0
+bdb      masterFace      corr      Ar_star      nan      nan      nan      nan
+bdb      swipeQuality      corr      Ar_star      0.1389      0.4483      0.1694      0.1798
+bdb      dgbqa      Kendall      Ar_star      nan      nan      nan      nan
+bdb      deltaDistance      Kendall      Ar_star      0.8664      0.0      0.7184      0.0
+bdb      masterFace      Kendall      Ar_star      -0.6722      0.0      -0.5701      0.0001
+bdb      swipeQuality      Kendall      Ar_star      nan      nan      nan      nan
+bdb      dgbqa      DCG      Ar_star      0.8028      0.0      0.6008      0.0
+bdb      deltaDistance      DCG      Ar_star      0.8922      0.0      0.7177      0.0
+bdb      masterFace      DCG      Ar_star      -0.8733      0.0      -0.6947      0.0
+bdb      swipeQuality      DCG      Ar_star      0.1455      0.4268      0.1895      0.1323
+
+bdb      dgbqa      err      Ar_star      -0.5869      0.0004      -0.4315      0.0004
+bdb      deltaDistance      err      Ar_star      0.3431      0.0545      0.1895      0.1323
+bdb      masterFace      err      Ar_star      0.7252      0.0      0.4816      0.0003
+bdb      swipeQuality      err      Ar_star      -0.1298      0.479      -0.004      0.9872
+
+bdb      dgbqa      U      Ar_star      0.048      0.7941      0.0645      0.6179
+bdb      deltaDistance      U      Ar_star      0.7797      0.0      0.5444      0.0
+bdb      masterFace      U      Ar_star      -0.8725      0.0      -0.6901      0.0
+bdb      swipeQuality      U      Ar_star      0.0792      0.6666      0.125      0.3253
+
+bdb      dgbqa      gre      Ar_star      nan      nan      nan      nan
+bdb      deltaDistance      gre      Ar_star      -0.8664      0.0      -0.7184      0.0
+bdb      masterFace      gre      Ar_star      -0.879      0.0      -0.7392      0.0
+bdb      swipeQuality      gre      Ar_star      0.7791      0.0      0.646      0.0
+
+bdb      dgbqa      infAp      Ar_star      nan      nan      nan      nan
+bdb      deltaDistance      infAp      Ar_star      0.8664      0.0      0.7184      0.0
+bdb      masterFace      infAp      Ar_star      0.879      0.0      0.7392      0.0
+bdb      swipeQuality      infAp      Ar_star      -0.7791      0.0      -0.646      0.0
+bdb      dgbqa      neg_rel      Ar_star      -0.8607      0.0      -0.6653      0.0
+bdb      deltaDistance      neg_rel      Ar_star      -0.0821      0.655      -0.0887      0.4887
+bdb      masterFace      neg_rel      Ar_star      -0.7315      0.0      -0.4909      0.0002
+bdb      swipeQuality      neg_rel      Ar_star      -0.2221      0.2217      -0.2097      0.095
+bdb      dgbqa      rpp      Ar_star      -0.6158      0.0002      -0.4879      0.0
+bdb      deltaDistance      rpp      Ar_star      -0.4172      0.0175      -0.3105      0.0123
+bdb      masterFace      rpp      Ar_star      0.7197      0.0      0.4724      0.0004
+bdb      swipeQuality      rpp      Ar_star      0.4311      0.0138      0.2177      0.0827

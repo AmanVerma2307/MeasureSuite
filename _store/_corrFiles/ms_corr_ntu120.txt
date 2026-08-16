@@ -1,0 +1,89 @@
+dataset      quants      measure1      measure2      CorrSpear      pValSpear      CorrKend      pValKend
+ntu_120      dgbqa              r      relevance      -0.7781      0.0      -0.6478      0.0
+ntu_120      deltaDistance      r      relevance      -0.8364      0.0      -0.6961      0.0
+ntu_120      genCapacity      r      relevance      -0.8793      0.0      -0.7623      0.0
+ntu_120      masterFace      r      relevance      -0.3815      0.0152      -0.3331      0.0186
+ntu_120      swipeQuality      r      relevance      -0.8554      0.0      -0.7152      0.0
+
+ntu_120      dgbqa              r      psi      0.6666      0.0      0.5593      0.0
+ntu_120      deltaDistance      r      psi      0.3215      0.0431      0.2727      0.0324
+ntu_120      genCapacity      r      psi      0.2856      0.074      0.2289      0.0651
+ntu_120      masterFace      r      psi      -0.094      0.5641      -0.0798      0.573
+ntu_120      swipeQuality      r      psi      0.5218      0.0006      0.4356      0.0009
+
+ntu_120      dgbqa          relevance      psi      -0.5767      0.0001      -0.5179      0.0
+ntu_120      deltaDistance      relevance      psi      -0.2713      0.0904      -0.2103      0.056
+ntu_120      genCapacity      relevance      psi      -0.1701      0.2941      -0.152      0.1689
+ntu_120      masterFace      relevance      psi      0.7591      0.0      0.4746      0.0002
+ntu_120      swipeQuality      relevance      psi      -0.6934      0.0      -0.4821      0.0
+
+
+ntu_120      dgbqa      r      Ar_star      -0.5915      0.0001      -0.494      0.0002
+ntu_120      deltaDistance      r      Ar_star      -0.7923      0.0      -0.669      0.0
+ntu_120      genCapacity      r      Ar_star      -0.8373      0.0      -0.7117      0.0
+ntu_120      masterFace      r      Ar_star      -0.1453      0.3711      -0.1183      0.3684
+ntu_120      swipeQuality      r      Ar_star      -0.8554      0.0      -0.7152      0.0
+ntu_120      dgbqa      relevance      Ar_star      0.3171      0.0462      0.2462      0.0253
+ntu_120      deltaDistance      relevance      Ar_star      0.6919      0.0      0.5308      0.0
+ntu_120      genCapacity      relevance      Ar_star      0.9243      0.0      0.7671      0.0
+ntu_120      masterFace      relevance      Ar_star      -0.5927      0.0001      -0.3774      0.0014
+ntu_120      swipeQuality      relevance      Ar_star      0.9767      0.0      0.8949      0.0
+ntu_120      dgbqa      psi      Ar_star      -0.7137      0.0      -0.5179      0.0
+ntu_120      deltaDistance      psi      Ar_star      -0.3857      0.014      -0.3513      0.0014
+ntu_120      genCapacity      psi      Ar_star      -0.1264      0.4372      -0.0552      0.6164
+ntu_120      masterFace      psi      Ar_star      -0.8622      0.0      -0.7223      0.0
+ntu_120      swipeQuality      psi      Ar_star      -0.6126      0.0      -0.3872      0.0004
+ntu_120      dgbqa      euclid      Ar_star      -0.7567      0.0      -0.5769      0.0
+ntu_120      deltaDistance      euclid      Ar_star      -0.7889      0.0      -0.6103      0.0
+ntu_120      genCapacity      euclid      Ar_star      -0.9161      0.0      -0.7556      0.0
+ntu_120      masterFace      euclid      Ar_star      -0.8586      0.0      -0.7135      0.0
+ntu_120      swipeQuality      euclid      Ar_star      -0.9488      0.0      -0.8308      0.0
+ntu_120      dgbqa      corr      Ar_star      0.7567      0.0      0.5769      0.0
+ntu_120      deltaDistance      corr      Ar_star      0.7889      0.0      0.6103      0.0
+ntu_120      genCapacity      corr      Ar_star      0.9178      0.0      0.7592      0.0
+ntu_120      masterFace      corr      Ar_star      nan      nan      nan      nan
+ntu_120      swipeQuality      corr      Ar_star      0.9488      0.0      0.8308      0.0
+ntu_120      dgbqa      Kendall      Ar_star      -0.7567      0.0      -0.5965      0.0
+ntu_120      deltaDistance      Kendall      Ar_star      -0.3834      0.0146      -0.291      0.02
+ntu_120      genCapacity      Kendall      Ar_star      -0.5124      0.0007      -0.4437      0.0004
+ntu_120      masterFace      Kendall      Ar_star      -0.1195      0.4625      -0.0975      0.4575
+ntu_120      swipeQuality      Kendall      Ar_star      0.7621      0.0      0.642      0.0
+ntu_120      dgbqa      DCG      Ar_star      0.5696      0.0001      0.4615      0.0
+ntu_120      deltaDistance      DCG      Ar_star      0.7846      0.0      0.6077      0.0
+ntu_120      genCapacity      DCG      Ar_star      0.9007      0.0      0.7592      0.0
+ntu_120      masterFace      DCG      Ar_star      -0.5632      0.0002      -0.339      0.0041
+ntu_120      swipeQuality      DCG      Ar_star      0.9882      0.0      0.9333      0.0
+
+ntu_120      dgbqa      err      Ar_star      0.0426      0.7941      0.0154      0.8888
+ntu_120      deltaDistance      err      Ar_star      0.267      0.0958      0.2231      0.0426
+ntu_120      genCapacity      err      Ar_star      0.8546      0.0      0.7078      0.0
+ntu_120      masterFace      err      Ar_star      0.7788      0.0      0.6162      0.0
+ntu_120      swipeQuality      err      Ar_star      0.9878      0.0      0.9308      0.0
+
+ntu_120      dgbqa      U      Ar_star      0.3171      0.0462      0.2462      0.0253
+ntu_120      deltaDistance      U      Ar_star      0.6919      0.0      0.5308      0.0
+ntu_120      genCapacity      U      Ar_star      0.9259      0.0      0.7694      0.0
+ntu_120      masterFace      U      Ar_star      -0.5927      0.0001      -0.3774      0.0014
+ntu_120      swipeQuality      U      Ar_star      0.9767      0.0      0.8949      0.0
+
+ntu_120      dgbqa      gre      Ar_star      -0.2804      0.0797      -0.2613      0.0315
+ntu_120      deltaDistance      gre      Ar_star      -0.5573      0.0002      -0.3973      0.0005
+ntu_120      genCapacity      gre      Ar_star      -0.5973      0.0      -0.3948      0.0006
+ntu_120      masterFace      gre      Ar_star      -0.7242      0.0      -0.5252      0.0
+ntu_120      swipeQuality      gre      Ar_star      -0.6835      0.0      -0.4963      0.0001
+
+ntu_120      dgbqa      infAp      Ar_star      0.2207      0.1711      0.1978      0.1078
+ntu_120      deltaDistance      infAp      Ar_star      0.6802      0.0      0.5089      0.0
+ntu_120      genCapacity      infAp      Ar_star      0.7      0.0      0.5336      0.0
+ntu_120      masterFace      infAp      Ar_star      0.7727      0.0      0.6067      0.0
+ntu_120      swipeQuality      infAp      Ar_star      0.8644      0.0      0.7299      0.0
+ntu_120      dgbqa      neg_rel      Ar_star      0.5874      0.0001      0.4538      0.0
+ntu_120      deltaDistance      neg_rel      Ar_star      0.3441      0.0297      0.3      0.0064
+ntu_120      genCapacity      neg_rel      Ar_star      0.7986      0.0      0.7078      0.0
+ntu_120      masterFace      neg_rel      Ar_star      0.8384      0.0      0.6958      0.0
+ntu_120      swipeQuality      neg_rel      Ar_star      0.9811      0.0      0.9051      0.0
+ntu_120      dgbqa      rpp      Ar_star      0.458      0.003      0.341      0.0019
+ntu_120      deltaDistance      rpp      Ar_star      0.6961      0.0      0.5308      0.0
+ntu_120      genCapacity      rpp      Ar_star      0.3731      0.0177      0.2243      0.0435
+ntu_120      masterFace      rpp      Ar_star      0.7369      0.0      0.4688      0.0001
+ntu_120      swipeQuality      rpp      Ar_star      0.7962      0.0      0.5333      0.0

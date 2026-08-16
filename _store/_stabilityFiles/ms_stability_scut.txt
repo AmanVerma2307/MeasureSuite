@@ -1,0 +1,242 @@
+quants      kappa      lambda      nu      beta      model
+dgbqa      0.01      2.0      1.0      0.75    ms_vivit_1-pt01_scut
+dgbqa      0.05      2.0      1.0      0.75    ms_vivit_1-pt01_scut
+dgbqa      0.1      2.0      1.0      0.75    ms_vivit_1-pt01_scut
+dgbqa      0.25      2.0      1.0      0.75    ms_vivit_1-pt01_scut
+dgbqa      0.5      2.0      1.0      0.75    ms_vivit_1-pt01_scut
+dgbqa      0.75      2.0      1.0      0.75    ms_vivit_1-pt01_scut
+dgbqa      1.0      2.0      1.0      0.75    ms_vivit_1-pt01_scut
+dgbqa      1.5      2.0      1.0      0.75    ms_vivit_1-pt01_scut
+dgbqa      2.0      2.0      1.0      0.75    ms_vivit_1-pt01_scut
+dgbqa      4.0      2.0      1.0      0.75    ms_vivit_1-pt01_scut
+
+dgbqa      1.0      0.01      1.0      0.75    ms_vivit_1-pt01_scut
+dgbqa      1.0      0.05      1.0      0.75    ms_vivit_1-pt01_scut
+dgbqa      1.0      0.1      1.0      0.75    ms_vivit_1-pt01_scut
+dgbqa      1.0      0.25      1.0      0.75    ms_vivit_1-pt01_scut
+dgbqa      1.0      0.5      1.0      0.75    ms_vivit_1-pt01_scut
+dgbqa      1.0      0.75      1.0      0.75    ms_vivit_1-pt01_scut
+dgbqa      1.0      1.0      1.0      0.75    ms_vivit_1-pt01_scut
+dgbqa      1.0      1.5      1.0      0.75    ms_vivit_1-pt01_scut
+dgbqa      1.0      2.0      1.0      0.75    ms_vivit_1-pt01_scut
+dgbqa      1.0      3.0      1.0      0.75    ms_vivit_1-pt01_scut
+dgbqa      1.0      4.0      1.0      0.75    ms_vivit_1-pt01_scut
+
+dgbqa      1.0      2.0      0.01      0.75    ms_vivit_1-pt01_scut
+dgbqa      1.0      2.0      0.05      0.75    ms_vivit_1-pt01_scut
+dgbqa      1.0      2.0      0.1      0.75    ms_vivit_1-pt01_scut
+dgbqa      1.0      2.0      0.25      0.75    ms_vivit_1-pt01_scut
+dgbqa      1.0      2.0      0.5      0.75    ms_vivit_1-pt01_scut
+dgbqa      1.0      2.0      0.75      0.75    ms_vivit_1-pt01_scut
+dgbqa      1.0      2.0      1.0      0.75    ms_vivit_1-pt01_scut
+dgbqa      1.0      2.0      1.5      0.75    ms_vivit_1-pt01_scut
+dgbqa      1.0      2.0      2.0      0.75    ms_vivit_1-pt01_scut
+dgbqa      1.0      2.0      3.0      0.75    ms_vivit_1-pt01_scut
+dgbqa      1.0      2.0      4.0      0.75    ms_vivit_1-pt01_scut
+
+dgbqa      1.0      2.0      1.0      0.01    ms_vivit_1-pt01_scut
+dgbqa      1.0      2.0      1.0      0.05    ms_vivit_1-pt01_scut
+dgbqa      1.0      2.0      1.0      0.1    ms_vivit_1-pt01_scut
+dgbqa      1.0      2.0      1.0      0.25    ms_vivit_1-pt01_scut
+dgbqa      1.0      2.0      1.0      0.5    ms_vivit_1-pt01_scut
+dgbqa      1.0      2.0      1.0      0.75    ms_vivit_1-pt01_scut
+dgbqa      1.0      2.0      1.0      1.0    ms_vivit_1-pt01_scut
+dgbqa      1.0      2.0      1.0      1.5    ms_vivit_1-pt01_scut
+dgbqa      1.0      2.0      1.0      2.0    ms_vivit_1-pt01_scut
+dgbqa      1.0      2.0      1.0      3.0    ms_vivit_1-pt01_scut
+dgbqa      1.0      2.0      1.0      4.0    ms_mvit_pt5-pt5_scut
+
+
+deltaDistance      0.01      2.0      1.0      0.75    ms_mf_1-1_scut
+deltaDistance      0.05      2.0      1.0      0.75    ms_mf_1-1_scut
+deltaDistance      0.1      2.0      1.0      0.75    ms_mf_1-1_scut
+deltaDistance      0.25      2.0      1.0      0.75    ms_mf_1-1_scut
+deltaDistance      0.5      2.0      1.0      0.75    ms_mf_1-1_scut
+deltaDistance      0.75      2.0      1.0      0.75    ms_mf_1-1_scut
+deltaDistance      1.0      2.0      1.0      0.75    ms_mf_1-1_scut
+deltaDistance      1.5      2.0      1.0      0.75    ms_mf_1-1_scut
+deltaDistance      2.0      2.0      1.0      0.75    ms_mf_1-1_scut
+deltaDistance      3.0      2.0      1.0      0.75    ms_mf_1-1_scut
+deltaDistance      4.0      2.0      1.0      0.75    ms_mf_1-1_scut
+
+deltaDistance      1.0      0.01      1.0      0.75    ms_mf_1-1_scut
+deltaDistance      1.0      0.05      1.0      0.75    ms_mf_1-1_scut
+deltaDistance      1.0      0.1      1.0      0.75    ms_mf_1-1_scut
+deltaDistance      1.0      0.25      1.0      0.75    ms_mf_1-1_scut
+deltaDistance      1.0      0.5      1.0      0.75    ms_mf_1-1_scut
+deltaDistance      1.0      0.75      1.0      0.75    ms_mf_1-1_scut
+deltaDistance      1.0      1.0      1.0      0.75    ms_mf_1-1_scut
+deltaDistance      1.0      1.5      1.0      0.75    ms_mf_1-1_scut
+deltaDistance      1.0      2.0      1.0      0.75    ms_mf_1-1_scut
+deltaDistance      1.0      3.0      1.0      0.75    ms_mf_1-1_scut
+deltaDistance      1.0      4.0      1.0      0.75    ms_mf_1-1_scut
+
+deltaDistance      1.0      2.0      0.01      0.75    ms_mf_1-1_scut
+deltaDistance      1.0      2.0      0.05      0.75    ms_mf_1-1_scut
+deltaDistance      1.0      2.0      0.1      0.75    ms_mf_1-1_scut
+deltaDistance      1.0      2.0      0.25      0.75    ms_mf_1-1_scut
+deltaDistance      1.0      2.0      0.5      0.75    ms_mf_1-1_scut
+deltaDistance      1.0      2.0      0.75      0.75    ms_mf_1-1_scut
+deltaDistance      1.0      2.0      1.0      0.75    ms_mf_1-1_scut
+deltaDistance      1.0      2.0      1.5      0.75    ms_mf_1-1_scut
+deltaDistance      1.0      2.0      2.0      0.75    ms_mf_1-1_scut
+deltaDistance      1.0      2.0      3.0      0.75    ms_mf_1-1_scut
+deltaDistance      1.0      2.0      4.0      0.75    ms_mf_1-1_scut
+
+deltaDistance      1.0      2.0      1.0      0.01    ms_mf_1-1_scut
+deltaDistance      1.0      2.0      1.0      0.05    ms_mf_1-1_scut
+deltaDistance      1.0      2.0      1.0      0.1    ms_mf_1-1_scut
+deltaDistance      1.0      2.0      1.0      0.25    ms_mf_1-1_scut
+deltaDistance      1.0      2.0      1.0      0.5    ms_mf_1-1_scut
+deltaDistance      1.0      2.0      1.0      0.75    ms_mf_1-1_scut
+deltaDistance      1.0      2.0      1.0      1.0    ms_mf_1-1_scut
+deltaDistance      1.0      2.0      1.0      1.5    ms_mf_1-1_scut
+deltaDistance      1.0      2.0      1.0      2.0    ms_mf_1-1_scut
+deltaDistance      1.0      2.0      1.0      3.0    ms_mf_1-1_scut
+deltaDistance      1.0      2.0      1.0      4.0    ms_mf_1-1_scut
+
+
+genCapacity      0.01      2.0      1.0      0.75    ms_mvit_pt5-pt5_scut
+genCapacity      0.05      2.0      1.0      0.75    ms_mvit_pt5-pt5_scut
+genCapacity      0.1      2.0      1.0      0.75    ms_mvit_pt5-pt5_scut
+genCapacity      0.25      2.0      1.0      0.75    ms_vivit_1-pt01_scut
+genCapacity      0.5      2.0      1.0      0.75    ms_vivit_1-pt01_scut
+genCapacity      0.75      2.0      1.0      0.75    ms_vivit_1-pt01_scut
+genCapacity      1.0      2.0      1.0      0.75    ms_vivit_1-pt01_scut
+genCapacity      1.5      2.0      1.0      0.75    ms_vivit_1-pt01_scut
+genCapacity      2.0      2.0      1.0      0.75    ms_vivit_1-pt01_scut
+genCapacity      3.0      2.0      1.0      0.75    ms_vivit_1-pt01_scut
+genCapacity      4.0      2.0      1.0      0.75    ms_vivit_1-pt01_scut
+
+genCapacity      1.0      0.01      1.0      0.75    ms_vivit_1-pt01_scut
+genCapacity      1.0      0.05      1.0      0.75    ms_vivit_1-pt01_scut
+genCapacity      1.0      0.1      1.0      0.75    ms_vivit_1-pt01_scut
+genCapacity      1.0      0.25      1.0      0.75    ms_vivit_1-pt01_scut
+genCapacity      1.0      0.5      1.0      0.75    ms_vivit_1-pt01_scut
+genCapacity      1.0      0.75      1.0      0.75    ms_vivit_1-pt01_scut
+genCapacity      1.0      1.0      1.0      0.75    ms_vivit_1-pt01_scut
+genCapacity      1.0      1.5      1.0      0.75    ms_vivit_1-pt01_scut
+genCapacity      1.0      2.0      1.0      0.75    ms_vivit_1-pt01_scut
+genCapacity      1.0      3.0      1.0      0.75    ms_vivit_1-pt01_scut
+genCapacity      1.0      4.0      1.0      0.75    ms_vivit_1-pt01_scut
+
+genCapacity      1.0      2.0      0.01      0.75    ms_vivit_1-pt01_scut
+genCapacity      1.0      2.0      0.05      0.75    ms_vivit_1-pt01_scut
+genCapacity      1.0      2.0      0.1      0.75    ms_vivit_1-pt01_scut
+genCapacity      1.0      2.0      0.25      0.75    ms_vivit_1-pt01_scut
+genCapacity      1.0      2.0      0.5      0.75    ms_vivit_1-pt01_scut
+genCapacity      1.0      2.0      0.75      0.75    ms_vivit_1-pt01_scut
+genCapacity      1.0      2.0      1.0      0.75    ms_vivit_1-pt01_scut
+genCapacity      1.0      2.0      1.5      0.75    ms_vivit_1-pt01_scut
+genCapacity      1.0      2.0      2.0      0.75    ms_vivit_1-pt01_scut
+genCapacity      1.0      2.0      3.0      0.75    ms_vivit_1-pt01_scut
+genCapacity      1.0      2.0      4.0      0.75    ms_vivit_1-pt01_scut
+
+genCapacity      1.0      2.0      1.0      0.01    ms_vivit_1-pt01_scut
+genCapacity      1.0      2.0      1.0      0.05    ms_vivit_1-pt01_scut
+genCapacity      1.0      2.0      1.0      0.1    ms_vivit_1-pt01_scut
+genCapacity      1.0      2.0      1.0      0.25    ms_vivit_1-pt01_scut
+genCapacity      1.0      2.0      1.0      0.5    ms_vivit_1-pt01_scut
+genCapacity      1.0      2.0      1.0      0.75    ms_vivit_1-pt01_scut
+genCapacity      1.0      2.0      1.0      1.0    ms_vivit_1-pt01_scut
+genCapacity      1.0      2.0      1.0      1.5    ms_vivit_1-pt01_scut
+genCapacity      1.0      2.0      1.0      2.0    ms_vivit_1-pt01_scut
+genCapacity      1.0      2.0      1.0      3.0    ms_vivit_1-pt01_scut
+genCapacity      1.0      2.0      1.0      4.0    ms_vivit_1-pt01_scut
+
+
+masterFace      0.01      2.0      1.0      0.75    DGBQA_CGID_Res3D-ViViT_1-1_SCUT
+masterFace      0.05      2.0      1.0      0.75    ms_mvit_1-1_scut
+masterFace      0.1      2.0      1.0      0.75    ms_mvit_1-1_scut
+masterFace      0.25      2.0      1.0      0.75    ms_mvit_1-1_scut
+masterFace      0.5      2.0      1.0      0.75    ms_mvit_1-1_scut
+masterFace      0.75      2.0      1.0      0.75    ms_mvit_1-1_scut
+masterFace      1.0      2.0      1.0      0.75    ms_mvit_1-1_scut
+masterFace      1.5      2.0      1.0      0.75    ms_mvit_1-1_scut
+masterFace      2.0      2.0      1.0      0.75    ms_mvit_1-1_scut
+masterFace      3.0      2.0      1.0      0.75    ms_mvit_1-1_scut
+masterFace      4.0      2.0      1.0      0.75    ms_mvit_1-1_scut
+
+masterFace      1.0      0.01      1.0      0.75    ms_mvit_1-1_scut
+masterFace      1.0      0.05      1.0      0.75    ms_mvit_1-1_scut
+masterFace      1.0      0.1      1.0      0.75    ms_mvit_1-1_scut
+masterFace      1.0      0.25      1.0      0.75    ms_mvit_1-1_scut
+masterFace      1.0      0.5      1.0      0.75    ms_mvit_1-1_scut
+masterFace      1.0      0.75      1.0      0.75    ms_mvit_1-1_scut
+masterFace      1.0      1.0      1.0      0.75    ms_mvit_1-1_scut
+masterFace      1.0      1.5      1.0      0.75    ms_mvit_1-1_scut
+masterFace      1.0      2.0      1.0      0.75    ms_mvit_1-1_scut
+masterFace      1.0      3.0      1.0      0.75    ms_mvit_1-1_scut
+masterFace      1.0      4.0      1.0      0.75    ms_mvit_1-1_scut
+
+masterFace      1.0      2.0      0.01      0.75    ms_mvit_1-1_scut
+masterFace      1.0      2.0      0.05      0.75    ms_mvit_1-1_scut
+masterFace      1.0      2.0      0.1      0.75    ms_mvit_1-1_scut
+masterFace      1.0      2.0      0.25      0.75    ms_mvit_1-1_scut
+masterFace      1.0      2.0      0.5      0.75    ms_mvit_1-1_scut
+masterFace      1.0      2.0      0.75      0.75    ms_mvit_1-1_scut
+masterFace      1.0      2.0      1.0      0.75    ms_mvit_1-1_scut
+masterFace      1.0      2.0      1.5      0.75    ms_mvit_1-1_scut
+masterFace      1.0      2.0      2.0      0.75    ms_mvit_1-1_scut
+masterFace      1.0      2.0      3.0      0.75    ms_mvit_1-1_scut
+masterFace      1.0      2.0      4.0      0.75    ms_mvit_1-1_scut
+
+masterFace      1.0      2.0      1.0      0.01    ms_mvit_1-1_scut
+masterFace      1.0      2.0      1.0      0.05    ms_mvit_1-1_scut
+masterFace      1.0      2.0      1.0      0.1    ms_mvit_1-1_scut
+masterFace      1.0      2.0      1.0      0.25    ms_mvit_1-1_scut
+masterFace      1.0      2.0      1.0      0.5    ms_mvit_1-1_scut
+masterFace      1.0      2.0      1.0      0.75    ms_mvit_1-1_scut
+masterFace      1.0      2.0      1.0      1.0    ms_mvit_1-1_scut
+masterFace      1.0      2.0      1.0      1.5    ms_mvit_1-1_scut
+masterFace      1.0      2.0      1.0      2.0    ms_mvit_1-1_scut
+masterFace      1.0      2.0      1.0      3.0    ms_mvit_1-1_scut
+masterFace      1.0      2.0      1.0      4.0    ms_mvit_1-1_scut
+
+
+swipeQuality      0.01      2.0      1.0      0.75    ms_mvit_1pt5-pt05_scut
+swipeQuality      0.05      2.0      1.0      0.75    ms_mvit_1pt5-pt05_scut
+swipeQuality      0.1      2.0      1.0      0.75    ms_mvit_1pt5-pt05_scut
+swipeQuality      0.25      2.0      1.0      0.75    ms_mvit_1pt5-pt05_scut
+swipeQuality      0.5      2.0      1.0      0.75    ms_mvit_1pt5-pt05_scut
+swipeQuality      0.75      2.0      1.0      0.75    ms_mvit_1pt5-pt05_scut
+swipeQuality      1.0      2.0      1.0      0.75    ms_mvit_1pt5-pt05_scut
+swipeQuality      1.5      2.0      1.0      0.75    ms_mvit_1pt5-pt05_scut
+swipeQuality      2.0      2.0      1.0      0.75    ms_mvit_1pt5-pt05_scut
+swipeQuality      3.0      2.0      1.0      0.75    ms_vivit_1pt5-pt05_scut
+swipeQuality      4.0      2.0      1.0      0.75    ms_vivit_1pt5-pt05_scut
+
+swipeQuality      1.0      0.01      1.0      0.75    ms_mvit_1pt5-pt05_scut
+swipeQuality      1.0      0.05      1.0      0.75    ms_mvit_1pt5-pt05_scut
+swipeQuality      1.0      0.1      1.0      0.75    ms_mvit_1pt5-pt05_scut
+swipeQuality      1.0      0.25      1.0      0.75    ms_mvit_1pt5-pt05_scut
+swipeQuality      1.0      0.5      1.0      0.75    ms_mvit_1pt5-pt05_scut
+swipeQuality      1.0      0.75      1.0      0.75    ms_mvit_1pt5-pt05_scut
+swipeQuality      1.0      1.0      1.0      0.75    ms_mvit_1pt5-pt05_scut
+swipeQuality      1.0      1.5      1.0      0.75    ms_mvit_1pt5-pt05_scut
+swipeQuality      1.0      2.0      1.0      0.75    ms_mvit_1pt5-pt05_scut
+swipeQuality      1.0      3.0      1.0      0.75    ms_mvit_1pt5-pt05_scut
+swipeQuality      1.0      4.0      1.0      0.75    DGBQA_CGID_Res3D-ViViT_1-1pt5_SCUT
+
+swipeQuality      1.0      2.0      0.01      0.75    ms_mvit_1pt5-pt05_scut
+swipeQuality      1.0      2.0      0.05      0.75    ms_mvit_1pt5-pt05_scut
+swipeQuality      1.0      2.0      0.1      0.75    ms_mvit_1pt5-pt05_scut
+swipeQuality      1.0      2.0      0.25      0.75    ms_mvit_1pt5-pt05_scut
+swipeQuality      1.0      2.0      0.5      0.75    ms_mvit_1pt5-pt05_scut
+swipeQuality      1.0      2.0      0.75      0.75    ms_mvit_1pt5-pt05_scut
+swipeQuality      1.0      2.0      1.0      0.75    ms_mvit_1pt5-pt05_scut
+swipeQuality      1.0      2.0      1.5      0.75    ms_mvit_1pt5-pt05_scut
+swipeQuality      1.0      2.0      2.0      0.75    ms_mvit_1pt5-pt05_scut
+swipeQuality      1.0      2.0      3.0      0.75    ms_mvit_1pt5-pt05_scut
+swipeQuality      1.0      2.0      4.0      0.75    ms_mvit_1pt5-pt05_scut
+
+swipeQuality      1.0      2.0      1.0      0.01    ms_vivit_1pt5-pt05_scut
+swipeQuality      1.0      2.0      1.0      0.05    ms_vivit_1pt5-pt05_scut
+swipeQuality      1.0      2.0      1.0      0.1    ms_vivit_1pt5-pt05_scut
+swipeQuality      1.0      2.0      1.0      0.25    ms_vivit_1pt5-pt05_scut
+swipeQuality      1.0      2.0      1.0      0.5    ms_mvit_1pt5-pt05_scut
+swipeQuality      1.0      2.0      1.0      0.75    ms_mvit_1pt5-pt05_scut
+swipeQuality      1.0      2.0      1.0      1.0    ms_mvit_1pt5-pt05_scut
+swipeQuality      1.0      2.0      1.0      1.5    ms_mvit_1pt5-pt05_scut
+swipeQuality      1.0      2.0      1.0      2.0    ms_mvit_1pt5-pt05_scut
+swipeQuality      1.0      2.0      1.0      3.0    ms_mvit_1pt5-pt05_scut

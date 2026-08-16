@@ -1,0 +1,15 @@
+Quantifier             Metric             selectedModel                                  nAr*             r             R             Psi             Cd
+dgbqa           Ar           ./Embeddings/DGBQA_CGID_Res3D-ViViT_1pt5-pt5_SOLI.npz           27.6619           0.4545           8.5427           1.7006           0.3506
+deltaDistance           Ar           ./Embeddings/DGBQA_CGID_Res3D-MF_1pt5-pt5_SOLI.npz           16.5627           1.3636           8.3735           2.3983           0.3615
+masterFace           Ar           ./Embeddings/DGBQA_CGID_Res3D-MF_pt5-1_SOLI.npz           23.0334           1.3636           7.8609           2.1854           0.2249
+genCapacity           Ar           ./Embeddings/DGBQA_CGID_Res3D-MF_1pt5-1_SOLI.npz           30.8761           0.4545           7.4302           2.5684           0.3048
+swipeQuality           Ar           ./Embeddings/MS_TPN_1pt5-1_SOLI.npz           13.2962           3.5455           5.9819           4.8011           0.3312
+dgbqa           Ar           ./Embeddings/MS_MViT_pt5-1_HandLogin.npz           17.825           0.0           4.1126           2.0918           0.3275
+deltaDistance           Ar           ./Embeddings/MS_ViViT_1pt5-pt5_HandLogin.npz           20.3898           0.0           4.0681           2.0426           0.3332
+masterFace           Ar           ./Embeddings/MS_MViT_1-1_HandLogin.npz           19.7514           0.0           4.1432           1.7404           0.3726
+swipeQuality           Ar           ./Embeddings/MS_TPN_1pt5-2pt5_HandLogin.npz           19.0591           0.25           4.0856           2.709           0.001
+dgbqa           Ar           ./Embeddings/MS_MF_1-1pt5_Tiny.npz           22.8946           1.4545           8.2872           2.2759           0.4836
+deltaDistance           Ar           ./Embeddings/DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny.npz           20.4667           1.6364           8.0789           3.4827           0.5408
+masterFace           Ar           ./Embeddings/DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny.npz           25.4882           1.0909           8.2919           2.8731           0.4881
+genCapacity           Ar           ./Embeddings/DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny.npz           19.96           1.4545           7.2666           4.4466           0.5408
+swipeQuality           Ar           ./Embeddings/MS_TAM_1-2pt5_Tiny.npz           11.5796           2.9091           7.1167           2.9727           0.5556

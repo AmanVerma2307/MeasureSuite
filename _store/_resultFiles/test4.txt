@@ -1,0 +1,2 @@
+Quantifier             Metric             selectedModel                                  nAr*             r             R             Psi             Cd
+masterFace           Ar*           ./Embeddings/bdb/idf_vanilla_lgtranet_k3-5_1-1pt5-1pt5_sensorGrav_bdb.npz           0.1294           1.5           2.5           3.9734           0.0987

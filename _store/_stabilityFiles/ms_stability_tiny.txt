@@ -1,0 +1,243 @@
+quants      kappa      lambda      nu      beta      model
+dgbqa      0.01      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+dgbqa      0.05      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+dgbqa      0.1      2.0      1.0      0.75      MS_MF_1-1pt5_Tiny
+dgbqa      0.25      2.0      1.0      0.75      MS_MF_1-1pt5_Tiny
+dgbqa      0.5      2.0      1.0      0.75      MS_MF_1-1pt5_Tiny
+dgbqa      0.75      2.0      1.0      0.75      MS_MF_1-1pt5_Tiny
+dgbqa      1.0      2.0      1.0      0.75      MS_MF_1-1pt5_Tiny
+dgbqa      1.5      2.0      1.0      0.75      MS_MF_1-1pt5_Tiny
+dgbqa      2.0      2.0      1.0      0.75      MS_MF_1-1pt5_Tiny
+dgbqa      4.0      2.0      1.0      0.75      MS_MF_1-1pt5_Tiny
+
+dgbqa      1.0      0.01      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-1_Tiny
+dgbqa      1.0      0.05      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-1_Tiny
+dgbqa      1.0      0.1      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-1_Tiny
+dgbqa      1.0      0.25      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-1_Tiny
+dgbqa      1.0      0.5      1.0      0.75      MS_MF_1-1pt5_Tiny
+dgbqa      1.0      0.75      1.0      0.75      MS_MF_1-1pt5_Tiny
+dgbqa      1.0      1.0      1.0      0.75      MS_MF_1-1pt5_Tiny
+dgbqa      1.0      1.5      1.0      0.75      MS_MF_1-1pt5_Tiny
+dgbqa      1.0      2.0      1.0      0.75      MS_MF_1-1pt5_Tiny
+dgbqa      1.0      3.0      1.0      0.75      MS_MF_1-1pt5_Tiny
+dgbqa      1.0      4.0      1.0      0.75      MS_TAM_1-2pt5_Tiny
+
+dgbqa      1.0      2.0      0.01      0.75      MS_MF_1-1pt5_Tiny
+dgbqa      1.0      2.0      0.05      0.75      MS_MF_1-1pt5_Tiny
+dgbqa      1.0      2.0      0.1      0.75      MS_MF_1-1pt5_Tiny
+dgbqa      1.0      2.0      0.25      0.75      MS_MF_1-1pt5_Tiny
+dgbqa      1.0      2.0      0.5      0.75      MS_MF_1-1pt5_Tiny
+dgbqa      1.0      2.0      0.75      0.75      MS_MF_1-1pt5_Tiny
+dgbqa      1.0      2.0      1.0      0.75      MS_MF_1-1pt5_Tiny
+dgbqa      1.0      2.0      1.5      0.75      MS_MF_1-1pt5_Tiny
+dgbqa      1.0      2.0      2.0      0.75      MS_MF_1-1pt5_Tiny
+dgbqa      1.0      2.0      3.0      0.75      MS_MF_1-1pt5_Tiny
+dgbqa      1.0      2.0      4.0      0.75      MS_MF_1-1pt5_Tiny
+
+dgbqa      1.0      2.0      1.0      0.01      MS_MF_1-1pt5_Tiny
+dgbqa      1.0      2.0      1.0      0.05      MS_MF_1-1pt5_Tiny
+dgbqa      1.0      2.0      1.0      0.1      MS_MF_1-1pt5_Tiny
+dgbqa      1.0      2.0      1.0      0.25      MS_MF_1-1pt5_Tiny
+dgbqa      1.0      2.0      1.0      0.5      MS_MF_1-1pt5_Tiny
+dgbqa      1.0      2.0      1.0      0.75      MS_MF_1-1pt5_Tiny
+dgbqa      1.0      2.0      1.0      1.0      MS_MF_1-1pt5_Tiny
+dgbqa      1.0      2.0      1.0      1.5      MS_MF_1-1pt5_Tiny
+dgbqa      1.0      2.0      1.0      2.0      MS_MF_1-1pt5_Tiny
+dgbqa      1.0      2.0      1.0      3.0      MS_MF_1-1pt5_Tiny
+dgbqa      1.0      2.0      1.0      4.0      MS_MF_1-1pt5_Tiny
+
+
+deltaDistance      0.01      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_pt5-2pt5_Tiny
+deltaDistance      0.05      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_pt5-2pt5_Tiny
+deltaDistance      0.1      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_pt5-2pt5_Tiny
+deltaDistance      0.25      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      0.5      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      0.75      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      1.0      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      1.5      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      2.0      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      3.0      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      4.0      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+
+deltaDistance      1.0      0.01      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      1.0      0.05      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      1.0      0.1      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      1.0      0.25      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      1.0      0.5      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      1.0      0.75      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      1.0      1.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      1.0      1.5      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      1.0      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      1.0      3.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      1.0      4.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+
+deltaDistance      1.0      2.0      0.01      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      1.0      2.0      0.05      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      1.0      2.0      0.1      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      1.0      2.0      0.25      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      1.0      2.0      0.5      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      1.0      2.0      0.75      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      1.0      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      1.0      2.0      1.5      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      1.0      2.0      2.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      1.0      2.0      3.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      1.0      2.0      4.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+
+deltaDistance      1.0      2.0      1.0      0.01      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      1.0      2.0      1.0      0.05      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      1.0      2.0      1.0      0.1      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      1.0      2.0      1.0      0.25      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      1.0      2.0      1.0      0.5      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      1.0      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      1.0      2.0      1.0      1.0      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      1.0      2.0      1.0      1.5      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      1.0      2.0      1.0      2.0      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      1.0      2.0      1.0      3.0      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+deltaDistance      1.0      2.0      1.0      4.0      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+
+
+genCapacity      0.01      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-1_Tiny
+genCapacity      0.05      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-1_Tiny
+genCapacity      0.1      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-1_Tiny
+genCapacity      0.25      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-1_Tiny
+genCapacity      0.5      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-1_Tiny
+genCapacity      0.75      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-1_Tiny 
+genCapacity      1.0      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+genCapacity      1.5      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+genCapacity      2.0      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+genCapacity      3.0      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+genCapacity      4.0      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+
+genCapacity      1.0      0.01      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-1_Tiny
+genCapacity      1.0      0.05      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-1_Tiny
+genCapacity      1.0      0.1      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-1_Tiny
+genCapacity      1.0      0.25      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-1_Tiny
+genCapacity      1.0      0.5      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-1_Tiny
+genCapacity      1.0      0.75      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-1_Tiny
+genCapacity      1.0      1.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-1_Tiny
+genCapacity      1.0      1.5      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+genCapacity      1.0      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+genCapacity      1.0      3.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+genCapacity      1.0      4.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+
+genCapacity      1.0      2.0      0.01      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+genCapacity      1.0      2.0      0.05      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+genCapacity      1.0      2.0      0.1      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+genCapacity      1.0      2.0      0.25      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+genCapacity      1.0      2.0      0.5      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+genCapacity      1.0      2.0      0.75      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+genCapacity      1.0      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+genCapacity      1.0      2.0      1.5      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+genCapacity      1.0      2.0      2.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+genCapacity      1.0      2.0      3.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+genCapacity      1.0      2.0      4.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+
+genCapacity      1.0      2.0      1.0      0.01      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+genCapacity      1.0      2.0      1.0      0.05      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+genCapacity      1.0      2.0      1.0      0.1      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+genCapacity      1.0      2.0      1.0      0.25      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+genCapacity      1.0      2.0      1.0      0.5      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+genCapacity      1.0      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+genCapacity      1.0      2.0      1.0      1.0      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+genCapacity      1.0      2.0      1.0      1.5      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+genCapacity      1.0      2.0      1.0      2.0      DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny
+genCapacity      1.0      2.0      1.0      3.0      DGBQA_CGID_Res3D-ViViT_1-1_Tiny
+genCapacity      1.0      2.0      1.0      4.0      DGBQA_CGID_Res3D-ViViT_1-1_Tiny
+
+
+masterFace      0.01      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      0.05      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      0.1      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      0.25      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      0.5      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      0.75      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      1.0      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      1.5      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      2.0      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      3.0      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      4.0      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+
+masterFace      1.0      0.01      1.0      0.75      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      1.0      0.05      1.0      0.75      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      1.0      0.1      1.0      0.75      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      1.0      0.25      1.0      0.75      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      1.0      0.5      1.0      0.75      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      1.0      0.75      1.0      0.75      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      1.0      1.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      1.0      1.5      1.0      0.75      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      1.0      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      1.0      3.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      1.0      4.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+
+masterFace      1.0      2.0      0.01      0.75      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      1.0      2.0      0.05      0.75      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      1.0      2.0      0.1      0.75      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      1.0      2.0      0.25      0.75      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      1.0      2.0      0.5      0.75      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      1.0      2.0      0.75      0.75      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      1.0      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      1.0      2.0      1.5      0.75      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      1.0      2.0      2.0      0.75      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      1.0      2.0      3.0      0.75      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      1.0      2.0      4.0      0.75      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+
+masterFace      1.0      2.0      1.0      0.01      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      1.0      2.0      1.0      0.05      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      1.0      2.0      1.0      0.1      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      1.0      2.0      1.0      0.25      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      1.0      2.0      1.0      0.5      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      1.0      2.0      1.0      0.75      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      1.0      2.0      1.0      1.0      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      1.0      2.0      1.0      1.5      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      1.0      2.0      1.0      2.0      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      1.0      2.0      1.0      3.0      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+masterFace      1.0      2.0      1.0      4.0      DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny
+
+
+swipeQuality      0.01      2.0      1.0      0.75      MS_TAM_1-2pt5_Tiny
+swipeQuality      0.05      2.0      1.0      0.75      MS_TAM_1-2pt5_Tiny
+swipeQuality      0.1      2.0      1.0      0.75      MS_TAM_1-2pt5_Tiny
+swipeQuality      0.25      2.0      1.0      0.75      MS_TAM_1-2pt5_Tiny
+swipeQuality      0.5      2.0      1.0      0.75      MS_TAM_1-2pt5_Tiny
+swipeQuality      0.75      2.0      1.0      0.75      MS_TAM_1-2pt5_Tiny
+swipeQuality      1.0      2.0      1.0      0.75      MS_TAM_1-2pt5_Tiny
+swipeQuality      1.5      2.0      1.0      0.75      MS_TAM_1-2pt5_Tiny
+swipeQuality      2.0      2.0      1.0      0.75      MS_TAM_1-2pt5_Tiny
+swipeQuality      3.0      2.0      1.0      0.75      MS_TAM_1-2pt5_Tiny
+swipeQuality      4.0      2.0      1.0      0.75      MS_TAM_1-2pt5_Tiny
+
+swipeQuality      1.0      0.01      1.0      0.75      MS_TAM_1-2pt5_Tiny
+swipeQuality      1.0      0.05      1.0      0.75      MS_TAM_1-2pt5_Tiny
+swipeQuality      1.0      0.1      1.0      0.75      MS_TAM_1-2pt5_Tiny
+swipeQuality      1.0      0.25      1.0      0.75      MS_TAM_1-2pt5_Tiny
+swipeQuality      1.0      0.5      1.0      0.75      MS_TAM_1-2pt5_Tiny
+swipeQuality      1.0      0.75      1.0      0.75      MS_TAM_1-2pt5_Tiny
+swipeQuality      1.0      1.0      1.0      0.75      MS_TAM_1-2pt5_Tiny
+swipeQuality      1.0      1.5      1.0      0.75      MS_TAM_1-2pt5_Tiny
+swipeQuality      1.0      2.0      1.0      0.75      MS_TAM_1-2pt5_Tiny
+swipeQuality      1.0      3.0      1.0      0.75      MS_TAM_1-2pt5_Tiny
+swipeQuality      1.0      4.0      1.0      0.75      MS_TAM_1-2pt5_Tiny
+
+swipeQuality      1.0      2.0      0.01      0.75      MS_TAM_1-2pt5_Tiny
+swipeQuality      1.0      2.0      0.05      0.75      MS_TAM_1-2pt5_Tiny
+swipeQuality      1.0      2.0      0.1      0.75      MS_TAM_1-2pt5_Tiny
+swipeQuality      1.0      2.0      0.25      0.75      MS_TAM_1-2pt5_Tiny
+swipeQuality      1.0      2.0      0.5      0.75      MS_TAM_1-2pt5_Tiny
+swipeQuality      1.0      2.0      0.75      0.75      MS_TAM_1-2pt5_Tiny
+swipeQuality      1.0      2.0      1.0      0.75      MS_TAM_1-2pt5_Tiny
+swipeQuality      1.0      2.0      1.5      0.75      MS_TAM_1-2pt5_Tiny
+swipeQuality      1.0      2.0      2.0      0.75      MS_TAM_1-2pt5_Tiny
+swipeQuality      1.0      2.0      3.0      0.75      MS_TAM_1-2pt5_Tiny
+swipeQuality      1.0      2.0      4.0      0.75      MS_TAM_1-2pt5_Tiny
+
+swipeQuality      1.0      2.0      1.0      0.01      MS_TAM_1-2pt5_Tiny
+swipeQuality      1.0      2.0      1.0      0.05      MS_TAM_1-2pt5_Tiny
+swipeQuality      1.0      2.0      1.0      0.1      MS_TAM_1-2pt5_Tiny
+swipeQuality      1.0      2.0      1.0      0.25      MS_TAM_1-2pt5_Tiny
+swipeQuality      1.0      2.0      1.0      0.5      MS_TAM_1-2pt5_Tiny
+swipeQuality      1.0      2.0      1.0      0.75      MS_TAM_1-2pt5_Tiny
+swipeQuality      1.0      2.0      1.0      1.0      MS_TAM_1-2pt5_Tiny
+swipeQuality      1.0      2.0      1.0      1.5      MS_TAM_1-2pt5_Tiny
+swipeQuality      1.0      2.0      1.0      2.0      MS_TAM_1-2pt5_Tiny
+swipeQuality      1.0      2.0      1.0      3.0      MS_TAM_1-2pt5_Tiny
+swipeQuality      1.0      2.0      1.0      4.0      MS_TAM_1-2pt5_Tiny

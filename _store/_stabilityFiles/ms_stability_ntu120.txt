@@ -1,0 +1,244 @@
+quants      kappa      lambda      nu      beta      model
+dgbqa      0.01      2.0      1.0      0.75     ms_skateformer_1-pt5-pt5-multiStepmin3_ntu120
+dgbqa      0.05      2.0      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      0.1      2.0      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      0.25      2.0      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      0.5      2.0      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      0.75      2.0      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      1.0      2.0      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      1.5      2.0      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      2.0      2.0      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      3.0      2.0      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      4.0      2.0      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+
+dgbqa      1.0      0.01      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      1.0      0.05      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      1.0      0.1      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      1.0      0.25      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      1.0      0.5      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      1.0      0.75      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      1.0      1.0      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      1.0      1.5      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      1.0      2.0      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      1.0      3.0      1.0      0.75     ms_hcn_1-1-pt5-multiStepmin3_ntu120
+dgbqa      1.0      4.0      1.0      0.75     ms_hcn_1-1-pt5-multiStepmin3_ntu120
+
+dgbqa      1.0      2.0      0.01      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      1.0      2.0      0.05      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      1.0      2.0      0.1      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      1.0      2.0      0.25      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      1.0      2.0      0.5      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      1.0      2.0      0.75      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      1.0      2.0      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      1.0      2.0      1.5      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      1.0      2.0      2.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      1.0      2.0      3.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      1.0      2.0      4.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+
+dgbqa      1.0      2.0      1.0      0.01     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      1.0      2.0      1.0      0.05     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      1.0      2.0      1.0      0.1     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      1.0      2.0      1.0      0.25     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      1.0      2.0      1.0      0.5     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      1.0      2.0      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      1.0      2.0      1.0      1.0     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      1.0      2.0      1.0      1.5     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      1.0      2.0      1.0      2.0     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+dgbqa      1.0      2.0      1.0      3.0     ms_hcn_1-1-pt5-multiStepmin3_ntu120
+dgbqa      1.0      2.0      1.0      4.0     ms_hcn_1-1-pt5-multiStepmin3_ntu120
+
+
+deltaDistance      0.01      2.0      1.0      0.75     ms_skateformer_1-1-pt5-multiStepmin3_ntu120
+deltaDistance      0.05      2.0      1.0      0.75     ms_skateformer_1-1-pt5-multiStepmin3_ntu120
+deltaDistance      0.1      2.0      1.0      0.75     ms_skateformer_1-1-pt5-multiStepmin3_ntu120
+deltaDistance      0.25      2.0      1.0      0.75     ms_skateformer_1-1-pt5-multiStepmin3_ntu120
+deltaDistance      0.5      2.0      1.0      0.75     ms_skateformer_1-1-pt5-multiStepmin3_ntu120
+deltaDistance      0.75      2.0      1.0      0.75     ms_skateformer_1-1-pt5-multiStepmin3_ntu120
+deltaDistance      1.0      2.0      1.0      0.75     ms_skateformer_1-1-pt5-multiStepmin3_ntu120
+deltaDistance      1.5      2.0      1.0      0.75     ms_skateformer_1-1-pt5-multiStepmin3_ntu120
+deltaDistance      2.0      2.0      1.0      0.75     ms_skateformer_1-1-pt5-multiStepmin3_ntu120
+deltaDistance      3.0      2.0      1.0      0.75     ms_skateformer_1-1-pt5-multiStepmin3_ntu120
+deltaDistance      4.0      2.0      1.0      0.75     ms_skateformer_1-1-pt5-multiStepmin3_ntu120
+
+deltaDistance      1.0      0.01      1.0      0.75     ms_skateformer_1-pt5-1-multiStepmin3_ntu120
+deltaDistance      1.0      0.05      1.0      0.75     ms_skateformer_1-pt5-1-multiStepmin3_ntu120
+deltaDistance      1.0      0.1      1.0      0.75     ms_skateformer_1-pt5-1-multiStepmin3_ntu120
+deltaDistance      1.0      0.25      1.0      0.75     ms_skateformer_1-pt5-1-multiStepmin3_ntu120
+deltaDistance      1.0      0.5      1.0      0.75     ms_skateformer_1-pt5-1-multiStepmin3_ntu120
+deltaDistance      1.0      0.75      1.0      0.75     ms_skateformer_1-pt5-1-multiStepmin3_ntu120
+deltaDistance      1.0      1.0      1.0      0.75     ms_skateformer_1-pt5-1-multiStepmin3_ntu120
+deltaDistance      1.0      1.5      1.0      0.75     ms_skateformer_1-pt5-1-multiStepmin3_ntu120
+deltaDistance      1.0      2.0      1.0      0.75     ms_skateformer_1-1-pt5-multiStepmin3_ntu120
+deltaDistance      1.0      3.0      1.0      0.75     ms_skateformer_1-1-pt5-multiStepmin3_ntu120
+deltaDistance      1.0      4.0      1.0      0.75     ms_skateformer_1-1-pt5-multiStepmin3_ntu120
+
+deltaDistance      1.0      2.0      0.01      0.75     ms_skateformer_1-1-pt5-multiStepmin3_ntu120
+deltaDistance      1.0      2.0      0.05      0.75     ms_skateformer_1-1-pt5-multiStepmin3_ntu120
+deltaDistance      1.0      2.0      0.1      0.75     ms_skateformer_1-1-pt5-multiStepmin3_ntu120
+deltaDistance      1.0      2.0      0.25      0.75     ms_skateformer_1-1-pt5-multiStepmin3_ntu120
+deltaDistance      1.0      2.0      0.5      0.75     ms_skateformer_1-1-pt5-multiStepmin3_ntu120
+deltaDistance      1.0      2.0      0.75      0.75     ms_skateformer_1-1-pt5-multiStepmin3_ntu120
+deltaDistance      1.0      2.0      1.0      0.75     ms_skateformer_1-1-pt5-multiStepmin3_ntu120
+deltaDistance      1.0      2.0      1.5      0.75     ms_skateformer_1-1-pt5-multiStepmin3_ntu120
+deltaDistance      1.0      2.0      2.0      0.75     ms_skateformer_1-1-pt5-multiStepmin3_ntu120
+deltaDistance      1.0      2.0      3.0      0.75     ms_skateformer_1-1-pt5-multiStepmin3_ntu120
+deltaDistance      1.0      2.0      4.0      0.75     ms_skateformer_1-1-pt5-multiStepmin3_ntu120
+
+deltaDistance      1.0      2.0      1.0      0.01     ms_skateformer_1-1-pt5-multiStepmin3_ntu120
+deltaDistance      1.0      2.0      1.0      0.05     ms_skateformer_1-1-pt5-multiStepmin3_ntu120
+deltaDistance      1.0      2.0      1.0      0.1     ms_skateformer_1-1-pt5-multiStepmin3_ntu120
+deltaDistance      1.0      2.0      1.0      0.25     ms_skateformer_1-1-pt5-multiStepmin3_ntu120
+deltaDistance      1.0      2.0      1.0      0.5     ms_skateformer_1-1-pt5-multiStepmin3_ntu120
+deltaDistance      1.0      2.0      1.0      0.75     ms_skateformer_1-1-pt5-multiStepmin3_ntu120
+deltaDistance      1.0      2.0      1.0      1.0     ms_skateformer_1-1-pt5-multiStepmin3_ntu120
+deltaDistance      1.0      2.0      1.0      1.5     ms_skateformer_1-1-pt5-multiStepmin3_ntu120
+deltaDistance      1.0      2.0      1.0      2.0     ms_skateformer_1-1-pt5-multiStepmin3_ntu120
+deltaDistance      1.0      2.0      1.0      3.0     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+deltaDistance      1.0      2.0      1.0      4.0     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+
+
+genCapacity      0.01      2.0      1.0      0.75     ms_skateformer_1-pt5-pt5-multiStepmin3_ntu120
+genCapacity      0.05      2.0      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      0.1      2.0      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      0.25      2.0      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      0.5      2.0      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      0.75      2.0      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      1.0      2.0      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      1.5      2.0      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      2.0      2.0      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      3.0      2.0      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      4.0      2.0      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+
+genCapacity      1.0      0.01      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      1.0      0.05      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      1.0      0.1      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      1.0      0.25      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      1.0      0.5      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      1.0      0.75      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      1.0      1.0      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      1.0      1.5      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      1.0      2.0      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      1.0      3.0      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      1.0      4.0      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+
+genCapacity      1.0      2.0      0.01      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      1.0      2.0      0.05      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      1.0      2.0      0.1      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      1.0      2.0      0.25      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      1.0      2.0      0.5      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      1.0      2.0      0.75      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      1.0      2.0      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      1.0      2.0      1.5      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      1.0      2.0      2.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      1.0      2.0      3.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      1.0      2.0      4.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+
+genCapacity      1.0      2.0      1.0      0.01     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      1.0      2.0      1.0      0.05     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      1.0      2.0      1.0      0.1     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      1.0      2.0      1.0      0.25     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      1.0      2.0      1.0      0.5     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      1.0      2.0      1.0      0.75     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      1.0      2.0      1.0      1.0     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      1.0      2.0      1.0      1.5     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      1.0      2.0      1.0      2.0     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      1.0      2.0      1.0      3.0     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+genCapacity      1.0      2.0      1.0      4.0     ms_skateformer_1-pt5-pt01-multiStepmin3_ntu120
+
+
+masterFace      0.01      2.0      1.0      0.75     ms_skateformer_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      0.05      2.0      1.0      0.75     ms_skateformer_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      0.1      2.0      1.0      0.75     ms_skateformer_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      0.25      2.0      1.0      0.75     ms_skateformer_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      0.5      2.0      1.0      0.75     ms_skateformer_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      0.75      2.0      1.0      0.75     ms_skateformer_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      1.0      2.0      1.0      0.75     ms_skateformer_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      1.5      2.0      1.0      0.75     ms_skateformer_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      2.0      2.0      1.0      0.75     ms_hcn_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      3.0      2.0      1.0      0.75     ms_hcn_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      4.0      2.0      1.0      0.75     ms_hcn_1-pt5-pt5-multiStepmin3_ntu120
+
+masterFace      1.0      0.01      1.0      0.75     ms_hcn_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      1.0      0.05      1.0      0.75     ms_hcn_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      1.0      0.1      1.0      0.75     ms_hcn_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      1.0      0.25      1.0      0.75     ms_hcn_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      1.0      0.5      1.0      0.75     ms_hcn_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      1.0      0.75      1.0      0.75     ms_hcn_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      1.0      1.0      1.0      0.75     ms_hcn_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      1.0      1.5      1.0      0.75     ms_hcn_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      1.0      2.0      1.0      0.75     ms_skateformer_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      1.0      3.0      1.0      0.75     ms_skateformer_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      1.0      4.0      1.0      0.75     ms_skateformer_1-pt5-pt5-multiStepmin3_ntu120
+
+masterFace      1.0      2.0      0.01      0.75     ms_skateformer_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      1.0      2.0      0.05      0.75     ms_skateformer_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      1.0      2.0      0.1      0.75     ms_skateformer_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      1.0      2.0      0.25      0.75     ms_skateformer_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      1.0      2.0      0.5      0.75     ms_skateformer_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      1.0      2.0      0.75      0.75     ms_skateformer_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      1.0      2.0      1.0      0.75     ms_skateformer_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      1.0      2.0      1.5      0.75     ms_skateformer_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      1.0      2.0      2.0      0.75     ms_skateformer_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      1.0      2.0      3.0      0.75     ms_skateformer_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      1.0      2.0      4.0      0.75     ms_skateformer_1-pt5-pt5-multiStepmin3_ntu120
+
+masterFace      1.0      2.0      1.0      0.01     ms_skateformer_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      1.0      2.0      1.0      0.05     ms_skateformer_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      1.0      2.0      1.0      0.1     ms_skateformer_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      1.0      2.0      1.0      0.25     ms_skateformer_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      1.0      2.0      1.0      0.5     ms_skateformer_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      1.0      2.0      1.0      0.75     ms_skateformer_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      1.0      2.0      1.0      1.0     ms_skateformer_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      1.0      2.0      1.0      1.5     ms_skateformer_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      1.0      2.0      1.0      2.0     ms_skateformer_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      1.0      2.0      1.0      3.0     ms_skateformer_1-pt5-pt5-multiStepmin3_ntu120
+masterFace      1.0      2.0      1.0      4.0     ms_skateformer_1-pt5-pt5-multiStepmin3_ntu120
+
+
+swipeQuality      0.01      2.0      1.0      0.75     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      0.05      2.0      1.0      0.75     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      0.1      2.0      1.0      0.75     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      0.25      2.0      1.0      0.75     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      0.5      2.0      1.0      0.75     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      0.75      2.0      1.0      0.75     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      1.0      2.0      1.0      0.75     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      1.5      2.0      1.0      0.75     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      2.0      2.0      1.0      0.75     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      3.0      2.0      1.0      0.75     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      4.0      2.0      1.0      0.75     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+
+swipeQuality      1.0      0.01      1.0      0.75     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      1.0      0.05      1.0      0.75     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      1.0      0.1      1.0      0.75     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      1.0      0.25      1.0      0.75     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      1.0      0.5      1.0      0.75     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      1.0      0.75      1.0      0.75     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      1.0      1.0      1.0      0.75     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      1.0      1.5      1.0      0.75     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      1.0      2.0      1.0      0.75     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      1.0      3.0      1.0      0.75     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      1.0      4.0      1.0      0.75     ms_hcn_1-pt5-pt5-multiStepmin3_ntu120
+
+swipeQuality      1.0      2.0      0.01      0.75     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      1.0      2.0      0.05      0.75     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      1.0      2.0      0.1      0.75     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      1.0      2.0      0.25      0.75     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      1.0      2.0      0.5      0.75     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      1.0      2.0      0.75      0.75     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      1.0      2.0      1.0      0.75     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      1.0      2.0      1.5      0.75     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      1.0      2.0      2.0      0.75     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      1.0      2.0      3.0      0.75     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      1.0      2.0      4.0      0.75     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+
+swipeQuality      1.0      2.0      1.0      0.01     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      1.0      2.0      1.0      0.05     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      1.0      2.0      1.0      0.1     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      1.0      2.0      1.0      0.25     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      1.0      2.0      1.0      0.5     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      1.0      2.0      1.0      0.75     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      1.0      2.0      1.0      1.0     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      1.0      2.0      1.0      1.5     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      1.0      2.0      1.0      2.0     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      1.0      2.0      1.0      3.0     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120
+swipeQuality      1.0      2.0      1.0      4.0     ms_hcn_1-pt5-pt01-multiStepmin3_ntu120

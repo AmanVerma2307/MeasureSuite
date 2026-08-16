@@ -1,0 +1,2 @@
+quants      kappa      lambda      nu      beta      model
+dgbqa      1.0      2.0      1.0      0.75      scut/ms_vivit_1-pt01_scut

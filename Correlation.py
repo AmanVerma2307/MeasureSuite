@@ -1,169 +1,214 @@
-###### Importing libraries
+import argparse
+import scipy
+import pyCompare
 import numpy as np
-import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-from ModelSelector import get_val, get_params, make_df
+from utils.selector import *
+from utils.retList import *
 
-###### Parameter generation
+parser = argparse.ArgumentParser()
+parser.add_argument('--dataset',
+                    type=str,
+                    default='soli',
+                    help="Dataset to be analyzed")
+parser.add_argument("--bdbMode",
+                    type=str,
+                    default='Acc',
+                    help="bdb sensor to be used.")
+parser.add_argument('--mode',
+                    type=str,
+                    default='full',
+                    help="Mode of correlation analysis")
+parser.add_argument('--quantifier',
+                    type=str,
+                    default='dgbqa',
+                    help="The quantifier to be used for score generation")
+parser.add_argument('--measure1',
+                    type=str,
+                    default='r',
+                    help="The first measure for analysis")
+parser.add_argument('--measure2',
+                    type=str,
+                    default='Ar_star',
+                    help="The second measure for analysis")
+parser.add_argument('--corrPlot_palette',
+                    type=str,
+                    default='rocket',
+                    help="The color pallete to be used for correlation plots")
+parser.add_argument('--initCorrFile',
+                    type=int,
+                    default=0,
+                    help="If 1, then a new result file will be instantiated.")
+parser.add_argument('--nameCorrFile',
+                    type=str,
+                    help="Name of the CorrFile for storing correlation results")
+parser.add_argument('--corrPath',
+                    type=str,
+                    help="Name of the experiment for plotting Correlation plot")
+parser.add_argument('--baPath',
+                    type=str,
+                    help="Name of the experiment for plotting Bland-Altman plot")
 
-##### Defining essentials
-embedding_list_soli = ['./Embeddings/DGBQA_CGID_Res3D-ViViT_pt5-pt5_SOLI.npz',
-                       './Embeddings/DGBQA_CGID_Res3D-ViViT_pt5-1_SOLI.npz',
-                       './Embeddings/DGBQA_CGID_Res3D-ViViT_pt5-1pt5_SOLI.npz',
-                       './Embeddings/DGBQA_CGID_Res3D-ViViT_1-pt5_SOLI.npz',
-                       './Embeddings/DGBQA_CGID_Res3D-ViViT_1-1_SOLI.npz',
-                       './Embeddings/DGBQA_CGID_Res3D-ViViT_1-1pt5_SOLI.npz',
-                       './Embeddings/DGBQA_CGID_Res3D-ViViT_1pt5-pt5_SOLI.npz',
-                       './Embeddings/DGBQA_CGID_Res3D-ViViT_1pt5-1_SOLI.npz',
-                       './Embeddings/DGBQA_CGID_Res3D-ViViT_1pt5-1pt5_SOLI.npz',
-                        './Embeddings/DGBQA_CGID_Res3D-MF_pt5-pt5_SOLI.npz',
-                        './Embeddings/DGBQA_CGID_Res3D-MF_pt5-1_SOLI.npz',
-                        './Embeddings/DGBQA_CGID_Res3D-MF_pt5-1pt5_SOLI.npz',
-                        './Embeddings/DGBQA_CGID_Res3D-MF_1-pt5_SOLI.npz',
-                        './Embeddings/DGBQA_CGID_Res3D-MF_1-1_SOLI.npz',
-                        './Embeddings/DGBQA_CGID_Res3D-MF_1-1pt5_SOLI.npz',
-                        './Embeddings/DGBQA_CGID_Res3D-MF_1pt5-pt5_SOLI.npz',
-                        './Embeddings/DGBQA_CGID_Res3D-MF_1pt5-1_SOLI.npz',
-                        './Embeddings/DGBQA_CGID_Res3D-MF_1pt5-1pt5_SOLI.npz',
-                        './Embeddings/MS_TPN_pt5-pt5_SOLI.npz',
-                        './Embeddings/MS_TPN_pt5-1_SOLI.npz',
-                        './Embeddings/MS_TPN_pt5-1pt5_SOLI.npz',
-                        './Embeddings/MS_TPN_1-pt5_SOLI.npz',
-                        './Embeddings/MS_TPN_1-1_SOLI.npz',
-                        './Embeddings/MS_TPN_1-1pt5_SOLI.npz',
-                        './Embeddings/MS_TPN_1pt5-pt5_SOLI.npz',
-                        './Embeddings/MS_TPN_1pt5-1_SOLI.npz',
-                        './Embeddings/MS_TPN_1pt5-1pt5_SOLI.npz',
-                        './Embeddings/MS_TAM_pt5-pt5_SOLI.npz',
-                        './Embeddings/MS_TAM_1-pt5_SOLI.npz',
-                        './Embeddings/MS_TAM_1-1_SOLI.npz',
-                        './Embeddings/MS_MViT_pt5-pt5_SOLI.npz',
-                        './Embeddings/MS_MViT_pt5-1_SOLI.npz',
-                        './Embeddings/MS_MViT_pt5-1pt5_SOLI.npz',
-                        './Embeddings/MS_MViT_1-pt5_SOLI.npz',
-                        './Embeddings/MS_MViT_1-1_SOLI.npz',
-                        './Embeddings/MS_MViT_1-1pt5_SOLI.npz',
-                        './Embeddings/MS_MViT_1pt5-pt5_SOLI.npz',
-                        './Embeddings/MS_MViT_1pt5-1_SOLI.npz',
-                        './Embeddings/MS_MViT_1pt5-1pt5_SOLI.npz']
-dataset_list_soli = ['Soli']*39
+args = parser.parse_args()
 
-embedding_list_hl = ['./Embeddings/MS_ViViT_pt5-pt5_HandLogin.npz',
-                       './Embeddings/MS_ViViT_pt5-1_HandLogin.npz',
-                       './Embeddings/MS_ViViT_pt5-1pt5_HandLogin.npz',
-                       './Embeddings/MS_ViViT_pt5-2pt5_HandLogin.npz',
-                       './Embeddings/MS_ViViT_1-pt5_HandLogin.npz',
-                       './Embeddings/MS_ViViT_1-1_HandLogin.npz',
-                       './Embeddings/MS_ViViT_1-1pt5_HandLogin.npz',
-                       './Embeddings/MS_ViViT_1-2pt5_HandLogin.npz',
-                       './Embeddings/MS_ViViT_1pt5-pt5_HandLogin.npz',
-                       './Embeddings/MS_ViViT_1pt5-1_HandLogin.npz',
-                       './Embeddings/MS_ViViT_1pt5-1pt5_HandLogin.npz',
-                       './Embeddings/MS_ViViT_1pt5-2pt5_HandLogin.npz',
-                        './Embeddings/Test/DGBQA_CGID_Res3D-MF_1-pt5_HandLogin.npz',
-                        './Embeddings/Test/DGBQA_CGID_Res3D-MF_1-1_HandLogin.npz',
-                        './Embeddings/Test/DGBQA_CGID_Res3D-MF_1-1pt5_HandLogin.npz',
-                        './Embeddings/Test/DGBQA_CGID_Res3D-MF_1-2pt5_HandLogin.npz',
-                        './Embeddings/Test/DGBQA_CGID_Res3D-MF_1pt5-pt5_HandLogin.npz',
-                        './Embeddings/Test/DGBQA_CGID_Res3D-MF_1pt5-1_HandLogin.npz',
-                        './Embeddings/Test/DGBQA_CGID_Res3D-MF_1pt5-1pt5_HandLogin.npz',
-                        './Embeddings/Test/DGBQA_CGID_Res3D-MF_1pt5-2pt5_HandLogin.npz',
-                        './Embeddings/MS_TPN_pt5-pt5_HandLogin.npz',
-                        './Embeddings/MS_TPN_pt5-1_HandLogin.npz',
-                        './Embeddings/MS_TPN_pt5-1pt5_HandLogin.npz',
-                        './Embeddings/MS_TPN_pt5-2pt5_HandLogin.npz',
-                        './Embeddings/MS_TPN_1-pt5_HandLogin.npz',
-                        './Embeddings/MS_TPN_1-1pt5_HandLogin.npz',
-                        './Embeddings/MS_TPN_1-2pt5_HandLogin.npz',
-                        './Embeddings/MS_TPN_1pt5-pt5_HandLogin.npz',
-                        './Embeddings/MS_TPN_1pt5-1_HandLogin.npz',
-                        './Embeddings/MS_TPN_1pt5-1pt5_HandLogin.npz',
-                        './Embeddings/MS_TPN_1pt5-2pt5_HandLogin.npz',
-                        './Embeddings/MS_TAM_pt5-pt5_HandLogin.npz',
-                        './Embeddings/MS_TAM_pt5-1_HandLogin.npz',
-                        './Embeddings/MS_TAM_pt5-1pt5_HandLogin.npz',
-                        './Embeddings/MS_TAM_pt5-2pt5_HandLogin.npz',
-                        './Embeddings/MS_TAM_1-pt5_HandLogin.npz',
-                        './Embeddings/MS_TAM_1-1_HandLogin.npz',
-                        './Embeddings/MS_TAM_1-1pt5_HandLogin.npz',
-                        './Embeddings/MS_TAM_1-2pt5_HandLogin.npz',
-                        './Embeddings/MS_TAM_1pt5-pt5_HandLogin.npz',
-                        './Embeddings/MS_TAM_1pt5-1_HandLogin.npz',
-                        './Embeddings/MS_TAM_1pt5-1pt5_HandLogin.npz',
-                        './Embeddings/MS_TAM_1pt5-2pt5_HandLogin.npz',
-                        './Embeddings/MS_MViT_pt5-pt5_HandLogin.npz',
-                        './Embeddings/MS_MViT_pt5-1_HandLogin.npz',
-                        './Embeddings/MS_MViT_pt5-1pt5_HandLogin.npz',
-                        './Embeddings/MS_MViT_pt5-2pt5_HandLogin.npz',
-                        './Embeddings/MS_MViT_1-pt5_HandLogin.npz',
-                        './Embeddings/MS_MViT_1-1_HandLogin.npz',
-                        './Embeddings/MS_MViT_1-1pt5_HandLogin.npz',
-                        './Embeddings/MS_MViT_1-2pt5_HandLogin.npz',
-                        './Embeddings/MS_MViT_1pt5-pt5_HandLogin.npz',
-                        './Embeddings/MS_MViT_1pt5-1_HandLogin.npz',
-                        './Embeddings/MS_MViT_1pt5-1pt5_HandLogin.npz',
-                        './Embeddings/MS_MViT_1pt5-2pt5_HandLogin.npz']
-dataset_list_hl = ['HandLogin']*55
+embeddingList, datasetList = retList(args.dataset,args.bdbMode)
+labels = {'r':'$\\mathcal{r}$',
+           'relevance':'R',
+            'psi':'$\\psi$',
+            'Cd':'$C_{d}$',
+            'Ar_star':'$nAr^{*}(\Delta)$',
+            'euclid':'Euclidean dist.',
+            'corr':'Correlation',
+            'Kendall':'$\\tau$',
+            'DCG':'DCG',
+            'err':'err',
+            'U':'U measure',
+            'gre':'GRE',
+            'infAp':'infAp',
+            'neg_rel':'Negative Relevance',
+            'rpp':'RPP'}
+colors = {'soli':0,
+          'handlogin':1,
+          'tiny':2,
+          'scut':3,
+          'bdb':4,
+          'ntu_60':5,
+          'ntu_120':5}
 
-embedding_list_tiny = ['./Embeddings/DGBQA_CGID_Res3D-ViViT_pt5-1_Tiny.npz',
-                       './Embeddings/DGBQA_CGID_Res3D-ViViT_pt5-1pt5_Tiny.npz',
-                       './Embeddings/DGBQA_CGID_Res3D-ViViT_pt5-2pt5_Tiny.npz',
-                       './Embeddings/DGBQA_CGID_Res3D-ViViT_1-1_Tiny.npz',
-                       './Embeddings/DGBQA_CGID_Res3D-ViViT_1-1pt5_Tiny.npz',
-                       './Embeddings/DGBQA_CGID_Res3D-ViViT_1-2pt5_Tiny.npz',
-                       './Embeddings/MS_MF_1-1_Tiny.npz',
-                       './Embeddings/MS_MF_1-1pt5_Tiny.npz',
-                       './Embeddings/MS_MF_1-2pt5_Tiny.npz',
-                       './Embeddings/MS_TAM_1-1_Tiny.npz',
-                       './Embeddings/MS_TAM_1-1pt5_Tiny.npz',
-                       './Embeddings/MS_TAM_1-2pt5_Tiny.npz']
-dataset_list_tiny = ['Tiny']*12
+if(args.dataset in ['bdb','ntu_60','ntu_120'] and args.quantifier == 'masterFace'):
+    normalize = 0
+else:
+    normalize = 1
 
-#measure_val_soli = get_params(embedding_list_soli,
-#                            dataset_list_soli,
-#                            'full')
-#df_soli = make_df(np.array(measure_val_soli))
+measureVal = get_params(embeddingList,
+                        datasetList,
+                        'full',
+                        quantifier=args.quantifier,
+                        normalize=normalize)
+df = make_df(np.array(measureVal))
+
+if(args.mode == 'corrPlots'):
+    cp = sns.color_palette(args.corrPlot_palette)
+    sns.jointplot(x=args.measure1,
+                  y=args.measure2,
+                  data=df,
+                  kind="reg",
+                  color=cp[colors[args.dataset]])
+    plt.xlabel(labels[args.measure1],fontsize=14)
+    plt.ylabel(labels[args.measure2],fontsize=14)
+    plt.savefig('./_store/_graphs/_corrPlots/'+args.corrPath+'.png')
+    plt.close()
 
 
-#measure_val_hl = get_params(embedding_list_hl,
-#                            dataset_list_hl,
-#                            'full')
-#df_hl = make_df(np.array(measure_val_hl))
+if(args.mode == 'corrQuants'):
+        corrVal_spear, pVal_spear = scipy.stats.spearmanr(df[args.measure1].values[:],
+                                                          df[args.measure2].values[:])
+    
+        corrVal_kend, pVal_kend = scipy.stats.kendalltau(df[args.measure1].values[:],
+                                                         df[args.measure2].values[:])
 
-measure_val_tiny = get_params(embedding_list_tiny,dataset_list_tiny,'full')
-df_tiny = make_df(np.array(measure_val_tiny))
+        print('Spearman Corr: '+str(corrVal_spear))
+        print('Spearman pVal: '+str(pVal_spear))
+        print('Kendall Corr: '+str(corrVal_kend))
+        print('Kendall pVal: '+str(pVal_kend))
 
-#measure_val_tiny = get_params(embedding_list_tiny,
-#                                       dataset_list_tiny,
-#                                       'full')
-#measure_val = np.array(measure_val_soli+measure_val_hl+measure_val_tiny)
-#measure_val = np.load('./measure_val.npz',allow_pickle=True)['arr_0']
-#df = make_df(np.array(measure_val))
-#df = make_df(measure_val[:39])
-#df['dataset'] = dataset_list_soli
-#np.savez_compressed('./measure_val.npz',measure_val)
+        heads = ['dataset','quants','measure1','measure2','CorrSpear','pValSpear','CorrKend','pValKend']
+        entries = [args.dataset,
+                   args.quantifier,
+                   args.measure1,
+                   args.measure2,
+                   np.round(corrVal_spear,4),
+                   np.round(pVal_spear,4),
+                   np.round(corrVal_kend,4),
+                   np.round(pVal_kend,4)]
 
-labels = ['$\\mathcal{r}$',
-          'R',
-          '$\\psi$',
-          '$C_{d}$',
-          '$Ar(\Delta)$',
-          '$Ar(\Delta)*\\bar{O}$',
-          '$Ar(\Delta)*\\bar{\psi}$',
-          '$\\bar{\psi}*\\bar{O}$',
-          '$nAr^{*}(\Delta)$']
+        if(args.initCorrFile == 1):
+            corrFile = open('./_store/_corrFiles/'+args.nameCorrFile+'.txt','w')
+            for idx, item in enumerate(heads):
+                if(idx in [0,1,2,3,4,5,6]):
+                    corrFile.write(str(item)+'      ')
+                else:
+                    corrFile.write(str(item)+'\n')
+
+            for idx, item in enumerate(entries):
+                if(idx in [0,1,2,3,4,5,6]):
+                    corrFile.write(str(item)+'      ')
+                else:
+                    corrFile.write(str(item)+'\n')
+
+        if(args.initCorrFile == 0):
+            corrFile = open('./_store/_corrFiles/'+args.nameCorrFile+'.txt','a')
+            for idx, item in enumerate(entries):
+                if(idx in [0,1,2,3,4,5,6]):
+                    corrFile.write(str(item)+'      ')
+                else:
+                    corrFile.write(str(item)+'\n')
+
+        
+if(args.mode == 'blandAltman'):
+    pyCompare.blandAltman(df[args.measure1].values[:],
+                          df[args.measure2].values[:],
+                         savePath='./_store/_graphs/_blandAltman/'+args.baPath+'.png')
 
 
-###### Plot generation
-rocket = sns.color_palette("rocket")
-sns.jointplot(x="rpp",y="Ar_star",data=df_tiny,kind="reg",color=rocket[5])
-plt.ylabel('$nA_r^{*}(\Delta)$',fontsize=14)
-plt.xlabel('RPP',fontsize=14)
-plt.show()
+if(args.mode == 'full'):
+    # Correlation plots
+    cp = sns.color_palette(args.corrPlot_palette)
+    sns.jointplot(x=args.measure1,
+                    y=args.measure2,
+                    data=df,
+                    kind="reg",
+                    color=cp[colors[args.dataset]])
+    plt.xlabel(labels[args.measure1],fontsize=14)
+    plt.ylabel(labels[args.measure2],fontsize=14)
+    plt.savefig('./_store/_graphs/_corrPlots/'+args.corrPath+'.png')
+    plt.close()
 
-#fig, ((ax1,ax2,ax3,ax4,ax5,ax6,ax7),
-#      (ax8,ax9,ax10,ax11,ax12,ax13,ax14),
-#      (ax15,ax16,ax17,ax18,ax19,ax20,ax21)) = plt.subplots(nrows=3,
-#                                      ncols=7,
-#                                      figsize=(12,8))
+    # Correlation values: statistical analysis
+    corrVal_spear, pVal_spear = scipy.stats.spearmanr(df[args.measure1].values[:],
+                                                      df[args.measure2].values[:])
+    
+    corrVal_kend, pVal_kend = scipy.stats.kendalltau(df[args.measure1].values[:],
+                                                     df[args.measure2].values[:])
+    print('Spearman Corr: '+str(corrVal_spear))
+    print('Spearman pVal: '+str(pVal_spear))
+    print('Kendall Corr: '+str(corrVal_kend))
+    print('Kendall pVal: '+str(pVal_kend))
+
+    heads = ['dataset','quants','measure1','measure2','CorrSpear','pValSpear','CorrKend','pValKend']
+    entries = [args.dataset,
+                args.quantifier,
+                args.measure1,
+                args.measure2,
+                np.round(corrVal_spear,4),
+                np.round(pVal_spear,4),
+                np.round(corrVal_kend,4),
+                np.round(pVal_kend,4)]
+
+    if(args.initCorrFile == 1):
+        corrFile = open('./_store/_corrFiles/'+args.nameCorrFile+'.txt','w')
+        for idx, item in enumerate(heads):
+            if(idx in [0,1,2,3,4,5,6]):
+                corrFile.write(str(item)+'      ')
+            else:
+                corrFile.write(str(item)+'\n')
+
+        for idx, item in enumerate(entries):
+            if(idx in [0,1,2,3,4,5,6]):
+                corrFile.write(str(item)+'      ')
+            else:
+                corrFile.write(str(item)+'\n')
+
+    if(args.initCorrFile == 0):
+        corrFile = open('./_store/_corrFiles/'+args.nameCorrFile+'.txt','a')
+        for idx, item in enumerate(entries):
+            if(idx in [0,1,2,3,4,5,6]):
+                corrFile.write(str(item)+'      ')
+            else:
+                corrFile.write(str(item)+'\n')
+
+    # Bland-Altman plots
+    pyCompare.blandAltman(df[args.measure1].values[:],
+                              df[args.measure2].values[:],
+                             savePath='./_store/_graphs/_blandAltman/'+args.baPath+'.png')

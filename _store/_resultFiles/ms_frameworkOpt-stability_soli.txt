@@ -1,0 +1,114 @@
+Quantifier             Metric             selectedModel                            nAr*             r             R             Psi             Cd
+dgbqa                   Ar*           MS_MViT_pt5-1_SOLI                        0.4917           0.8182           8.6974           1.638           0.1233
+deltaDistance           Ar*           DGBQA_CGID_Res3D-MF_1pt5-pt5_SOLI          0.2417           1.3636           8.3735           2.3983           0.3615
+masterFace              Ar*           DGBQA_CGID_Res3D-MF_pt5-1_SOLI               0.3787           1.3636           7.8609           2.1854           0.2249
+genCapacity             Ar*           MS_MViT_pt5-1pt5_SOLI                       0.5177           1.0           7.4422           2.546           0.1154
+swipeQuality            Ar*           MS_TPN_1pt5-1_SOLI                         0.1744           3.5455           5.9819           4.8011           0.3312
+
+dgbqa                  r           DGBQA_CGID_Res3D-ViViT_1pt5-pt5_SOLI           0.4329           0.4545           8.5427           1.7006           0.3506
+deltaDistance          r           DGBQA_CGID_Res3D-MF_1pt5-pt5_SOLI               0.2417           1.3636           8.3735           2.3983           0.3615
+masterFace             r           DGBQA_CGID_Res3D-ViViT_pt5-pt5_SOLI             0.2416           1.3636           7.8995           2.5367           0.2751
+genCapacity            r           DGBQA_CGID_Res3D-MF_1pt5-1_SOLI               0.4642           0.4545           7.4302           2.5684           0.3048
+swipeQuality           r           MS_MViT_pt5-1pt5_SOLI                         0.1354           2.0909           7.5401           3.6303           0.1154
+
+dgbqa                   R           DGBQA_CGID_Res3D-MF_1pt5-pt5_SOLI                0.3797           0.4545           8.7146           1.5684           0.3615
+deltaDistance           R           DGBQA_CGID_Res3D-MF_1pt5-pt5_SOLI               0.2417           1.3636           8.3735           2.3983           0.3615
+masterFace              R           DGBQA_CGID_Res3D-MF_pt5-pt5_SOLI                0.1726           1.7273           8.2192           1.9009           0.2576
+genCapacity             R           MS_TPN_1pt5-1_SOLI                             0.1705           1.3636           8.1003           2.6355           0.3312
+swipeQuality            R           MS_TPN_1-1pt5_SOLI                           0.1284           2.1818           8.2672           2.1528           0.0883
+
+dgbqa                psi           DGBQA_CGID_Res3D-ViViT_1-pt5_SOLI          0.1899           1.5455           8.3215           1.3669           0.3086
+deltaDistance        psi           DGBQA_CGID_Res3D-MF_pt5-1pt5_SOLI          0.1659           1.5455           7.8132           2.2905           0.1854
+masterFace           psi           DGBQA_CGID_Res3D-MF_1pt5-pt5_SOLI          0.1798           1.7273           8.0678           1.7874           0.3615
+genCapacity          psi           DGBQA_CGID_Res3D-ViViT_1pt5-1_SOLI          0.3447           1.5455           7.7507           2.2414           0.3142
+swipeQuality         psi           MS_TPN_1-1pt5_SOLI                         0.1284           2.1818           8.2672           2.1528           0.0883
+
+dgbqa                Ar           DGBQA_CGID_Res3D-ViViT_1pt5-pt5_SOLI          0.4329           0.4545           8.5427           1.7006           0.3506
+deltaDistance        Ar           DGBQA_CGID_Res3D-MF_1pt5-pt5_SOLI            0.2417           1.3636           8.3735           2.3983           0.3615
+masterFace           Ar           DGBQA_CGID_Res3D-MF_pt5-1_SOLI                 0.3787           1.3636           7.8609           2.1854           0.2249
+genCapacity          Ar           DGBQA_CGID_Res3D-MF_1pt5-1_SOLI              0.4642           0.4545           7.4302           2.5684           0.3048
+swipeQuality         Ar           MS_TPN_1pt5-1_SOLI                          0.1744           3.5455           5.9819           4.8011           0.3312
+
+dgbqa                 ArCd             MS_MViT_pt5-1_SOLI                   0.4917           0.8182           8.6974           1.638           0.1233
+deltaDistance         ArCd           MS_MViT_pt5-1_SOLI                    0.2398           1.3636           8.2642           2.9515           0.1233
+masterFace            ArCd           DGBQA_CGID_Res3D-MF_pt5-1_SOLI           0.3787           1.3636           7.8609           2.1854           0.2249
+genCapacity           ArCd           MS_MViT_pt5-1pt5_SOLI                   0.5177           1.0                7.4422           2.546           0.1154
+swipeQuality          ArCd           MS_TPN_1pt5-1_SOLI                     0.1744           3.5455           5.9819           4.8011           0.3312
+
+dgbqa                Ar_psi           DGBQA_CGID_Res3D-ViViT_1pt5-pt5_SOLI    0.4329           0.4545           8.5427           1.7006           0.3506
+deltaDistance        Ar_psi           DGBQA_CGID_Res3D-MF_1pt5-pt5_SOLI       0.2417           1.3636           8.3735           2.3983           0.3615
+masterFace           Ar_psi           DGBQA_CGID_Res3D-MF_pt5-1_SOLI          0.3787           1.3636           7.8609           2.1854           0.2249
+genCapacity           Ar_psi           DGBQA_CGID_Res3D-MF_1pt5-1_SOLI        0.4642           0.4545           7.4302           2.5684           0.3048
+swipeQuality           Ar_psi           MS_TPN_1pt5-1_SOLI                    0.1744           3.5455           5.9819           4.8011           0.3312
+
+dgbqa                Cd_psi           MS_MViT_pt5-1_SOLI                         0.4917           0.8182           8.6974           1.638           0.1233
+deltaDistance        Cd_psi           DGBQA_CGID_Res3D-MF_pt5-1pt5_SOLI          0.1659           1.5455           7.8132           2.2905           0.1854
+masterFace           Cd_psi           MS_TPN_1-1pt5_SOLI                         0.2172           1.3636           6.6296           3.0334           0.0883
+genCapacity           Cd_psi           MS_MViT_pt5-1pt5_SOLI                    0.5177           1.0           7.4422           2.546           0.1154
+swipeQuality           Cd_psi           MS_TPN_1-1pt5_SOLI                      0.1284           2.1818           8.2672           2.1528           0.0883
+
+dgbqa                euclid           MS_TPN_1pt5-1_SOLI                         0.2461           1.0           8.6262           1.3983           0.3312
+deltaDistance        euclid           DGBQA_CGID_Res3D-MF_1pt5-pt5_SOLI          0.2417           1.3636           8.3735           2.3983           0.3615
+masterFace           euclid           DGBQA_CGID_Res3D-MF_pt5-pt5_SOLI          0.1726           1.7273           8.2192           1.9009           0.2576
+genCapacity           euclid           MS_TPN_1pt5-1_SOLI                       0.1705           1.3636           8.1003           2.6355           0.3312
+swipeQuality           euclid           MS_TPN_1-1pt5_SOLI                       0.1284           2.1818           8.2672           2.1528           0.0883
+
+dgbqa                corr           MS_TPN_1pt5-1_SOLI                                0.2461           1.0           8.6262           1.3983           0.3312
+deltaDistance        corr           DGBQA_CGID_Res3D-MF_1pt5-pt5_SOLI        0.2417           1.3636           8.3735           2.3983           0.3615
+masterFace           corr           DGBQA_CGID_Res3D-MF_pt5-pt5_SOLI          0.1726           1.7273           8.2192           1.9009           0.2576
+genCapacity           corr           MS_TPN_1pt5-1_SOLI                      0.1705           1.3636           8.1003           2.6355           0.3312
+swipeQuality           corr           MS_TPN_1-1pt5_SOLI                       0.1284           2.1818           8.2672           2.1528           0.0883
+
+dgbqa                DCG           DGBQA_CGID_Res3D-ViViT_1-1_SOLI               0.3138           1.0           8.4063           1.6579           0.2669
+deltaDistance        DCG           MS_MViT_1-1pt5_SOLI                   0.1732           1.7273           8.2591           3.4656           0.1338
+masterFace           DCG           DGBQA_CGID_Res3D-MF_pt5-1_SOLI          0.3787           1.3636           7.8609           2.1854           0.2249
+genCapacity          DCG           DGBQA_CGID_Res3D-ViViT_1pt5-1pt5_SOLI   0.3699           1.0           7.5652           2.3685           0.2392
+swipeQuality         DCG           MS_TPN_1pt5-pt5_SOLI                   0.1219           3.3636           6.1866           4.4876           0.3797
+
+dgbqa                   Kendall           DGBQA_CGID_Res3D-ViViT_1pt5-1_SOLI          0.2814           2.0909           8.0589           1.7653           0.3142
+deltaDistance           Kendall           MS_MViT_1-pt5_SOLI                    0.1094           3.0           6.9468           4.2196           0.3481
+masterFace           Kendall           DGBQA_CGID_Res3D-ViViT_pt5-1pt5_SOLI     0.0829           3.9091           6.5373           3.6016           0.1857
+genCapacity           Kendall           MS_MViT_1-1pt5_SOLI                      0.4409           1.3636           7.4417           2.5695           0.1338
+swipeQuality           Kendall           DGBQA_CGID_Res3D-ViViT_1-1_SOLI          0.0223           3.9091           5.9127           3.9883           0.2669
+
+dgbqa                   ERR           DGBQA_CGID_Res3D-MF_1-1_SOLI                  0.3146           1.0           8.6405           1.7881           0.2682
+deltaDistance           ERR           MS_MViT_1-1pt5_SOLI                   0.1732           1.7273           8.2591           3.4656           0.1338
+masterFace           ERR           DGBQA_CGID_Res3D-MF_pt5-1_SOLI          0.3787           1.3636           7.8609           2.1854           0.2249
+genCapacity           ERR           DGBQA_CGID_Res3D-ViViT_1pt5-1pt5_SOLI  0.3699           1.0           7.5652           2.3685           0.2392
+swipeQuality           ERR           MS_MViT_1-1_SOLI                       0.124           4.0909           6.3725           3.4613           0.1949
+
+dgbqa                   U           DGBQA_CGID_Res3D-MF_1-1pt5_SOLI             0.3295           1.0           8.5474           1.8409           0.2291
+deltaDistance           U           DGBQA_CGID_Res3D-ViViT_pt5-pt5_SOLI          0.201           1.9091           7.9229           2.5216           0.2751
+masterFace           U           DGBQA_CGID_Res3D-MF_pt5-pt5_SOLI               0.1726           1.7273           8.2192           1.9009           0.2576
+genCapacity           U           MS_TPN_1pt5-1_SOLI                            0.1705           1.3636           8.1003           2.6355           0.3312
+swipeQuality           U           MS_TPN_1-1pt5_SOLI                           0.1284           2.1818           8.2672           2.1528           0.0883
+
+dgbqa           GRE           DGBQA_CGID_Res3D-MF_1pt5-pt5_SOLI             0.3797           0.4545           8.7146           1.5684           0.3615
+deltaDistance           GRE           DGBQA_CGID_Res3D-MF_1pt5-pt5_SOLI     0.2417           1.3636           8.3735           2.3983           0.3615
+masterFace           GRE           DGBQA_CGID_Res3D-MF_pt5-1_SOLI           0.3787           1.3636           7.8609           2.1854           0.2249
+genCapacity           GRE           DGBQA_CGID_Res3D-MF_1pt5-1_SOLI          0.4642           0.4545           7.4302           2.5684           0.3048
+swipeQuality           GRE           MS_MViT_pt5-1pt5_SOLI                   0.1354           2.0909           7.5401           3.6303           0.1154
+
+dgbqa           infAp           DGBQA_CGID_Res3D-ViViT_1pt5-pt5_SOLI               0.4329           0.4545           8.5427           1.7006           0.3506
+deltaDistance           infAp           DGBQA_CGID_Res3D-MF_1pt5-pt5_SOLI          0.2417           1.3636           8.3735           2.3983           0.3615
+masterFace           infAp           MS_TPN_1pt5-pt5_SOLI                           0.1412           1.5455           6.9232           2.9606           0.3797
+genCapacity           infAp           MS_TPN_1-1pt5_SOLI                            0.2146           4.1818           7.1442           3.4894           0.0883
+swipeQuality           infAp           MS_MViT_pt5-1pt5_SOLI                        0.1354           2.0909           7.5401           3.6303           0.1154
+
+dgbqa           NegRel           DGBQA_CGID_Res3D-ViViT_1-1pt5_SOLI                   0.256           1.9091           8.0189           1.9828           0.2178
+deltaDistance           NegRel           DGBQA_CGID_Res3D-ViViT_pt5-pt5_SOLI          0.201           1.9091           7.9229           2.5216           0.2751
+masterFace           NegRel           MS_TPN_1-pt5_SOLI                               0.0502           3.3636           5.8155           2.7116           0.2955
+genCapacity           NegRel           DGBQA_CGID_Res3D-ViViT_pt5-1_SOLI             0.2416           2.2727           7.4302           2.9255           0.2292
+swipeQuality           NegRel           MS_TPN_pt5-1_SOLI                            0.0679           3.9091           5.9221           4.9209           0.2287
+
+dgbqa           RPP           MS_MViT_pt5-1_SOLI                    0.4917           0.8182           8.6974           1.638           0.1233
+deltaDistance           RPP           MS_TPN_1pt5-1_SOLI          0.2183           1.9091           7.8865           2.9413           0.3312
+masterFace           RPP           DGBQA_CGID_Res3D-MF_pt5-1_SOLI   0.3787           1.3636           7.8609           2.1854           0.2249
+genCapacity           RPP           MS_MViT_1pt5-pt5_SOLI          0.3383           1.1818           7.4318           2.5658           0.3517
+swipeQuality           RPP           MS_MViT_1-1_SOLI               0.124           4.0909           6.3725           3.4613           0.1949
+
+dgbqa           relEnt           MS_MViT_pt5-1_SOLI                 0.4917           0.8182           8.6974           1.638           0.1233
+deltaDistance           relEnt           MS_MViT_pt5-1_SOLI          0.2398           1.3636           8.2642           2.9515           0.1233
+masterFace           relEnt           MS_MViT_1-1pt5_SOLI          0.1366           2.6364           7.6668           3.2761           0.1338
+genCapacity           relEnt           MS_MViT_pt5-1pt5_SOLI          0.5177           1.0           7.4422           2.546           0.1154
+swipeQuality           relEnt           MS_TPN_1-1pt5_SOLI          0.1284           2.1818           8.2672           2.1528           0.0883

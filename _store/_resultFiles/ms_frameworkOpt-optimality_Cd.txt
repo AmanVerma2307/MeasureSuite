@@ -1,0 +1,65 @@
+Quantifier             Metric             selectedModel                                  nAr*             r             R             Psi             Cd
+dgbqa           Cd           MS_TPN_1-1pt5_SOLI.npz           0.1544           1.7273           8.1207           2.3908           0.0883
+deltaDistance           Cd           MS_TPN_1-1pt5_SOLI.npz           0.021           4.9091           4.4608           3.6508           0.0883
+masterFace           Cd           MS_TPN_1-1pt5_SOLI.npz           0.2172           1.3636           6.6296           3.0334           0.0883
+genCapacity           Cd           MS_TPN_1-1pt5_SOLI.npz           0.2146           4.1818           7.1442           3.4894           0.0883
+swipeQuality           Cd           MS_TPN_1-1pt5_SOLI.npz           0.1284           2.1818           8.2672           2.1528           0.0883
+
+dgbqa           Cd           MS_TPN_1pt5-2pt5_HandLogin.npz           0.1389           1.25           1.4281           3.9588           0.001
+deltaDistance           Cd           MS_TPN_1pt5-2pt5_HandLogin.npz           0.1418           1.25           1.5           4.0751           0.001
+masterFace           Cd           MS_TPN_1pt5-2pt5_HandLogin.npz           0.521           0.75           3.5979           3.5259           0.001
+swipeQuality           Cd           MS_TPN_1pt5-2pt5_HandLogin.npz           0.749           0.25           4.0856           2.709           0.001
+
+dgbqa           Cd           DGBQA_CGID_Res3D-ViViT_pt5-2pt5_Tiny.npz           0.2643           1.2727           8.3498           2.5903           0.4692
+deltaDistance           Cd           DGBQA_CGID_Res3D-ViViT_pt5-2pt5_Tiny.npz           0.1389           2.0           7.9444           2.9874           0.4692
+masterFace           Cd           DGBQA_CGID_Res3D-ViViT_pt5-2pt5_Tiny.npz           0.1937           2.1818           7.4804           3.8782           0.4692
+genCapacity           Cd           DGBQA_CGID_Res3D-ViViT_pt5-2pt5_Tiny.npz           0.1391           1.8182           6.5387           3.4273           0.4692
+swipeQuality           Cd           DGBQA_CGID_Res3D-ViViT_pt5-2pt5_Tiny.npz           0.02           4.1818           5.4986           3.6061           0.4692
+
+dgbqa           Cd           ms_mvit_1pt5-pt05_scut.npz           0.1472           1.6667           4.1037           4.2468           0.39
+deltaDistance           Cd           ms_mvit_1pt5-pt05_scut.npz           0.1646           1.3333           4.787           3.4948           0.39
+masterFace           Cd           ms_mvit_1pt5-pt05_scut.npz           0.167           1.6667           3.5511           4.2379           0.39
+genCapacity           Cd           ms_mvit_1pt5-pt05_scut.npz           0.1093           2.0           3.0582           4.7213           0.39
+swipeQuality           Cd           ms_mvit_1pt5-pt05_scut.npz           0.2718           1.3333           4.5159           2.8687           0.39
+
+dgbqa           Cd           idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorAcc_bdb.npz           0.0466           2.0           1.3779           4.0095           0.0972
+deltaDistance           Cd           idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorAcc_bdb.npz           0.1108           1.5           1.38           3.9314           0.0972
+masterFace           Cd           idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorAcc_bdb.npz           0.1692           1.5           2.5           3.4776           0.0972
+genCapacity           Cd           idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorAcc_bdb.npz           0.0605           2.25           1.201           3.4709           0.0972
+swipeQuality           Cd           idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorAcc_bdb.npz           0.0456           2.0           1.1249           3.3055           0.0972
+
+dgbqa           Cd           idf_vanilla_bdLSTM_1-1-1pt5_sensorGyro_bdb.npz           0.0893           1.5           2.0941           3.0554           0.0965
+deltaDistance           Cd           idf_vanilla_bdLSTM_1-1-1pt5_sensorGyro_bdb.npz           0.0925           1.5           2.1375           2.8844           0.0965
+masterFace           Cd           idf_vanilla_bdLSTM_1-1-1pt5_sensorGyro_bdb.npz           0.0356           1.5           1.634           6.4993           0.0965
+genCapacity           Cd           idf_vanilla_bdLSTM_1-1-1pt5_sensorGyro_bdb.npz           0.0896           1.5           2.067           3.2496           0.0965
+swipeQuality           Cd           idf_vanilla_bdLSTM_1-1-1pt5_sensorGyro_bdb.npz           0.1003           1.5           2.4173           3.0538           0.0965
+
+dgbqa           Cd           idf_vanilla_bdLSTM_1-pt5-1pt5_sensorGrav_bdb.npz           0.1448           1.0           3.1115           5.0386           0.0914
+deltaDistance           Cd           idf_vanilla_bdLSTM_1-pt5-1pt5_sensorGrav_bdb.npz           0.1552           1.0           3.2357           4.8223           0.0914
+masterFace           Cd           idf_vanilla_bdLSTM_1-pt5-1pt5_sensorGrav_bdb.npz           0.1238           1.0           3.366           9.0127           0.0914
+genCapacity           Cd           idf_vanilla_bdLSTM_1-pt5-1pt5_sensorGrav_bdb.npz           0.1674           1.0           2.933           4.5064           0.0914
+swipeQuality           Cd           idf_vanilla_bdLSTM_1-pt5-1pt5_sensorGrav_bdb.npz           0.1168           1.5           2.7283           5.1716           0.0914
+
+dgbqa           Cd           idf_vanilla_bdLSTM_1-pt5-1pt5_sensorAccl_bdb.npz           0.7886           0.0           4.0976           0.4489           0.0926
+deltaDistance           Cd           idf_vanilla_bdLSTM_1-pt5-1pt5_sensorAccl_bdb.npz           0.6357           0.5           4.0818           0.5576           0.0926
+masterFace           Cd           idf_vanilla_bdLSTM_1-pt5-1pt5_sensorAccl_bdb.npz           0.9316           0.0           5.0981           3.0036           0.0926
+genCapacity           Cd           idf_vanilla_bdLSTM_1-pt5-1pt5_sensorAccl_bdb.npz           0.7159           0.0           3.7991           1.5016           0.0926
+swipeQuality           Cd           idf_vanilla_bdLSTM_1-pt5-1pt5_sensorAccl_bdb.npz           0.8454           0.0           4.1079           0.2469           0.0926
+
+dgbqa           Cd           idf_vanilla_bdLSTM_1-1-1pt5_sensorMagn_bdb.npz           0.0409           2.0           1.9553           2.7218           0.0963
+deltaDistance           Cd           idf_vanilla_bdLSTM_1-1-1pt5_sensorMagn_bdb.npz           0.0408           2.0           1.9663           2.8463           0.0963
+masterFace           Cd           idf_vanilla_bdLSTM_1-1-1pt5_sensorMagn_bdb.npz           0.0104           2.0           1.634           7.4962           0.0963
+genCapacity           Cd           idf_vanilla_bdLSTM_1-1-1pt5_sensorMagn_bdb.npz           0.0418           2.0           2.067           3.7481           0.0963
+swipeQuality           Cd           idf_vanilla_bdLSTM_1-1-1pt5_sensorMagn_bdb.npz           0.0406           2.0           1.9684           3.2188           0.0963
+
+dgbqa           Cd          ms_hcn_1-pt5-1pt5-multiStepmin3_ntu60.npz           0.0333           2.6667           3.0685           2.8185           0.0684
+deltaDistance           Cd          ms_hcn_1-pt5-1pt5-multiStepmin3_ntu60.npz           0.0682           2.3333           2.9827           3.1064           0.0684
+masterFace           Cd          ms_hcn_1-pt5-1pt5-multiStepmin3_ntu60.npz           0.1077           2.5           3.5           2.5467           0.0684
+genCapacity           Cd          ms_hcn_1-pt5-1pt5-multiStepmin3_ntu60.npz           0.0332           2.6667           3.226           3.1693           0.0684
+swipeQuality           Cd          ms_hcn_1-pt5-1pt5-multiStepmin3_ntu60.npz           0.1108           2.3333           2.9554           4.6644           0.0684
+
+dgbqa           Cd          ms_hcn_1-pt5-pt5-multiStepmin3_ntu120.npz           0.1356           1.5           1.7262           5.3748           0.0773
+deltaDistance           Cd          ms_hcn_1-pt5-pt5-multiStepmin3_ntu120.npz           0.1326           1.5           2.8181           4.8777           0.0773
+masterFace           Cd          ms_hcn_1-pt5-pt5-multiStepmin3_ntu120.npz           0.1907           1.5           2.5           3.7025           0.0773
+genCapacity           Cd          ms_hcn_1-pt5-pt5-multiStepmin3_ntu120.npz           0.1826           1.25           2.933           4.458           0.0773
+swipeQuality           Cd          ms_hcn_1-pt5-pt5-multiStepmin3_ntu120.npz           0.5148           1.0           3.764           3.1801           0.0773

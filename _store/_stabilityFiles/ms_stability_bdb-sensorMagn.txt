@@ -1,0 +1,243 @@
+quants      kappa      lambda      nu      beta      model
+dgbqa      0.01      2.0      1.0      0.75     idf_vanilla_bdLSTM_1-1-1pt5_sensorMagn_bdb
+dgbqa      0.05      2.0      1.0      0.75     idf_vanilla_bdLSTM_1-1-1pt5_sensorMagn_bdb
+dgbqa      0.1      2.0      1.0      0.75     idf_vanilla_bdLSTM_1-1-1pt5_sensorMagn_bdb
+dgbqa      0.25      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+dgbqa      0.5      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+dgbqa      0.75      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+dgbqa      1.0      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+dgbqa      1.5      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+dgbqa      2.0      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+dgbqa      4.0      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+
+dgbqa      1.0      0.01      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+dgbqa      1.0      0.05      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+dgbqa      1.0      0.1      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+dgbqa      1.0      0.25      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+dgbqa      1.0      0.5      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+dgbqa      1.0      0.75      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+dgbqa      1.0      1.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+dgbqa      1.0      1.5      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+dgbqa      1.0      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+dgbqa      1.0      3.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+dgbqa      1.0      4.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+
+dgbqa      1.0      2.0      0.01      0.75     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+dgbqa      1.0      2.0      0.05      0.75     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+dgbqa      1.0      2.0      0.1      0.75     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+dgbqa      1.0      2.0      0.25      0.75     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+dgbqa      1.0      2.0      0.5      0.75     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+dgbqa      1.0      2.0      0.75      0.75     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+dgbqa      1.0      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+dgbqa      1.0      2.0      1.5      0.75     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+dgbqa      1.0      2.0      2.0      0.75     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+dgbqa      1.0      2.0      3.0      0.75     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+dgbqa      1.0      2.0      4.0      0.75     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+
+dgbqa      1.0      2.0      1.0      0.01     idf_vanilla_bdLSTM_1-1pt5-pt1_sensorMagn_bdb
+dgbqa      1.0      2.0      1.0      0.05     idf_vanilla_bdLSTM_1-1pt5-pt1_sensorMagn_bdb
+dgbqa      1.0      2.0      1.0      0.1     idf_vanilla_bdLSTM_1-1pt5-pt1_sensorMagn_bdb
+dgbqa      1.0      2.0      1.0      0.25     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+dgbqa      1.0      2.0      1.0      0.5     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+dgbqa      1.0      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+dgbqa      1.0      2.0      1.0      1.0     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+dgbqa      1.0      2.0      1.0      1.5     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+dgbqa      1.0      2.0      1.0      2.0     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+dgbqa      1.0      2.0      1.0      3.0     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+dgbqa      1.0      2.0      1.0      4.0     idf_vanilla_lgtranet_k3-5_1-1-1_sensorMagn_bdb
+
+
+deltaDistance      0.01      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      0.05      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      0.1      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      0.25      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      0.5      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      0.75      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      1.0      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      1.5      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      2.0      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      3.0      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      4.0      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+
+deltaDistance      1.0      0.01      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      1.0      0.05      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      1.0      0.1      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      1.0      0.25      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      1.0      0.5      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      1.0      0.75      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      1.0      1.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      1.0      1.5      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      1.0      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      1.0      3.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      1.0      4.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+
+deltaDistance      1.0      2.0      0.01      0.75     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      1.0      2.0      0.05      0.75     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      1.0      2.0      0.1      0.75     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      1.0      2.0      0.25      0.75     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      1.0      2.0      0.5      0.75     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      1.0      2.0      0.75      0.75     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      1.0      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      1.0      2.0      1.5      0.75     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      1.0      2.0      2.0      0.75     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      1.0      2.0      3.0      0.75     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      1.0      2.0      4.0      0.75     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+
+deltaDistance      1.0      2.0      1.0      0.01     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      1.0      2.0      1.0      0.05     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      1.0      2.0      1.0      0.1     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      1.0      2.0      1.0      0.25     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      1.0      2.0      1.0      0.5     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      1.0      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      1.0      2.0      1.0      1.0     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      1.0      2.0      1.0      1.5     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      1.0      2.0      1.0      2.0     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      1.0      2.0      1.0      3.0     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+deltaDistance      1.0      2.0      1.0      4.0     idf_vanilla_lgtranet_k3-5_1-pt5-pt1_sensorMagn_bdb
+
+
+genCapacity      0.01      2.0      1.0      0.75     idf_vanilla_bdLSTM_1-1-1pt5_sensorMagn_bdb
+genCapacity      0.05      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      0.1      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      0.25      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      0.5      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      0.75      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      1.0      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      1.5      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      2.0      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      3.0      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      4.0      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+
+genCapacity      1.0      0.01      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      1.0      0.05      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      1.0      0.1      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      1.0      0.25      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      1.0      0.5      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      1.0      0.75      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      1.0      1.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      1.0      1.5      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      1.0      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      1.0      3.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      1.0      4.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+
+genCapacity      1.0      2.0      0.01      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      1.0      2.0      0.05      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      1.0      2.0      0.1      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      1.0      2.0      0.25      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      1.0      2.0      0.5      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      1.0      2.0      0.75      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      1.0      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      1.0      2.0      1.5      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      1.0      2.0      2.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      1.0      2.0      3.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      1.0      2.0      4.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+
+genCapacity      1.0      2.0      1.0      0.01     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      1.0      2.0      1.0      0.05     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      1.0      2.0      1.0      0.1     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      1.0      2.0      1.0      0.25     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      1.0      2.0      1.0      0.5     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      1.0      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      1.0      2.0      1.0      1.0     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      1.0      2.0      1.0      1.5     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      1.0      2.0      1.0      2.0     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      1.0      2.0      1.0      3.0     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+genCapacity      1.0      2.0      1.0      4.0     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+
+
+masterFace      0.01      2.0      1.0      0.75     idf_vanilla_bdLSTM_1-1-1pt5_sensorMagn_bdb
+masterFace      0.05      2.0      1.0      0.75     idf_vanilla_bdLSTM_1-pt5-1_sensorMagn_bdb
+masterFace      0.1      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      0.25      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      0.5      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      0.75      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      1.0      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      1.5      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      2.0      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      3.0      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      4.0      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+
+masterFace      1.0      0.01      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      1.0      0.05      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      1.0      0.1      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      1.0      0.25      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      1.0      0.5      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      1.0      0.75      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      1.0      1.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      1.0      1.5      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      1.0      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      1.0      3.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      1.0      4.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+
+masterFace      1.0      2.0      0.01      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      1.0      2.0      0.05      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      1.0      2.0      0.1      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      1.0      2.0      0.25      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      1.0      2.0      0.5      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      1.0      2.0      0.75      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      1.0      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      1.0      2.0      1.5      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      1.0      2.0      2.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      1.0      2.0      3.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      1.0      2.0      4.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+
+masterFace      1.0      2.0      1.0      0.01     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      1.0      2.0      1.0      0.05     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      1.0      2.0      1.0      0.1     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      1.0      2.0      1.0      0.25     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      1.0      2.0      1.0      0.5     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      1.0      2.0      1.0      0.75     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      1.0      2.0      1.0      1.0     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      1.0      2.0      1.0      1.5     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      1.0      2.0      1.0      2.0     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      1.0      2.0      1.0      3.0     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+masterFace      1.0      2.0      1.0      4.0     idf_vanilla_lgtranet_k3-5_1-2-1pt5_sensorMagn_bdb
+
+
+swipeQuality      0.01      2.0      1.0      0.75     idf_vanilla_bdLSTM_1-1-1pt5_sensorMagn_bdb
+swipeQuality      0.05      2.0      1.0      0.75     idf_vanilla_bdLSTM_1-1-1pt5_sensorMagn_bdb
+swipeQuality      0.1      2.0      1.0      0.75     idf_vanilla_bdLSTM_1-1-1pt5_sensorMagn_bdb
+swipeQuality      0.25      2.0      1.0      0.75     idf_vanilla_bdLSTM_1-1-1pt5_sensorMagn_bdb
+swipeQuality      0.5      2.0      1.0      0.75     idf_vanilla_bdLSTM_1-1-1pt5_sensorMagn_bdb
+swipeQuality      0.75      2.0      1.0      0.75     idf_vanilla_bdLSTM_1-1-1pt5_sensorMagn_bdb
+swipeQuality      1.0      2.0      1.0      0.75     idf_vanilla_bdLSTM_1-2-1_sensorMagn_bdb
+swipeQuality      1.5      2.0      1.0      0.75     idf_vanilla_bdLSTM_1-2-1_sensorMagn_bdb
+swipeQuality      2.0      2.0      1.0      0.75     idf_vanilla_bdLSTM_1-2-1_sensorMagn_bdb
+swipeQuality      3.0      2.0      1.0      0.75     idf_vanilla_bdLSTM_1-2-1_sensorMagn_bdb
+swipeQuality      4.0      2.0      1.0      0.75     idf_vanilla_bdLSTM_1-2-1_sensorMagn_bdb
+
+swipeQuality      1.0      0.01      1.0      0.75     idf_vanilla_bdLSTM_1-2-1_sensorMagn_bdb
+swipeQuality      1.0      0.05      1.0      0.75     idf_vanilla_bdLSTM_1-2-1_sensorMagn_bdb
+swipeQuality      1.0      0.1      1.0      0.75     idf_vanilla_bdLSTM_1-2-1_sensorMagn_bdb
+swipeQuality      1.0      0.25      1.0      0.75     idf_vanilla_bdLSTM_1-2-1_sensorMagn_bdb
+swipeQuality      1.0      0.5      1.0      0.75     idf_vanilla_bdLSTM_1-2-1_sensorMagn_bdb
+swipeQuality      1.0      0.75      1.0      0.75     idf_vanilla_bdLSTM_1-2-1_sensorMagn_bdb
+swipeQuality      1.0      1.0      1.0      0.75     idf_vanilla_bdLSTM_1-2-1_sensorMagn_bdb
+swipeQuality      1.0      1.5      1.0      0.75     idf_vanilla_bdLSTM_1-2-1_sensorMagn_bdb
+swipeQuality      1.0      2.0      1.0      0.75     idf_vanilla_bdLSTM_1-2-1_sensorMagn_bdb
+swipeQuality      1.0      3.0      1.0      0.75     idf_vanilla_bdLSTM_1-1-1pt5_sensorMagn_bdb
+swipeQuality      1.0      4.0      1.0      0.75     idf_vanilla_bdLSTM_1-1-1pt5_sensorMagn_bdb
+
+swipeQuality      1.0      2.0      0.01      0.75     idf_vanilla_bdLSTM_1-1-1pt5_sensorMagn_bdb
+swipeQuality      1.0      2.0      0.05      0.75     idf_vanilla_bdLSTM_1-1-1pt5_sensorMagn_bdb
+swipeQuality      1.0      2.0      0.1      0.75     idf_vanilla_bdLSTM_1-1-1pt5_sensorMagn_bdb
+swipeQuality      1.0      2.0      0.25      0.75     idf_vanilla_bdLSTM_1-2-1_sensorMagn_bdb
+swipeQuality      1.0      2.0      0.5      0.75     idf_vanilla_bdLSTM_1-2-1_sensorMagn_bdb
+swipeQuality      1.0      2.0      0.75      0.75     idf_vanilla_bdLSTM_1-2-1_sensorMagn_bdb
+swipeQuality      1.0      2.0      1.0      0.75     idf_vanilla_bdLSTM_1-2-1_sensorMagn_bdb
+swipeQuality      1.0      2.0      1.5      0.75     idf_vanilla_bdLSTM_1-2-1_sensorMagn_bdb
+swipeQuality      1.0      2.0      2.0      0.75     idf_vanilla_bdLSTM_1-2-1_sensorMagn_bdb
+swipeQuality      1.0      2.0      3.0      0.75     idf_vanilla_bdLSTM_1-2-1_sensorMagn_bdb
+swipeQuality      1.0      2.0      4.0      0.75     idf_vanilla_bdLSTM_1-2-1_sensorMagn_bdb
+
+swipeQuality      1.0      2.0      1.0      0.01     idf_vanilla_bdLSTM_1-2-1_sensorMagn_bdb
+swipeQuality      1.0      2.0      1.0      0.05     idf_vanilla_bdLSTM_1-2-1_sensorMagn_bdb
+swipeQuality      1.0      2.0      1.0      0.1     idf_vanilla_bdLSTM_1-2-1_sensorMagn_bdb
+swipeQuality      1.0      2.0      1.0      0.25     idf_vanilla_bdLSTM_1-2-1_sensorMagn_bdb
+swipeQuality      1.0      2.0      1.0      0.5     idf_vanilla_bdLSTM_1-2-1_sensorMagn_bdb
+swipeQuality      1.0      2.0      1.0      0.75     idf_vanilla_bdLSTM_1-2-1_sensorMagn_bdb
+swipeQuality      1.0      2.0      1.0      1.0     idf_vanilla_bdLSTM_1-1-1pt5_sensorMagn_bdb
+swipeQuality      1.0      2.0      1.0      1.5     idf_vanilla_bdLSTM_1-1-1pt5_sensorMagn_bdb
+swipeQuality      1.0      2.0      1.0      2.0     idf_vanilla_bdLSTM_1-1-1pt5_sensorMagn_bdb
+swipeQuality      1.0      2.0      1.0      3.0     idf_vanilla_bdLSTM_1-1-1pt5_sensorMagn_bdb
+swipeQuality      1.0      2.0      1.0      4.0     idf_vanilla_bdLSTM_1-1-1pt5_sensorMagn_bdb

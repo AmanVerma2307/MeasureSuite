@@ -1,15 +1,7 @@
-######## Importing libraries
-import os                                                                                                         
-import gc
+######## Importing libraries      
 import math
-import argparse
 import numpy as np
-import pandas as pd
-import tensorflow as tf
-import scipy.special as sp
-import matplotlib.pyplot as plt
 from scipy.spatial import distance
-from sklearn.preprocessing import normalize as norm
 
 ##################################################################################################################
 #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$#
@@ -64,13 +56,15 @@ def gbqa_delta_dist_compute(embeddings,g_id,num_subjects,y_dev,y_dev_id):
                     dist_store_s.append(dist_curr) # Appending the Computed Distance to dist_curr
 
         #### Computing Maximal Distance for the Current Gesture and Subject
-        d_cs_curr = np.max(dist_store_s)
-        d_cs.append(d_cs_curr) # Storing Values
+        if(len(dist_store_s) >= 1):
+            d_cs_curr = np.max(dist_store_s)
+            d_cs.append(d_cs_curr) # Storing Values
 
         ##### Inter-Subject Distance
         #### Subject's Gesture Centroid
-        emb_avg_s_curr = np.average(embedding_store_s,axis=0) # Subject Specific Gesture Centroid
-        emb_avg_s.append(emb_avg_s_curr)
+        if(len(embedding_store_s) >= 1):
+            emb_avg_s_curr = np.average(embedding_store_s,axis=0) # Subject Specific Gesture Centroid
+            emb_avg_s.append(emb_avg_s_curr)
 
     ###### Computing Avg. Maximal Intra-Subject Distance
     d_cs_avg = np.average(d_cs)
@@ -93,13 +87,7 @@ def gbqa_delta_dist_compute(embeddings,g_id,num_subjects,y_dev,y_dev_id):
     ##### Computing Average Inter-Subject Distance
     d_c_star = np.average(dist_inter)
 
-    ###### Computing GBQA Distance Delta Score
-    #print('Inter-Distance - d_c_star: '+str(d_c_star))
-    #print('Intra-Distance - d_cs_avg: '+str(d_cs_avg))
-    #gbqa_delta_distance = math.exp(d_c_star - d_cs_avg)
-    #gbqa_delta_distance = math.exp(d_c_star - d_cs_avg) + 5*((d_c_star/d_cs_avg))
     dgbqa_score = math.exp(d_c_star - d_cs_avg) - (1.0*(d_cs_avg/d_c_star)) # For Seen Identities
     dgbqa_score_wo = math.exp(d_c_star - d_cs_avg)
-    #gbqa_delta_distance = math.exp(d_c_star - d_cs_avg) - (0.2*(d_cs_avg/d_c_star)) # For Unseen Identities: UNS
 
     return dgbqa_score, d_c_star, d_cs_avg, dgbqa_score_wo

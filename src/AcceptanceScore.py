@@ -1,7 +1,3 @@
-######## Importing libraries
-import os                                                                                                         
-import gc
-import math
 import numpy as np
 
 ###### Rank Computation
@@ -27,10 +23,14 @@ def rank_compute_acc(rank_vector,val_to_rank):
     return rank_val
 
 ####### Acceptance Score
-def acceptance_score(dgbqa,e_prime,G,normalizer, 
+def acceptance_score(dgbqa,
+                     e_prime,
+                     G,
+                     normalizer, 
                      relevance, 
                      lambda_scale=2,
                      kappa=1,
+                     returnRelevanceVal=False
                      ):
  
     """
@@ -56,6 +56,7 @@ def acceptance_score(dgbqa,e_prime,G,normalizer,
     #lambda_scale = 2 # Scaling factor for relevance
     gamma = 2 # Scaling Factor for the first term in relevance formulation
     #kappa = 1  # Scaling Factor for the Rank-Deviation Penalty
+    relevanceVal = []
 
     if(normalizer == False): # Checking if the Ar is being estimated for the normalizer or not
 
@@ -77,8 +78,8 @@ def acceptance_score(dgbqa,e_prime,G,normalizer,
             if(relevance == False):
 
                 #### Relevance Gain
-                R_j = gamma*((G-(r_e_j+1)+1)/G)*dgbqa_r_e_j + ((r_e_j+1)/G)*(1 - dgbqa_r_e_j)
-                R_j = 2**(lambda_scale*R_j)
+                R_jval = gamma*((G-(r_e_j+1)+1)/G)*dgbqa_r_e_j + ((r_e_j+1)/G)*(1 - dgbqa_r_e_j)
+                R_j = 2**(lambda_scale*R_jval)
 
                 #### Rank Deviation Penalty
                 ### Rank Computation
@@ -92,12 +93,16 @@ def acceptance_score(dgbqa,e_prime,G,normalizer,
                 Ar_j = R_j/rank_dev_j
                 Ar = Ar + Ar_j # Adding this to the Metric
                 #print(r_e_j,R_j,np.abs(rank_dgbqa - rank_e_prime),rank_dev_j,Ar_j)
+                relevanceVal.append([R_jval,np.abs(rank_dgbqa - rank_e_prime),Ar_j])
 
             else:
 
                 R_j = gamma*((G-(r_e_j+1)+1)/G)*dgbqa_r_e_j + ((r_e_j+1)/G)*(1 - dgbqa_r_e_j)
                 Ar = Ar + R_j # Adding this to the Metric
 
+        if(returnRelevanceVal == True):
+            return Ar, relevanceVal
+        
         return Ar
      
     else:
