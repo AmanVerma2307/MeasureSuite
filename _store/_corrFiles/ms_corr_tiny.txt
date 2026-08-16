@@ -23,31 +23,37 @@ tiny      deltaDistance      r      Ar_star      -0.7474      0.0052      -0.581
 tiny      genCapacity      r      Ar_star      -0.8541      0.0004      -0.6979      0.0019
 tiny      masterFace      r      Ar_star      -0.8092      0.0014      -0.6462      0.0044
 tiny      swipeQuality      r      Ar_star      -0.7733      0.0032      -0.6048      0.0071
+
 tiny      dgbqa      relevance      Ar_star      0.4266      0.1667      0.2727      0.2496
 tiny      deltaDistance      relevance      Ar_star      0.5524      0.0625      0.4242      0.0629
 tiny      genCapacity      relevance      Ar_star      0.4476      0.1446      0.3333      0.1526
 tiny      masterFace      relevance      Ar_star      0.8392      0.0006      0.6667      0.0018
 tiny      swipeQuality      relevance      Ar_star      0.7063      0.0102      0.5152      0.021
+
 tiny      dgbqa      psi      Ar_star      0.2587      0.4168      0.1818      0.459
 tiny      deltaDistance      psi      Ar_star      -0.2517      0.4299      -0.1515      0.5452
 tiny      genCapacity      psi      Ar_star      0.2238      0.4845      0.1515      0.5452
 tiny      masterFace      psi      Ar_star      -0.2937      0.3541      -0.2121      0.3807
 tiny      swipeQuality      psi      Ar_star      0.1538      0.6331      0.2424      0.3108
+
 tiny      dgbqa      euclid      Ar_star      -0.3846      0.217      -0.2121      0.3807
 tiny      deltaDistance      euclid      Ar_star      -0.6224      0.0307      -0.4242      0.0629
 tiny      genCapacity      euclid      Ar_star      -0.5245      0.08      -0.3636      0.116
 tiny      masterFace      euclid      Ar_star      -0.951      0.0      -0.8485      0.0
 tiny      swipeQuality      euclid      Ar_star      -0.3986      0.1993      -0.303      0.1969
+
 tiny      dgbqa      corr      Ar_star      0.3846      0.217      0.2121      0.3807
 tiny      deltaDistance      corr      Ar_star      0.6224      0.0307      0.4242      0.0629
 tiny      genCapacity      corr      Ar_star      0.5245      0.08      0.3636      0.116
 tiny      masterFace      corr      Ar_star      0.951      0.0      0.8485      0.0
 tiny      swipeQuality      corr      Ar_star      0.3986      0.1993      0.303      0.1969
+
 tiny      dgbqa      Kendall      Ar_star      -0.2296      0.4729      -0.1231      0.6081
 tiny      deltaDistance      Kendall      Ar_star      -0.5594      0.0586      -0.4227      0.0729
 tiny      genCapacity      Kendall      Ar_star      -0.3712      0.2348      -0.2731      0.2499
 tiny      masterFace      Kendall      Ar_star      0.1832      0.5687      0.1485      0.545
 tiny      swipeQuality      Kendall      Ar_star      0.2533      0.427      0.186      0.4316
+
 tiny      dgbqa      DCG      Ar_star      0.2937      0.3541      0.1818      0.459
 tiny      deltaDistance      DCG      Ar_star      0.3986      0.1993      0.2727      0.2496
 tiny      genCapacity      DCG      Ar_star      0.1329      0.6806      0.1515      0.5452
@@ -77,11 +83,13 @@ tiny      deltaDistance      infAp      Ar_star      0.6224      0.0307      0.4
 tiny      genCapacity      infAp      Ar_star      0.7413      0.0058      0.5758      0.0088
 tiny      masterFace      infAp      Ar_star      0.7203      0.0082      0.5455      0.0138
 tiny      swipeQuality      infAp      Ar_star      0.4266      0.1667      0.3333      0.1526
+
 tiny      dgbqa      neg_rel      Ar_star      0.2168      0.4986      0.1818      0.459
 tiny      deltaDistance      neg_rel      Ar_star      0.049      0.8799      0.0303      0.9466
 tiny      genCapacity      neg_rel      Ar_star      0.1818      0.5717      0.1212      0.6384
 tiny      masterFace      neg_rel      Ar_star      0.3427      0.2756      0.2727      0.2496
 tiny      swipeQuality      neg_rel      Ar_star      0.2168      0.4986      0.1515      0.5452
+
 tiny      dgbqa      rpp      Ar_star      0.6224      0.0307      0.5152      0.021
 tiny      deltaDistance      rpp      Ar_star      0.8182      0.0011      0.6364      0.0032
 tiny      genCapacity      rpp      Ar_star      0.5524      0.0625      0.4242      0.0629
